@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hígia - Configurações</title>
+<script src="js/geral.js"></script>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+</head>
+
+
+<body>
+<header class="navbar">
+    <div class="navbar-container">
+        <a href="inicio.html" class="navbar-logo">
+            <img src="imagens/logo.png" alt="Logótipo Hígia">
+        </a>
+        <nav class="navbar-menu">
+            <a href="inicio.html" data-i18n="inicio">Início</a>
+            <a href="perfis.html" data-i18n="perfis">Perfis</a>
+            <a href="consultas.html" data-i18n="consultas">Consultas</a>
+            <a href="configuracoes.html" class="active" data-i18n="configuracoes">Configurações</a>
+            <a href="#" class="navbar-logout" id="botao-logout" data-i18n="terminar_sessao">Terminar sessão</a>
+        </nav>
+    </div>
+</header>
+
+
+<main class="pagina-configuracoes">
+    <section class="configuracoes-header">
+        <h1 data-i18n="configuracoes_titulo">Configurações</h1>
+        <p data-i18n="configuracoes_subtitulo">Personaliza a tua conta e a aparência do Hígia.</p>
+    </section>
+
+    <section class="configuracao-card">
+        <div class="configuracao-card-header">
+            <h2 data-i18n="dados_conta">Dados da conta</h2>
+        </div>
+
+        <div class="configuracao-conteudo">
+            <div class="fotografia-container">
+                <div class="fotografia-preview sem-fotografia" id="fotografia-preview"></div>
+                <label for="fotografia" class="botao-fotografia" data-i18n="escolher_fotografia">Escolher fotografia</label>
+                <input type="file" id="fotografia" accept="image/*">
+            </div>
+
+            <div class="campos-conta">
+                <div class="campo">
+                    <label for="nome" data-i18n="nome">Nome</label>
+                    <input type="text" id="nome" autocomplete="name">
+                </div>
+
+                <div class="campo">
+                    <label for="email" data-i18n="email">Email</label>
+                    <input type="email" id="email" autocomplete="email">
+                </div>
+
+                <div class="campo">
+                    <label for="nova-palavra-passe" data-i18n="nova_palavra_passe">Nova palavra-passe</label>
+                    <input type="password" id="nova-palavra-passe" autocomplete="new-password">
+                    <small data-i18n="deixar_vazio">Deixa vazio se não quiseres alterar.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar-palavra-passe" data-i18n="confirmar_palavra_passe">Confirmar palavra-passe</label>
+                    <input type="password" id="confirmar-palavra-passe" autocomplete="new-password">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="configuracao-card">
+        <div class="configuracao-card-header">
+            <h2 data-i18n="aparencia">Aparência</h2>
+        </div>
+        
+        <div class="configuracao-opcoes">
+            <div class="opcao">
+                <div class="opcao-texto">
+                    <strong data-i18n="modo">Modo</strong>
+                </div>
+                <div class="opcoes-radio">
+                    <label class="opcao-radio">
+                        <input type="radio" name="modo" value="claro" id="modo-claro">
+                        <span data-i18n="modo_claro">Claro</span>
+                    </label>
+                    <label class="opcao-radio">
+                        <input type="radio" name="modo" value="escuro" id="modo-escuro">
+                        <span data-i18n="modo_escuro">Escuro</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="opcao">
+                <div class="opcao-texto">
+                    <strong data-i18n="cor_principal">Cor principal</strong>
+                </div>
+                <div class="cores">
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="verde" id="tema-verde">
+                        <span class="cor-circulo cor-verde"></span>
+                        <span data-i18n="verde">Verde</span>
+                    </label>
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="azul" id="tema-azul">
+                        <span class="cor-circulo cor-azul"></span>
+                        <span data-i18n="azul">Azul</span>
+                    </label>
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="roxo" id="tema-roxo">
+                        <span class="cor-circulo cor-roxo"></span>
+                        <span data-i18n="roxo">Roxo</span>
+                    </label>
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="laranja" id="tema-laranja">
+                        <span class="cor-circulo cor-laranja"></span>
+                        <span data-i18n="laranja">Laranja</span>
+                    </label>
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="rosa" id="tema-rosa">
+                        <span class="cor-circulo cor-rosa"></span>
+                        <span data-i18n="rosa">Rosa</span>
+                    </label>
+                    <label class="cor-opcao">
+                        <input type="radio" name="tema" value="vermelho" id="tema-vermelho">
+                        <span class="cor-circulo cor-vermelho"></span>
+                        <span data-i18n="vermelho">Vermelho</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="opcao">
+                <div class="opcao-texto">
+                    <strong data-i18n="idioma">Idioma</strong>
+                </div>
+                <div class="campo campo-idioma">
+                    <select id="idioma">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mensagem-configuracoes" class="mensagem-configuracoes" role="status"></div>
+    <div class="configuracoes-acoes">
+        <button type="button" id="botao-guardar" class="botao-guardar" data-i18n="guardar_alteracoes">Guardar alterações</button>
+    </div>
+</main>
+
+
+<footer class="footer-publico">
+    <div class="footer-links">
+        <button type="button" data-abrir-modal="modal-termos" data-i18n="termos">Termos</button>
+        <button type="button" data-abrir-modal="modal-contactos" data-i18n="contactos">Contactos</button>
+    </div>
+    <span data-i18n="direitos">© 2026 Hígia - Todos os direitos reservados</span>
+</footer>
+
+<div class="modal" id="modal-termos">
+    <div class="modal-conteudo">
+        <button type="button" class="modal-fechar" data-fechar-modal="modal-termos">×</button>
+        <h2 data-i18n="termos_condicoes">Termos e Condições</h2>
+        <p data-i18n="termos_intro"></p>
+        <ul>
+            <li data-i18n="termo_1"></li>
+            <li data-i18n="termo_2"></li>
+            <li data-i18n="termo_3"></li>
+            <li data-i18n="termo_4"></li>
+            <li data-i18n="termo_5"></li>
+        </ul>
+        <p data-i18n="termos_final"></p>
+        <button type="button" class="btn-modal" data-fechar-modal="modal-termos" data-i18n="fechar">Fechar</button>
+    </div>
+</div>
+
+<div class="modal" id="modal-contactos">
+    <div class="modal-conteudo">
+        <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos">×</button>
+        <h2 data-i18n="contactos">Contactos</h2>
+        <p>
+            <strong data-i18n="email_label">Email:</strong> apoio@higia.pt
+        </p>
+        <p>
+            <strong data-i18n="telefone_label">Telefone:</strong> +351 210 000 000
+        </p>
+        <p>
+            <strong data-i18n="morada_label">Morada: </strong>
+            <span data-i18n="morada"></span>
+        </p>
+        <p>
+            <strong data-i18n="horario_label">Horário de atendimento: </strong>
+            <span data-i18n="horario"></span>
+        </p>
+        <button type="button" class="btn-modal" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
+    </div>
+</div>
+
+
+<div class="modal modal-confirmacao-sair" id="modal-confirmar-sair" role="dialog" aria-modal="true" aria-labelledby="titulo-confirmar-sair">
+    <div class="modal-conteudo">
+        <h2 id="titulo-confirmar-sair" data-i18n="confirmar_saida_titulo">Terminar sessão</h2>
+        <p data-i18n="confirmar_saida_texto">Tens a certeza de que queres terminar a sessão?</p>
+        <div class="acoes-confirmacao-sair">
+            <button type="button" class="botao-cancelar-sair" id="botao-cancelar-sair" data-i18n="cancelar">Cancelar</button>
+            <button type="button" class="btn-modal" id="botao-confirmar-sair" data-i18n="confirmar_saida">Sim, terminar sessão</button>
+        </div>
+    </div>
+</div>
+<script type="module" src="js/configuracoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hígia - Medicamentos</title>
+<script src="js/geral.js"></script>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/medicamentos.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="inicio.html" class="navbar-logo">
+                <img src="imagens/logo.png" alt="Logótipo Hígia">
+            </a>
+
+            <nav class="navbar-menu">
+                <a href="inicio.html" data-i18n="inicio">Início</a>
+                <a href="perfis.html" class="active" data-i18n="perfis">Perfis</a>
+                <a href="consultas.html" data-i18n="consultas">Consultas</a>
+                <a href="configuracoes.html" data-i18n="configuracoes">Configurações</a>
+                <a href="#" class="navbar-logout" id="botao-logout" data-i18n="terminar_sessao">Terminar sessão</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pagina-medicamentos">
+        <section class="cabecalho-medicamentos">
+            <div class="cabecalho-info">
+                <h1 id="titulo-perfil" data-i18n="medicamentos_subtitulo">Medicamentos deste perfil</h1>
+                <p id="subtitulo-perfil" data-i18n="medicamentos_subtitulo">Medicamentos deste perfil</p>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="botao-adicionar-medicamento">
+                <span aria-hidden="true">+</span>
+                <span data-i18n="adicionar_medicamento">Adicionar medicamento</span>
+            </button>
+        </section>
+
+        <section class="lista-medicamentos" id="lista-medicamentos">
+            <div class="estado-vazio">
+                <div class="estado-vazio-icone">💊</div>
+                <h3 data-i18n="nenhum_medicamento">Ainda não existem medicamentos.</h3>
+                <p data-i18n="nenhum_medicamento_texto">Adiciona um medicamento para começares a gerir a medicação deste perfil.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para criar e editar medicamentos -->
+    <div class="modal" id="modal-medicamento">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" id="botao-fechar-modal-medicamento" aria-label="Fechar">×</button>
+
+            <h2 id="modal-medicamento-titulo" data-i18n="adicionar_medicamento">Adicionar medicamento</h2>
+            <p class="modal-subtitulo" data-i18n="medicamento_subtitulo_modal">Preenche os dados do medicamento.</p>
+
+            <div class="alerta" id="medicamento-alerta" role="alert" aria-live="assertive"></div>
+
+            <form id="form-medicamento" novalidate>
+                <div class="campo-linha">
+                    <div class="campo-grupo">
+                        <label for="medicamento-nome" data-i18n="label_nome_medicamento">Nome *</label>
+                        <input type="text" id="medicamento-nome" data-i18n-placeholder="placeholder_nome_medicamento" placeholder="Ex: Paracetamol" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="medicamento-tipo" data-i18n="label_tipo_medicamento">Tipo *</label>
+                        <input type="text" id="medicamento-tipo" data-i18n-placeholder="placeholder_tipo_medicamento" placeholder="Ex: Comprimido" required>
+                    </div>
+                </div>
+
+                <div class="campo-linha">
+                    <div class="campo-grupo">
+                        <label for="medicamento-dosagem" data-i18n="label_dosagem">Dosagem *</label>
+                        <input type="text" id="medicamento-dosagem" data-i18n-placeholder="placeholder_dosagem" placeholder="Ex: 500 mg" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="medicamento-quantidade" data-i18n="label_quantidade_disponivel">Quantidade disponível *</label>
+                        <input type="number" id="medicamento-quantidade" min="1" step="1" placeholder="1" required>
+                    </div>
+                </div>
+
+                <div class="campo-linha">
+                    <div class="campo-grupo">
+                        <label for="medicamento-frequencia" data-i18n="label_frequencia">Frequência</label>
+                        <input type="text" id="medicamento-frequencia" data-i18n-placeholder="placeholder_frequencia" placeholder="Ex: 2 vezes por dia">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="medicamento-fotografia" data-i18n="label_fotografia">Fotografia</label>
+                        <input type="file" id="medicamento-fotografia" accept="image/*">
+                        <small data-i18n="fotografia_opcional">A fotografia é opcional. Máximo: 3 MB.</small>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="medicamento-observacoes" data-i18n="label_observacoes">Observações</label>
+                    <textarea id="medicamento-observacoes" data-i18n-placeholder="placeholder_observacoes" placeholder="Observações adicionais..."></textarea>
+                </div>
+
+                <div class="modal-acoes">
+                    <button type="button" class="btn btn-danger is-hidden" id="botao-eliminar-medicamento" data-i18n="eliminar_medicamento">Eliminar medicamento</button>
+                    <span class="modal-acoes-espaco"></span>
+                    <button type="button" class="btn btn-secondary" id="botao-cancelar-medicamento" data-i18n="cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="guardar">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para ver os detalhes do medicamento -->
+    <div class="modal" id="modal-ver-medicamento">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-ver-medicamento" aria-label="Fechar">×</button>
+
+            <h2 data-i18n="detalhes_medicamento">Detalhes do medicamento</h2>
+
+            <div class="ver-medicamento-corpo" id="ver-medicamento-corpo"></div>
+
+            <div class="modal-acoes">
+                <button type="button" class="btn btn-secondary" data-fechar-modal="modal-ver-medicamento" data-i18n="fechar">Fechar</button>
+                <button type="button" class="btn btn-primary" id="botao-ver-editar-medicamento" data-i18n="editar">Editar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para confirmar a eliminação -->
+    <div class="modal" id="modal-confirmar-eliminacao-medicamento">
+        <div class="modal-conteudo modal-confirmacao">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-confirmar-eliminacao-medicamento" aria-label="Fechar">×</button>
+
+            <div class="confirmacao-icone">!</div>
+
+            <h2 data-i18n="confirmar_eliminacao_medicamento">Eliminar medicamento</h2>
+
+            <p class="confirmacao-texto" id="texto-confirmar-eliminacao-medicamento">
+                Tem a certeza de que pretende eliminar este medicamento?
+            </p>
+
+            <div class="modal-acoes confirmacao-acoes">
+                <button type="button" class="btn btn-secondary" data-fechar-modal="modal-confirmar-eliminacao-medicamento" data-i18n="cancelar">Cancelar</button>
+
+                <button type="button" class="btn btn-danger" id="botao-confirmar-eliminacao-medicamento" data-i18n="eliminar_medicamento">
+                    Eliminar medicamento
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-publico">
+        <div class="footer-links">
+            <button type="button" data-abrir-modal="modal-termos" data-i18n="termos">Termos</button>
+            <button type="button" data-abrir-modal="modal-contactos" data-i18n="contactos">Contactos</button>
+        </div>
+        <span data-i18n="direitos">© 2026 Hígia - Todos os direitos reservados</span>
+    </footer>
+
+    <div class="modal" id="modal-termos">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-termos" aria-label="Fechar">×</button>
+            <h2 data-i18n="termos_condicoes">Termos e Condições</h2>
+            <p data-i18n="termos_intro"></p>
+            <ul>
+                <li data-i18n="termo_1"></li>
+                <li data-i18n="termo_2"></li>
+                <li data-i18n="termo_3"></li>
+                <li data-i18n="termo_4"></li>
+                <li data-i18n="termo_5"></li>
+            </ul>
+            <p data-i18n="termos_final"></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-termos" data-i18n="fechar">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-contactos">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos" aria-label="Fechar">×</button>
+            <h2 data-i18n="contactos">Contactos</h2>
+            <p><strong data-i18n="email_label">Email:</strong> apoio@higia.pt</p>
+            <p><strong data-i18n="telefone_label">Telefone:</strong> +351 210 000 000</p>
+            <p><strong data-i18n="morada_label">Morada:</strong><span data-i18n="morada"></span></p>
+            <p><strong data-i18n="horario_label">Horário de atendimento:</strong><span data-i18n="horario"></span></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
+        </div>
+    </div>
+
+    
+
+    <!-- Modal comum de confirmação de saída -->
+    <div class="modal modal-confirmacao-sair" id="modal-confirmar-sair" role="dialog" aria-modal="true" aria-labelledby="titulo-confirmar-sair">
+        <div class="modal-conteudo">
+            <h2 id="titulo-confirmar-sair" data-i18n="confirmar_saida_titulo">Terminar sessão</h2>
+            <p data-i18n="confirmar_saida_texto">Tens a certeza de que queres terminar a sessão?</p>
+            <div class="acoes-confirmacao-sair">
+                <button type="button" class="botao-cancelar-sair" id="botao-cancelar-sair" data-i18n="cancelar">Cancelar</button>
+                <button type="button" class="btn-modal" id="botao-confirmar-sair" data-i18n="confirmar_saida">Sim, terminar sessão</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/medicamentos.js"></script>
+</body>
+</html>

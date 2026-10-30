@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hígia - Entrar</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+
+<body>
+    <header class="navbar-publica">
+        <div class="navbar-publica-container">
+            <a href="intro.html" class="logo-higia">
+                <img src="imagens/logo.png" alt="Logótipo Hígia">
+            </a>
+            <nav class="menu-publico">
+                <div class="idioma-container">
+                    <button type="button" class="menu-link" id="botao-idioma" data-i18n="idioma">Idioma</button>▾
+                    <div class="idioma-menu" id="menu-idioma">
+                        <button type="button" data-alterar-idioma="pt">Português</button>
+                        <button type="button" data-alterar-idioma="en">English</button>
+                        <button type="button" data-alterar-idioma="es">Español</button>
+                    </div>
+                </div>
+                <button type="button" class="menu-link" data-abrir-modal="modal-ajuda" data-i18n="ajuda">Ajuda</button>
+                <a href="registo.html" class="menu-link" data-i18n="registar">Registar</a>
+                <a href="login.html" class="btn-entrar" data-i18n="entrar">Entrar</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="login-section">
+            <div class="login-card">
+                <h1 data-i18n="titulo_login">Entrar</h1>
+                <p class="login-subtitulo" data-i18n="subtitulo_login">Aceda à sua conta para gerir a sua medicação</p>
+                <div class="alerta" id="login-alerta" role="alert" aria-live="assertive"></div>
+
+                <form id="form-login" novalidate>
+                    <div class="campo-grupo">
+                        <label for="login-email" data-i18n="label_email">Email</label>
+                        <input type="email" id="login-email" name="email" autocomplete="email" 
+                        data-i18n-placeholder="placeholder_email" placeholder="Ex.: nome@email.com" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="login-password" data-i18n="label_password">Palavra-passe</label>
+                        <div class="campo-password">
+                            <input type="password" id="login-password" name="palavraPasse" autocomplete="current-password" 
+                            data-i18n-placeholder="placeholder_password_login" placeholder="A sua palavra-passe" required>
+                            <button type="button" class="botao-mostrar-password" data-target="login-password" 
+                            aria-label="Mostrar palavra-passe">👁</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-login" id="login-submit" data-i18n="btn_entrar">Entrar</button>
+                </form>
+
+                <div class="login-separador"></div>
+                <p class="login-rodape">
+                    <span data-i18n="nao_tem_conta">Não tem conta?</span>
+                    <a href="registo.html" data-i18n="link_registar">Registar-se</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer-publico">
+        <div class="footer-links">
+            <button type="button" data-abrir-modal="modal-termos" data-i18n="termos">Termos</button>
+            <button type="button" data-abrir-modal="modal-contactos" data-i18n="contactos">Contactos</button>
+        </div>
+        <span data-i18n="direitos">© 2026 Hígia - Todos os direitos reservados</span>
+    </footer>
+
+
+    <div class="modal" id="modal-ajuda">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-ajuda" aria-label="Fechar">×</button>
+            <h2 data-i18n="precisa_ajuda">Precisa de ajuda?</h2>
+            <p data-i18n="ajuda_1"></p>
+            <p><span data-i18n="ajuda_2"></span><strong> apoio@higia.pt</strong></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-ajuda" data-i18n="fechar">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-termos">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-termos" aria-label="Fechar">×</button>
+            <h2 data-i18n="termos_condicoes">Termos e Condições</h2>
+            <p data-i18n="termos_intro"></p>
+            <ul>
+                <li data-i18n="termo_1"></li>
+                <li data-i18n="termo_2"></li>
+                <li data-i18n="termo_3"></li>
+                <li data-i18n="termo_4"></li>
+                <li data-i18n="termo_5"></li>
+            </ul>
+            <p data-i18n="termos_final"></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-termos" data-i18n="fechar">Fechar</button>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal-contactos">
+        <div class="modal-conteudo">
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos" aria-label="Fechar">×</button>
+            <h2 data-i18n="contactos">Contactos</h2>
+            <p><strong data-i18n="email_label">Email:</strong> apoio@higia.pt</p>
+            <p><strong data-i18n="telefone_label">Telefone:</strong> +351 210 000 000</p>
+            <p><strong data-i18n="morada_label">Morada:</strong><span data-i18n="morada"></span></p>
+            <p><strong data-i18n="horario_label">Horário de atendimento:</strong><span data-i18n="horario"></span></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
+        </div>
+    </div>
+
+
+    <script src="js/geral.js"></script>
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>
