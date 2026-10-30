@@ -4,10 +4,12 @@ import {
     listarUtilizadores
 } from "./api.js";
 
+
 const traducoesConfiguracoes = {
     pt: {
         configuracoes_titulo: "Configurações",
         configuracoes_subtitulo: "Personaliza a tua conta e a aparência do Hígia.",
+
         dados_conta: "Dados da conta",
         fotografia: "Fotografia",
         escolher_fotografia: "Escolher fotografia",
@@ -17,6 +19,7 @@ const traducoesConfiguracoes = {
         nova_palavra_passe: "Nova palavra-passe",
         confirmar_palavra_passe: "Confirmar palavra-passe",
         deixar_vazio: "Deixa vazio se não quiseres alterar.",
+
         aparencia: "Aparência",
         modo: "Modo",
         modo_claro: "Claro",
@@ -28,24 +31,28 @@ const traducoesConfiguracoes = {
         roxo: "Roxo",
         laranja: "Laranja",
         rosa: "Rosa",
+
         guardar_alteracoes: "Guardar alterações",
         alteracoes_guardadas: "As alterações foram guardadas com sucesso.",
+
         erro_nome: "O nome é obrigatório.",
         erro_email: "Introduz um email válido.",
         erro_email_existente: "Este email já está associado a outra conta.",
         erro_palavras_passe: "As palavras-passe não coincidem.",
-        erro_palavra_passe_curta: "A palavra-passe deve ter pelo menos 6 caracteres.",
+        erro_palavra_passe_curta: "A palavra-passe deve ter pelo menos 8 caracteres.",
         erro_sessao: "Não foi possível encontrar a sessão atual.",
         erro_fotografia: "O ficheiro selecionado não é uma imagem.",
         fotografia_grande: "A fotografia original deve ter, no máximo, 3 MB.",
         erro_carregar: "Não foi possível carregar os dados da conta.",
         erro_guardar: "Não foi possível guardar as alterações.",
+
         a_guardar: "A guardar..."
     },
 
     en: {
         configuracoes_titulo: "Settings",
         configuracoes_subtitulo: "Customize your account and the appearance of Hígia.",
+
         dados_conta: "Account details",
         fotografia: "Photo",
         escolher_fotografia: "Choose photo",
@@ -55,6 +62,7 @@ const traducoesConfiguracoes = {
         nova_palavra_passe: "New password",
         confirmar_palavra_passe: "Confirm password",
         deixar_vazio: "Leave empty if you do not want to change it.",
+
         aparencia: "Appearance",
         modo: "Mode",
         modo_claro: "Light",
@@ -66,24 +74,28 @@ const traducoesConfiguracoes = {
         roxo: "Purple",
         laranja: "Orange",
         rosa: "Pink",
+
         guardar_alteracoes: "Save changes",
         alteracoes_guardadas: "Changes saved successfully.",
+
         erro_nome: "Enter your name.",
         erro_email: "Enter a valid email.",
         erro_email_existente: "This email is already associated with another account.",
         erro_palavras_passe: "The passwords do not match.",
-        erro_palavra_passe_curta: "The password must contain at least 6 characters.",
+        erro_palavra_passe_curta: "The password must contain at least 8 characters.",
         erro_sessao: "The current session could not be found.",
         erro_fotografia: "The selected file is not an image.",
         fotografia_grande: "The original photo must be no larger than 3 MB.",
         erro_carregar: "Could not load the account details.",
         erro_guardar: "Could not save the changes.",
+
         a_guardar: "Saving..."
     },
 
     es: {
         configuracoes_titulo: "Configuración",
         configuracoes_subtitulo: "Personaliza tu cuenta y la apariencia de Hígia.",
+
         dados_conta: "Datos de la cuenta",
         fotografia: "Fotografía",
         escolher_fotografia: "Elegir fotografía",
@@ -93,6 +105,7 @@ const traducoesConfiguracoes = {
         nova_palavra_passe: "Nueva contraseña",
         confirmar_palavra_passe: "Confirmar contraseña",
         deixar_vazio: "Déjalo vacío si no quieres cambiarla.",
+
         aparencia: "Apariencia",
         modo: "Modo",
         modo_claro: "Claro",
@@ -104,21 +117,25 @@ const traducoesConfiguracoes = {
         roxo: "Morado",
         laranja: "Naranja",
         rosa: "Rosa",
+
         guardar_alteracoes: "Guardar cambios",
         alteracoes_guardadas: "Los cambios se han guardado correctamente.",
+
         erro_nome: "Introduce tu nombre.",
         erro_email: "Introduce un email válido.",
         erro_email_existente: "Este email ya está asociado a otra cuenta.",
         erro_palavras_passe: "Las contraseñas no coinciden.",
-        erro_palavra_passe_curta: "La contraseña debe tener al menos 6 caracteres.",
+        erro_palavra_passe_curta: "La contraseña debe tener al menos 8 caracteres.",
         erro_sessao: "No se ha encontrado la sesión actual.",
         erro_fotografia: "El archivo seleccionado no es una imagen.",
         fotografia_grande: "La fotografía original no puede superar los 3 MB.",
         erro_carregar: "No se pudieron cargar los datos de la cuenta.",
         erro_guardar: "No se pudieron guardar los cambios.",
+
         a_guardar: "Guardando..."
     }
 };
+
 
 window.traducoesConfiguracoes = traducoesConfiguracoes;
 
@@ -171,7 +188,6 @@ function carregarPreferencias() {
         modo: guardadas?.modo || "claro",
         idioma: localStorage.getItem("idioma") || guardadas?.idioma || "pt"
     };
-
     const tema = document.querySelector(
         `input[name="tema"][value="${preferencias.tema}"]`
     );
@@ -197,12 +213,9 @@ function guardarPreferencias() {
 
 function aplicarPreVisualizacao(tema, modo) {
     const temas = ["verde", "azul", "roxo", "laranja", "rosa", "vermelho"];
-
     if (!temas.includes(tema)) tema = "azul";
     if (!["claro", "escuro"].includes(modo)) modo = "claro";
-
-    document.body.classList.remove("tema-verde", "tema-azul", 
-        "tema-roxo", "tema-laranja", "tema-rosa", "tema-vermelho", "modo-escuro");
+    document.body.classList.remove("tema-verde", "tema-azul", "tema-roxo", "tema-laranja", "tema-rosa", "tema-vermelho", "modo-escuro");
     document.body.classList.add("tema-" + tema);
     if (modo === "escuro") {
         document.body.classList.add("modo-escuro");
@@ -279,11 +292,9 @@ function mostrarFotografia(fotografia) {
     const preVisualizacao = document.getElementById("fotografia-preview");
     if (!preVisualizacao) return;
     preVisualizacao.replaceChildren();
-
     const imagem = document.createElement("img");
     imagem.src = fotografia;
     imagem.alt = "Fotografia do utilizador";
-
     preVisualizacao.classList.remove("sem-fotografia");
     preVisualizacao.appendChild(imagem);
 }
@@ -350,7 +361,6 @@ function configurarFotografia() {
             campoFicheiro.value = "";
             return;
         }
-
         try {
             fotografiaSelecionada = await comprimirFotografia(ficheiro);
             mostrarFotografia(fotografiaSelecionada);
@@ -434,7 +444,6 @@ async function guardarAlteracoes() {
             const id = utilizador.idUtilizador ?? utilizador.id;
             return String(id) !== String(idAtual) && String(utilizador.email).toLowerCase() === email.toLowerCase();
         });
-
         if (emailExiste) {
             mostrarMensagemTexto(textoConfiguracoes("erro_email_existente"), true);
             return;
@@ -487,7 +496,6 @@ async function guardarAlteracoes() {
         document.getElementById("fotografia").value = "";
         document.getElementById("nova-palavra-passe").value = "";
         document.getElementById("confirmar-palavra-passe").value = "";
-
         mostrarMensagemTexto(typeof obterTextoGeral === "function" ? obterTextoGeral("alteracoes_guardadas") : textoConfiguracoes("alteracoes_guardadas"));
     } catch (erro) {
         console.error(erro);
@@ -503,9 +511,7 @@ async function guardarAlteracoes() {
 
 function configurarLogout() {
     const botaoLogout = document.getElementById("botao-logout");
-
     if (!botaoLogout) return;
-
     botaoLogout.addEventListener("click", evento => {
         evento.preventDefault();
         localStorage.removeItem("sessao");

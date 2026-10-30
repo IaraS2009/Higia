@@ -103,7 +103,6 @@ namespace HigiaAPI.Controllers
             medicamentoExistente.Frequencia = medicamento.Frequencia;
             medicamentoExistente.Fotografia = medicamento.Fotografia;
             medicamentoExistente.Observacoes = medicamento.Observacoes;
-
             await _contexto.SaveChangesAsync();
             return Ok(medicamentoExistente);
         }

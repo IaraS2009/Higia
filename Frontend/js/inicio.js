@@ -8,41 +8,29 @@ const traducoesInicio = {
         tomas_hoje: "Tomas hoje",
         pendentes: "Pendentes",
         atrasadas: "Atrasadas",
+
         tomas_previstas: "Tomas previstas para hoje",
         nenhuma_toma: "Nenhuma toma prevista para hoje.",
         nenhuma_toma_texto: "As tomas que criares irão aparecer aqui.",
+
         registar: "Registar",
         detalhes: "Detalhes",
         pendente: "Pendente",
         aguardar_hora: "A aguardar hora",
         atrasada: "Atrasada",
+
         stock_baixo: "Stock baixo",
         unidades: "unidades",
         atualizar: "Atualizar",
+
         toma_prevista: "Toma prevista para",
         erro_stock: "Não existe quantidade suficiente de medicamento para registar esta toma.",
         toma_registada: "Toma registada com sucesso.",
         medicamento_nao_encontrado: "Não foi possível encontrar o medicamento.",
+
         alertas: "Avisos",
         alertas_subtitulo: "Informações importantes sobre a tua medicação.",
-        termos: "Termos",
-        contactos: "Contactos",
-        direitos: "© 2026 Hígia - Todos os direitos reservados",
-        termos_condicoes: "Termos e Condições",
-        termos_intro: "Ao utilizar o Hígia, deves ter em conta que:",
-        termo_1: "A informação introduzida é da responsabilidade do utilizador.",
-        termo_2: "O Hígia ajuda a organizar a medicação.",
-        termo_3: "O sistema não substitui aconselhamento médico ou farmacêutico.",
-        termo_4: "Confirma sempre a informação da tua medicação.",
-        termo_5: "Mantém os teus dados de acesso seguros.",
-        termos_final: "Em caso de dúvida sobre a medicação, contacta um profissional de saúde.",
-        fechar: "Fechar",
-        email_label: "Email:",
-        telefone_label: "Telefone:",
-        morada_label: "Morada:",
-        morada: "Lisboa, Portugal",
-        horario_label: "Horário de atendimento:",
-        horario: "Dias úteis, das 9h às 18h",
+
         erro_carregar: "Não foi possível carregar os dados. Verifica se a API está em funcionamento.",
         erro_registar: "Não foi possível registar a toma.",
         stock: "Stock"
@@ -54,41 +42,29 @@ const traducoesInicio = {
         tomas_hoje: "Today's intakes",
         pendentes: "Pending",
         atrasadas: "Late",
+
         tomas_previstas: "Intakes scheduled for today",
         nenhuma_toma: "No intake is scheduled for today.",
         nenhuma_toma_texto: "The intakes you create will appear here.",
+
         registar: "Register",
         detalhes: "Details",
         pendente: "Pending",
         aguardar_hora: "Waiting for scheduled time",
         atrasada: "Late",
+
         stock_baixo: "Low stock",
         unidades: "units",
         atualizar: "Update",
+
         toma_prevista: "Scheduled for",
         erro_stock: "There is not enough medication to register this intake.",
         toma_registada: "Intake registered successfully.",
         medicamento_nao_encontrado: "The medication could not be found.",
+
         alertas: "Alerts",
         alertas_subtitulo: "Important information about your medication.",
-        termos: "Terms",
-        contactos: "Contact",
-        direitos: "© 2026 Hígia - All rights reserved",
-        termos_condicoes: "Terms and Conditions",
-        termos_intro: "When using Hígia, please keep in mind that:",
-        termo_1: "Users are responsible for the information they enter.",
-        termo_2: "Hígia helps organise medication.",
-        termo_3: "The system does not replace medical or pharmaceutical advice.",
-        termo_4: "Always check your medication information.",
-        termo_5: "Keep your login details secure.",
-        termos_final: "If you have questions about medication, contact a healthcare professional.",
-        fechar: "Close",
-        email_label: "Email:",
-        telefone_label: "Phone:",
-        morada_label: "Address:",
-        morada: "Lisbon, Portugal",
-        horario_label: "Opening hours:",
-        horario: "Weekdays, 9 am to 6 pm",
+
         erro_carregar: "Could not load the data. Check that the API is running.",
         erro_registar: "Could not register the intake.",
         stock: "Stock"
@@ -100,41 +76,29 @@ const traducoesInicio = {
         tomas_hoje: "Tomas de hoy",
         pendentes: "Pendientes",
         atrasadas: "Atrasadas",
+
         tomas_previstas: "Tomas previstas para hoy",
         nenhuma_toma: "No hay ninguna toma prevista para hoy.",
         nenhuma_toma_texto: "Las tomas que crees aparecerán aquí.",
+
         registar: "Registrar",
         detalhes: "Detalles",
         pendente: "Pendiente",
         aguardar_hora: "Esperando la hora prevista",
         atrasada: "Atrasada",
+
         stock_baixo: "Stock bajo",
         unidades: "unidades",
         atualizar: "Actualizar",
+
         toma_prevista: "Toma prevista para",
         erro_stock: "No hay suficiente medicamento para registrar esta toma.",
         toma_registada: "Toma registrada correctamente.",
         medicamento_nao_encontrado: "No se ha encontrado el medicamento.",
+
         alertas: "Avisos",
         alertas_subtitulo: "Información importante sobre tu medicación.",
-        termos: "Términos",
-        contactos: "Contacto",
-        direitos: "© 2026 Hígia - Todos los derechos reservados",
-        termos_condicoes: "Términos y condiciones",
-        termos_intro: "Al utilizar Hígia, debes tener en cuenta que:",
-        termo_1: "El usuario es responsable de la información que introduce.",
-        termo_2: "Hígia ayuda a organizar la medicación.",
-        termo_3: "El sistema no sustituye el consejo médico o farmacéutico.",
-        termo_4: "Comprueba siempre la información de tu medicación.",
-        termo_5: "Mantén seguros tus datos de acceso.",
-        termos_final: "Si tienes dudas sobre la medicación, contacta con un profesional sanitario.",
-        fechar: "Cerrar",
-        email_label: "Correo electrónico:",
-        telefone_label: "Teléfono:",
-        morada_label: "Dirección:",
-        morada: "Lisboa, Portugal",
-        horario_label: "Horario de atención:",
-        horario: "Días laborables, de 9:00 a 18:00",
+
         erro_carregar: "No se pudieron cargar los datos. Comprueba que la API esté funcionando.",
         erro_registar: "No se pudo registrar la toma.",
         stock: "Stock"
@@ -187,7 +151,10 @@ function verificarSessaoInicio() {
     const sessao = obterSessaoInicio();
     const idUtilizador = sessao && (sessao.idUtilizador ?? sessao.id);
     if (idUtilizador === null || idUtilizador === undefined || String(idUtilizador).trim() === "") {
-        try { localStorage.removeItem("sessao"); } catch (erro) {}
+        try { 
+            localStorage.removeItem("sessao"); 
+        } catch (erro) {
+        }
         const destino = new URL("intro.html", window.location.href);
         window.location.replace(destino.href);
         return null;
@@ -201,8 +168,9 @@ async function carregarDadosInicio() {
     if (!sessao) {
         return;
     }
+
     const idUtilizador = sessao.idUtilizador || sessao.id;
-    
+
     const [perfis, medicamentos, tomas] = await Promise.all([api.listarPerfisUtilizador(idUtilizador), api.listarMedicamentos(), api.listarTomas()]);
     
     perfisInicio = Array.isArray(perfis) ? perfis : [];
@@ -233,11 +201,9 @@ function eHojeInicio(dataHora) {
     return data.getFullYear() === hoje.getFullYear() && data.getMonth() === hoje.getMonth() && data.getDate() === hoje.getDate();
 }
 
-
 function calcularEstadoTomaInicio(toma) {
     return window.Higia.calcularEstadoToma(toma.dataHora, toma.estado);
 }
-
 
 function formatarHoraInicio(dataHora) {
     return new Date(dataHora).toLocaleTimeString(
@@ -249,20 +215,17 @@ function formatarHoraInicio(dataHora) {
     );
 }
 
-
 function formatarDataInicio(dataHora) {
     const idioma = obterIdiomaInicio();
     const localidade = idioma === "en" ? "en-GB" : idioma === "es" ? "es-ES" : "pt-PT";
     return new Date(dataHora).toLocaleDateString(localidade);
 }
 
-
 function encontrarMedicamentoInicio(idMedicamento) {
     return medicamentosInicio.find(function(medicamento) {
         return String(medicamento.idMedicamento) === String(idMedicamento);
     });
 }
-
 
 function encontrarPerfilInicio(idPerfil) {
     return perfisInicio.find(function(perfil) {
@@ -303,27 +266,35 @@ async function atualizarDadosUtilizador() {
     }
 
     if (fotoElemento) {
-        fotoElemento.replaceChildren();
+        const avatar = fotoElemento.querySelector(".avatar-padrao");
+
         if (utilizador.fotografia) {
-            const imagem = document.createElement("img");
+            let imagem = fotoElemento.querySelector("img");
+
+            if (!imagem) {
+                imagem = document.createElement("img");
+                imagem.alt = "Fotografia do utilizador";
+                fotoElemento.appendChild(imagem);
+            }
+
             imagem.src = utilizador.fotografia;
-            imagem.alt = "Fotografia do utilizador";
-            fotoElemento.appendChild(imagem);
+
+            if (avatar) {
+                avatar.style.display = "none";
+            }
         } else {
-            fotoElemento.innerHTML = `
-                <div class="avatar-padrao">
-                    <div class="avatar-cabeca"></div>
-                    <div class="avatar-corpo"></div>
-                </div>
-            `;
+            const imagem = fotoElemento.querySelector("img");
+
+            if (imagem) {
+                imagem.remove();
+            }
+
+            if (avatar) {
+                avatar.style.display = "block";
+            }
         }
     }
-
-    if (totalPerfis) {
-        totalPerfis.textContent = perfisInicio.length;
-    }
 }
-
 
 function renderizarTomasInicio() {
     const lista = document.getElementById("lista-tomas");
@@ -331,7 +302,7 @@ function renderizarTomasInicio() {
     const totalTomas = document.getElementById("total-tomas");
     const totalPendentes = document.getElementById("total-pendentes");
     const totalAtrasadas = document.getElementById("total-atrasadas");
-
+    
     if (!lista) {
         return;
     }
@@ -357,17 +328,31 @@ function renderizarTomasInicio() {
     contador.textContent = tomas.length;
     
     if (tomas.length === 0) {
-        lista.innerHTML = `
-            <div class="estado-vazio">
-                <div class="estado-vazio-icone">📋</div>
-                <h3>${textoInicio("nenhuma_toma")}</h3>
-                <p>${textoInicio("nenhuma_toma_texto")}</p>
-            </div>
-        `;
+        const estadoVazio = document.getElementById("estado-vazio-tomas");
+        const tituloVazio = document.getElementById("titulo-tomas-vazio");
+        const textoVazio = document.getElementById("texto-tomas-vazio");
+        if (estadoVazio) {
+            estadoVazio.hidden = false;
+        }
+        if (tituloVazio) {
+            tituloVazio.textContent = textoInicio("nenhuma_toma");
+        }
+        if (textoVazio) {
+            textoVazio.textContent = textoInicio("nenhuma_toma_texto");
+        }
+        lista.replaceChildren();
+        if (estadoVazio) {
+            lista.appendChild(estadoVazio);
+        }
         return;
     }
 
-    lista.innerHTML = "";
+    lista.replaceChildren();
+    const estadoVazio = document.getElementById("estado-vazio-tomas");
+    if (estadoVazio) {
+        estadoVazio.hidden = true;
+    }
+
     tomas.forEach(function(toma) {
         const medicamento = encontrarMedicamentoInicio(toma.idMedicamento);
         if (!medicamento) {
@@ -498,10 +483,10 @@ function abrirAtualizarStockInicio(medicamento) {
 
 async function guardarStockInicio() {
     if (!medicamentoStockSelecionado) return;
+
     const campo = document.getElementById("nova-quantidade-stock");
     const botao = document.getElementById("botao-guardar-stock");
     const novaQuantidade = Number(campo.value);
-
     if (campo.value.trim() === "" || !Number.isInteger(novaQuantidade) || novaQuantidade < 0) {
         mostrarToastInicio(obterIdiomaInicio() === "en" ? "Enter a valid stock quantity." : obterIdiomaInicio() === "es" ? "Introduce una cantidad de stock válida." : "Introduz uma quantidade de stock válida.", "erro");
         campo.focus();
@@ -535,35 +520,11 @@ async function guardarStockInicio() {
 
 let resolverConfirmacaoTomaInicio = null;
 
+
 function garantirModalConfirmacaoTomaInicio() {
-    let modal = document.getElementById("modal-confirmar-registo-toma");
-    if (modal) {
-        return modal;
-    }
-    modal = document.createElement("div");
-    modal.className = "modal";
-    modal.id = "modal-confirmar-registo-toma";
-    modal.setAttribute("role", "dialog");
-    modal.setAttribute("aria-modal", "true");
-    modal.setAttribute("aria-labelledby", "titulo-confirmar-registo-toma");
-    modal.innerHTML = `
-        <div class="modal-conteudo modal-confirmacao-toma-conteudo">
-            <button type="button" class="modal-fechar" id="botao-fechar-confirmacao-toma" aria-label="Fechar">×</button>
-            <div class="modal-cabecalho">
-                <h2 id="titulo-confirmar-registo-toma">Confirmar toma</h2>
-            </div>
-            <div class="modal-corpo">
-                <p class="confirmacao-toma-texto" id="texto-confirmar-registo-toma"></p>
-            </div>
-            <div class="modal-acoes">
-                <button type="button" class="btn btn-secondary" id="botao-cancelar-confirmacao-toma">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="botao-confirmar-registo-toma">Sim, registar toma</button>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    return modal;
+    return document.getElementById("modal-confirmar-registo-toma");
 }
+
 
 function confirmarRegistoTomaInicio(toma) {
     const modal = garantirModalConfirmacaoTomaInicio();
@@ -578,10 +539,8 @@ function confirmarRegistoTomaInicio(toma) {
 
     const idioma = obterIdiomaInicio();
     const horaPrevista = formatarHoraInicio(toma.dataHora);
-    texto.textContent = idioma === "en"
-        ? `Are you sure you want to register the dose scheduled for ${horaPrevista}? Confirm only if the medicine has already been taken.`
-        : idioma === "es"
-            ? `¿Seguro que quieres registrar la toma prevista para las ${horaPrevista}? Confirma solo si ya has tomado el medicamento.`
+    texto.textContent = idioma === "en" ? `Are you sure you want to register the dose scheduled for ${horaPrevista}? Confirm only if the medicine has already been taken.`
+        : idioma === "es" ? `¿Seguro que quieres registrar la toma prevista para las ${horaPrevista}? Confirma solo si ya has tomado el medicamento.`
             : `Tem a certeza de que pretende registar a toma prevista para as ${horaPrevista}? Confirme apenas se o medicamento já foi tomado.`;
     modal.classList.add("aberto");
     document.body.style.overflow = "hidden";
@@ -671,10 +630,6 @@ async function registarTomaInicio(toma) {
 }
 
 
-/* =========================================================
-   AVISOS
-   ========================================================= */
-
 function renderizarAlertasInicio() {
     const secao = document.getElementById("secao-alertas");
     const lista = document.getElementById("lista-alertas");
@@ -700,7 +655,6 @@ function renderizarAlertasInicio() {
     });
 
     tomasInicio.forEach(function(toma) {
-        // Uma toma continua atrasada mesmo que tenha sido prevista num dia anterior.
         if (calcularEstadoTomaInicio(toma) !== "Atrasada") {
             return;
         }
@@ -719,7 +673,6 @@ function renderizarAlertasInicio() {
 
     lista.innerHTML = "";
     contador.textContent = String(alertas.length);
-    // Mostrar a caixa de avisos apenas quando existem avisos.
     secao.classList.toggle("is-hidden", alertas.length === 0);
     secao.style.display = alertas.length > 0 ? "" : "none";
 
@@ -788,17 +741,11 @@ function renderizarAlertasInicio() {
 }
 
 
-/* =========================================================
-   LOGOUT
-   ========================================================= */
-
 function configurarLogoutInicio() {
     const botao = document.getElementById("botao-logout");
-
     if (!botao) {
         return;
     }
-
     botao.addEventListener("click", function(evento) {
         evento.preventDefault();
         localStorage.removeItem("sessao");
@@ -807,13 +754,8 @@ function configurarLogoutInicio() {
 }
 
 
-/* =========================================================
-   TOAST
-   ========================================================= */
-
 function mostrarToastInicio(mensagem, tipo) {
     let contentor = document.getElementById("toast-contentor");
-
     if (!contentor) {
         contentor = document.createElement("div");
         contentor.id = "toast-contentor";
@@ -828,7 +770,6 @@ function mostrarToastInicio(mensagem, tipo) {
 
     setTimeout(function() {
         toast.classList.add("toast-sair");
-
         setTimeout(function() {
             toast.remove();
         }, 300);
@@ -836,15 +777,10 @@ function mostrarToastInicio(mensagem, tipo) {
 }
 
 
-/* =========================================================
-   INICIALIZAÇÃO
-   ========================================================= */
-
 window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesInicio(); });
 
 document.addEventListener("DOMContentLoaded", async function() {
     const sessao = verificarSessaoInicio();
-
     if (!sessao) {
         return;
     }
@@ -868,27 +804,17 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     try {
         await carregarDadosInicio();
-
         atualizarDadosUtilizador();
         renderizarTomasInicio();
         renderizarAlertasInicio();
     } catch (erro) {
         console.error("Erro ao carregar a página inicial:", erro);
-
-        mostrarToastInicio(
-            textoInicio("erro_carregar"),
-            "erro"
-        );
+        mostrarToastInicio(textoInicio("erro_carregar"), "erro");
     }
 
-    /*
-     * Atualiza os estados apresentados a cada 30 segundos.
-     * Os dados são novamente consultados à API.
-     */
     setInterval(async function() {
         try {
             await carregarDadosInicio();
-
             atualizarDadosUtilizador();
             renderizarTomasInicio();
             renderizarAlertasInicio();

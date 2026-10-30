@@ -5,6 +5,7 @@ const traducoesConsultas = {
     pt: {
         consultas_titulo: "Consultas",
         consultas_subtitulo: "Consulta os registos existentes no Hígia.",
+
         tipo_registo: "Tipo",
         todos: "Todos",
         medicamentos: "Medicamentos",
@@ -13,16 +14,21 @@ const traducoesConsultas = {
         todos_os_perfis: "Todos os perfis",
         estado: "Estado",
         todos_os_estados: "Todos os estados",
+
         aplicar: "Aplicar",
         limpar: "Limpar",
+
         registos: "Registos",
         registos_encontrados: "registos encontrados",
+
         pagina_de: "Página {atual} de {total}",
         paginacao_registos: "Paginação dos registos",
         anterior: "Anterior",
         seguinte: "Seguinte",
+
         sem_registos: "Não existem registos.",
         sem_registos_texto: "Os registos que criares irão aparecer aqui.",
+
         nome: "Nome",
         data: "Data",
         hora: "Hora",
@@ -32,6 +38,7 @@ const traducoesConsultas = {
         ver: "Ver",
         editar: "Editar",
         eliminar: "Eliminar",
+
         stock: "Stock",
         stock_ok: "Stock OK",
         stock_baixo: "Stock baixo",
@@ -43,6 +50,7 @@ const traducoesConsultas = {
         frequencia: "Frequência",
         observacoes: "Observações",
         fechar: "Fechar",
+        
         perfil_associado: "Perfil associado",
         medicamento: "Medicamento",
         registo: "Registo",

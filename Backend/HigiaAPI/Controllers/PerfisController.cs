@@ -85,7 +85,6 @@ namespace HigiaAPI.Controllers
             perfilExistente.Alergias = perfil.Alergias;
             perfilExistente.ProblemasSaude = perfil.ProblemasSaude;
             perfilExistente.Observacoes = perfil.Observacoes;
-
             await _contexto.SaveChangesAsync();
             return Ok(perfilExistente);
         }
