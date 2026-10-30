@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/tomas.css">
 </head>
 
+
 <body>
 
     <header class="navbar">
@@ -17,7 +18,6 @@
             <a href="inicio.html" class="navbar-logo">
                 <img src="imagens/logo.png" alt="Logótipo Hígia">
             </a>
-
             <nav class="navbar-menu">
                 <a href="inicio.html" data-i18n="inicio">Início</a>
                 <a href="perfis.html" class="active" data-i18n="perfis">Perfis</a>
@@ -28,52 +28,35 @@
         </div>
     </header>
 
-    <main class="pagina-tomas">
 
-        <section class="cabecalho-tomas">
-            <div class="cabecalho-info">
-                <span class="etiqueta-pagina">HÍGIA · MEDICAÇÃO</span>
-                <h1 id="titulo-medicamento" data-i18n="titulo">Tomas</h1>
-                <p id="subtitulo-medicamento" data-i18n="subtitulo">
-                    Gere as tomas deste medicamento.
-                </p>
-            </div>
+<main class="pagina-tomas">
+    <section class="cabecalho-tomas">
+        <div class="cabecalho-info">
+            <span class="etiqueta-pagina">HÍGIA · MEDICAÇÃO</span>
+            <h1 id="titulo-medicamento" data-i18n="titulo">Tomas</h1>
+            <p id="subtitulo-medicamento" data-i18n="subtitulo">Gere as tomas deste medicamento.</p>
+        </div>
+        <button type="button" class="btn btn-primary" id="botao-criar-toma">
+            <span aria-hidden="true">+</span>
+            <span data-i18n="criar_toma">Criar toma</span>
+        </button>
+    </section>
+    <section class="lista-tomas" id="lista-tomas">
+        <div class="estado-vazio" id="estado-vazio" hidden>
+            <div class="estado-vazio-icone" aria-hidden="true">💊</div>
+            <h3 data-i18n="nenhuma_toma">Ainda não existem tomas.</h3>
+            <p data-i18n="nenhuma_toma_texto">Cria uma toma para começares a registar a medicação.</p>
+        </div>
+    </section>
+</main>
 
-            <button type="button" class="btn btn-primary" id="botao-criar-toma">
-                <span aria-hidden="true">+</span>
-                <span data-i18n="criar_toma">Criar toma</span>
-            </button>
-        </section>
 
-        <section class="lista-tomas" id="lista-tomas">
-            <div class="estado-vazio" id="estado-vazio" hidden>
-                <div class="estado-vazio-icone" aria-hidden="true">💊</div>
-                <h3 data-i18n="nenhuma_toma">Ainda não existem tomas.</h3>
-                <p data-i18n="nenhuma_toma_texto">Cria uma toma para começares a registar a medicação.</p>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- MODAL: CRIAR / EDITAR TOMA -->
     <div class="modal" id="modal-toma">
         <div class="modal-conteudo">
-
-            <button type="button"
-                    class="modal-fechar"
-                    id="botao-fechar-modal-toma"
-                    aria-label="Fechar">×</button>
-
+            <button type="button" class="modal-fechar" id="botao-fechar-modal-toma" aria-label="Fechar">×</button>
             <div class="modal-icone" aria-hidden="true">📅</div>
-
-            <h2 id="modal-toma-titulo" data-i18n="criar_toma_titulo">
-                Criar toma
-            </h2>
-
-            <p class="modal-subtitulo" id="toma-medicamento-nome">
-                Medicamento
-            </p>
-
+            <h2 id="modal-toma-titulo" data-i18n="criar_toma_titulo">Criar toma</h2>
+            <p class="modal-subtitulo" id="toma-medicamento-nome">Medicamento</p>
             <div class="alerta" id="toma-alerta" role="alert" aria-live="assertive"></div>
 
             <form id="form-toma" novalidate>
@@ -82,158 +65,64 @@
                         <label for="toma-data" data-i18n="label_data_toma">Data *</label>
                         <input type="date" id="toma-data" required>
                     </div>
-
                     <div class="campo-grupo">
                         <label for="toma-hora" data-i18n="label_hora_toma">Hora *</label>
                         <input type="time" id="toma-hora" required>
                     </div>
                 </div>
-
                 <div class="campo-grupo">
-                    <label for="toma-quantidade" data-i18n="label_quantidade_toma">
-                        Quantidade a tomar *
-                    </label>
-                    <input type="number"
-                           id="toma-quantidade"
-                           min="1"
-                           step="1"
-                           value="1"
-                           required>
+                    <label for="toma-quantidade" data-i18n="label_quantidade_toma">Quantidade a tomar *</label>
+                    <input type="number" id="toma-quantidade" min="1" step="1" value="1" required>
                     <small class="campo-ajuda">Introduz uma quantidade inteira superior a zero.</small>
                 </div>
-
                 <div class="modal-acoes">
-                    <button type="button"
-                            class="btn btn-danger is-hidden"
-                            id="botao-eliminar-toma"
-                            data-i18n="eliminar">
-                        Eliminar
-                    </button>
-
+                    <button type="button" class="btn btn-danger is-hidden" id="botao-eliminar-toma" data-i18n="eliminar">Eliminar</button>
                     <span class="modal-acoes-espaco"></span>
-
-                    <button type="button"
-                            class="btn btn-secondary"
-                            id="botao-cancelar-toma"
-                            data-i18n="cancelar">
-                        Cancelar
-                    </button>
-
-                    <button type="submit"
-                            class="btn btn-primary"
-                            id="botao-guardar-toma"
-                            data-i18n="criar_toma">
-                        Criar toma
-                    </button>
+                    <button type="button" class="btn btn-secondary" id="botao-cancelar-toma" data-i18n="cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="botao-guardar-toma" data-i18n="criar_toma">Criar toma</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODAL: VER TOMA -->
     <div class="modal" id="modal-ver-toma">
         <div class="modal-conteudo">
-
-            <button type="button"
-                    class="modal-fechar"
-                    id="botao-fechar-ver-toma"
-                    aria-label="Fechar">×</button>
-
+            <button type="button" class="modal-fechar" id="botao-fechar-ver-toma" aria-label="Fechar">×</button>
             <div class="modal-icone" aria-hidden="true">📋</div>
             <h2 data-i18n="detalhes_toma">Detalhes da toma</h2>
-
             <div class="ver-toma-corpo" id="ver-toma-corpo"></div>
-
             <div class="modal-acoes">
-                <button type="button"
-                        class="btn btn-secondary"
-                        id="botao-cancelar-ver-toma"
-                        data-fechar-modal="modal-ver-toma"
-                        data-i18n="fechar">
-                    Fechar
-                </button>
-
-                <button type="button"
-                        class="btn btn-primary"
-                        id="botao-ver-editar-toma"
-                        data-i18n="editar">
-                    Editar
-                </button>
+                <button type="button" class="btn btn-secondary" id="botao-cancelar-ver-toma" data-fechar-modal="modal-ver-toma" data-i18n="fechar">Fechar</button>
+                <button type="button" class="btn btn-primary" id="botao-ver-editar-toma" data-i18n="editar">Editar</button>
             </div>
         </div>
     </div>
-
-    <!-- MODAL: CONFIRMAR ELIMINAÇÃO -->
     <div class="modal" id="modal-confirmar-eliminacao-toma">
         <div class="modal-conteudo modal-confirmacao">
-
-            <button type="button"
-                    class="modal-fechar"
-                    id="botao-fechar-eliminacao-toma"
-                    aria-label="Fechar">×</button>
-
+            <button type="button" class="modal-fechar" id="botao-fechar-eliminacao-toma" aria-label="Fechar">×</button>
             <div class="confirmacao-icone" aria-hidden="true">!</div>
-
             <h2 data-i18n="confirmar_eliminacao_toma">Eliminar toma</h2>
-
-            <p class="confirmacao-texto" id="texto-confirmar-eliminacao-toma">
-                Tens a certeza de que pretendes eliminar esta toma?
-            </p>
-
+            <p class="confirmacao-texto" id="texto-confirmar-eliminacao-toma">Tens a certeza de que pretendes eliminar esta toma?</p>
             <div class="modal-acoes confirmacao-acoes">
-                <button type="button"
-                        class="btn btn-secondary"
-                        id="botao-cancelar-eliminacao-toma"
-                        data-i18n="cancelar">
-                    Cancelar
-                </button>
-
-                <button type="button"
-                        class="btn btn-danger"
-                        id="botao-confirmar-eliminacao-toma"
-                        data-i18n="eliminar">
-                    Eliminar
-                </button>
+                <button type="button" class="btn btn-secondary" id="botao-cancelar-eliminacao-toma" data-i18n="cancelar">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="botao-confirmar-eliminacao-toma" data-i18n="eliminar">Eliminar</button>
             </div>
         </div>
     </div>
-
-    <!-- MODAL: CONFIRMAR REGISTO -->
     <div class="modal" id="modal-confirmar-registo-toma">
         <div class="modal-conteudo modal-confirmacao">
-
-            <button type="button"
-                    class="modal-fechar"
-                    id="botao-fechar-registo-toma"
-                    aria-label="Fechar">×</button>
-
+            <button type="button" class="modal-fechar" id="botao-fechar-registo-toma" aria-label="Fechar">×</button>
             <div class="confirmacao-icone confirmacao-icone-sucesso" aria-hidden="true">✓</div>
-
             <h2 data-i18n="confirmar_registo_toma">Confirmar registo</h2>
-
-            <p class="confirmacao-texto" id="texto-confirmar-registo-toma">
-                Confirmas que tomaste esta medicação?
-            </p>
-
+            <p class="confirmacao-texto" id="texto-confirmar-registo-toma">Confirmas que tomaste esta medicação?</p>
             <div class="modal-acoes confirmacao-acoes">
-                <button type="button"
-                        class="btn btn-secondary"
-                        id="botao-cancelar-registo-toma"
-                        data-i18n="cancelar">
-                    Cancelar
-                </button>
-
-                <button type="button"
-                        class="btn btn-success"
-                        id="botao-confirmar-registo-toma"
-                        data-i18n="registar">
-                    Registar toma
-                </button>
+                <button type="button" class="btn btn-secondary" id="botao-cancelar-registo-toma" data-i18n="cancelar">Cancelar</button>
+                <button type="button" class="btn btn-success" id="botao-confirmar-registo-toma" data-i18n="registar">Registar toma</button>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
+
     <footer class="footer-publico">
         <div class="footer-links">
             <button type="button" data-abrir-modal="modal-termos" data-i18n="termos">Termos</button>
@@ -242,10 +131,9 @@
         <span data-i18n="direitos">© 2026 Hígia - Todos os direitos reservados</span>
     </footer>
 
-    <!-- MODAL: TERMOS -->
     <div class="modal" id="modal-termos">
         <div class="modal-conteudo">
-            <button type="button" class="modal-fechar" data-fechar-modal="modal-termos" aria-label="Fechar">×</button>
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-termos">×</button>
             <h2 data-i18n="termos_condicoes">Termos e Condições</h2>
             <p data-i18n="termos_intro"></p>
             <ul>
@@ -260,10 +148,9 @@
         </div>
     </div>
 
-    <!-- MODAL: CONTACTOS -->
     <div class="modal" id="modal-contactos">
         <div class="modal-conteudo">
-            <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos" aria-label="Fechar">×</button>
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos">×</button>
             <h2 data-i18n="contactos">Contactos</h2>
             <p><strong data-i18n="email_label">Email:</strong> apoio@higia.pt</p>
             <p><strong data-i18n="telefone_label">Telefone:</strong> +351 210 000 000</p>
@@ -272,10 +159,8 @@
             <button type="button" class="btn-modal" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
         </div>
     </div>
-
     
 
-    <!-- Modal comum de confirmação de saída -->
     <div class="modal modal-confirmacao-sair" id="modal-confirmar-sair" role="dialog" aria-modal="true" aria-labelledby="titulo-confirmar-sair">
         <div class="modal-conteudo">
             <h2 id="titulo-confirmar-sair" data-i18n="confirmar_saida_titulo">Terminar sessão</h2>
@@ -287,7 +172,7 @@
         </div>
     </div>
 
-    <script type="module" src="js/tomas.js"></script>
 
+    <script type="module" src="js/tomas.js"></script>
 </body>
 </html>

@@ -1,13 +1,8 @@
-
 import * as api from "./api.js";
 
-/* ==========================================
-   TRADUÇÕES
-========================================== */
 
 const traducoesPerfis = {
     pt: {
-
         titulo: "Perfis",
         subtitulo: "Gere os perfis e a medicação de cada pessoa.",
         adicionar_perfil: "Adicionar perfil",
@@ -60,7 +55,6 @@ const traducoesPerfis = {
     },
 
     en: {
-
         titulo: "Profiles",
         subtitulo: "Manage the profiles and medication of each person.",
         adicionar_perfil: "Add profile",
@@ -113,7 +107,6 @@ const traducoesPerfis = {
     },
 
     es: {
-
         titulo: "Perfiles",
         subtitulo: "Gestiona los perfiles y la medicación de cada persona.",
         adicionar_perfil: "Añadir perfil",
@@ -166,30 +159,20 @@ const traducoesPerfis = {
     }
 };
 
-/* ==========================================
-   VARIÁVEIS
-========================================== */
 
 let idPerfilEmEdicao = null;
 let idPerfilParaEliminar = null;
 let idPerfilParaEditarDepoisDeVer = null;
 
-/* ==========================================
-   IDIOMA
-========================================== */
 
 function obterIdioma() {
     const idioma = localStorage.getItem("idioma") || "pt";
-
     return traducoesPerfis[idioma] ? idioma : "pt";
 }
 
 function obterTextoPerfis(chave) {
     const idioma = obterIdioma();
-
-    return traducoesPerfis[idioma][chave]
-        ?? traducoesPerfis.pt[chave]
-        ?? chave;
+    return traducoesPerfis[idioma][chave] ?? traducoesPerfis.pt[chave] ?? chave;
 }
 
 function aplicarTraducoesPerfis() {
@@ -198,7 +181,6 @@ function aplicarTraducoesPerfis() {
 
     document.querySelectorAll("[data-i18n]").forEach(function(elemento) {
         const chave = elemento.getAttribute("data-i18n");
-
         if (textos[chave] !== undefined) {
             elemento.textContent = textos[chave];
         }
@@ -206,16 +188,12 @@ function aplicarTraducoesPerfis() {
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function(elemento) {
         const chave = elemento.getAttribute("data-i18n-placeholder");
-
         if (textos[chave] !== undefined) {
             elemento.placeholder = textos[chave];
         }
     });
 }
 
-/* ==========================================
-   SESSÃO
-========================================== */
 
 function obterSessao() {
     try {
@@ -230,36 +208,29 @@ function verificarSessao() {
         window.location.replace("intro.html");
         return false;
     }
-
     return true;
 }
 
 function terminarSessao(evento) {
     evento.preventDefault();
-
     localStorage.removeItem("sessao");
     window.location.href = "intro.html";
 }
 
 function configurarLogout() {
-    document.getElementById("botao-logout")
-        ?.addEventListener("click", terminarSessao);
+    document.getElementById("botao-logout") ?.addEventListener("click", terminarSessao);
 }
 
-/* ==========================================
-   MENSAGENS
-========================================== */
 
 function escaparHtml(texto) {
     const elemento = document.createElement("div");
     elemento.textContent = texto ?? "";
-
     return elemento.innerHTML;
 }
 
+
 function mostrarToast(mensagem, tipo = "sucesso") {
     let contentor = document.getElementById("toast-contentor");
-
     if (!contentor) {
         contentor = document.createElement("div");
         contentor.id = "toast-contentor";
@@ -269,23 +240,21 @@ function mostrarToast(mensagem, tipo = "sucesso") {
     const toast = document.createElement("div");
     toast.className = "toast toast-" + tipo;
     toast.textContent = mensagem;
-
     contentor.appendChild(toast);
 
     setTimeout(function() {
         toast.classList.add("toast-sair");
-
         setTimeout(function() {
             toast.remove();
         }, 300);
     }, 3500);
 }
 
+
 function mostrarAlerta(elemento, mensagem) {
     if (!elemento) {
         return;
     }
-
     elemento.textContent = mensagem;
     elemento.classList.add("visivel");
 }
@@ -294,28 +263,21 @@ function esconderAlerta(elemento) {
     if (!elemento) {
         return;
     }
-
     elemento.textContent = "";
     elemento.classList.remove("visivel");
 }
 
-/* ==========================================
-   DATAS
-========================================== */
 
 function obterDataAtual() {
     const hoje = new Date();
-
     const ano = hoje.getFullYear();
     const mes = String(hoje.getMonth() + 1).padStart(2, "0");
     const dia = String(hoje.getDate()).padStart(2, "0");
-
     return `${ano}-${mes}-${dia}`;
 }
 
 function configurarDataNascimento() {
     const campo = document.getElementById("perfil-data-nascimento");
-
     if (!campo) {
         return;
     }
@@ -323,7 +285,6 @@ function configurarDataNascimento() {
     campo.min = "1900-01-01";
     campo.max = obterDataAtual();
     campo.required = true;
-
     document.getElementById("perfil-nome").required = true;
 }
 
@@ -333,26 +294,18 @@ function validarDataNascimento(valor) {
     }
 
     const [ano, mes, dia] = valor.split("-").map(Number);
-
     if (ano < 1900) {
         return false;
     }
 
     const data = new Date(ano, mes - 1, dia);
-
-    // Impede datas impossíveis, como 31 de fevereiro.
-    if (
-        data.getFullYear() !== ano ||
-        data.getMonth() !== mes - 1 ||
-        data.getDate() !== dia
-    ) {
+    if (data.getFullYear() !== ano || data.getMonth() !== mes - 1 || data.getDate() !== dia) {
         return false;
     }
 
     const hoje = new Date();
     hoje.setHours(0, 0, 0, 0);
     data.setHours(0, 0, 0, 0);
-
     return data >= new Date(1900, 0, 1) && data <= hoje;
 }
 
@@ -362,48 +315,37 @@ function formatarData(valor) {
     }
 
     const partes = String(valor).substring(0, 10).split("-");
-
     if (partes.length !== 3) {
         return obterTextoPerfis("sem_dados");
     }
-
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
-/* ==========================================
-   FOTOGRAFIA
-========================================== */
 
 function lerFotografia() {
     return new Promise(function(resolve, reject) {
         const campoEntrada = document.getElementById("perfil-fotografia");
         const ficheiro = campoEntrada.files?.[0];
-
         if (!ficheiro) {
             resolve(null);
             return;
         }
-
         if (!ficheiro.type.startsWith("image/")) {
             reject(new Error(obterTextoPerfis("fotografia_invalida")));
             return;
         }
-
         if (ficheiro.size > 3 * 1024 * 1024) {
             reject(new Error(obterTextoPerfis("fotografia_grande")));
             return;
         }
 
         const leitor = new FileReader();
-
         leitor.onload = function() {
             resolve(leitor.result);
         };
-
         leitor.onerror = function() {
             reject(new Error(obterTextoPerfis("fotografia_invalida")));
         };
-
         leitor.readAsDataURL(ficheiro);
     });
 }
@@ -425,16 +367,12 @@ async function obterPerfisDoUtilizador() {
     if (Array.isArray(resposta)) {
         return resposta;
     }
-
     if (Array.isArray(resposta?.data)) {
         return resposta.data;
     }
     return [];
 }
 
-/* ==========================================
-   MOSTRAR PERFIS
-========================================== */
 
 async function renderizarPerfis() {
     const lista = document.getElementById("lista-perfis");
@@ -443,121 +381,117 @@ async function renderizarPerfis() {
         return;
     }
 
+    const estadoVazio = document.getElementById("estado-vazio-perfis");
+
     try {
         const perfis = await obterPerfisDoUtilizador();
-
-        lista.innerHTML = "";
-
+        lista.querySelectorAll(".perfil-card").forEach(function(card) {
+            card.remove();
+        });
         if (perfis.length === 0) {
-            lista.innerHTML = `
-                <div class="estado-vazio">
-                    <div class="estado-vazio-icone">👤</div>
-                    <h3>${escaparHtml(obterTextoPerfis("nenhum_perfil"))}</h3>
-                    <p>${escaparHtml(obterTextoPerfis("nenhum_perfil_texto"))}</p>
-                </div>
-            `;
-
+            if (estadoVazio) {
+                estadoVazio.hidden = false;
+            }
             return;
+        }
+
+        if (estadoVazio) {
+            estadoVazio.hidden = true;
         }
 
         perfis.forEach(function(perfil) {
             const card = document.createElement("article");
             card.className = "perfil-card";
 
-            const fotografia = perfil.fotografia
-                ? `<img src="${escaparHtml(perfil.fotografia)}" alt="${escaparHtml(perfil.nome)}">`
-                : "👤";
+            const cabecalho = document.createElement("div");
+            cabecalho.className = "perfil-cabecalho";
 
-            card.innerHTML = `
-                <div class="perfil-cabecalho">
-                    <div class="perfil-avatar">
-                        ${fotografia}
-                    </div>
+            const avatar = document.createElement("div");
+            avatar.className = "perfil-avatar";
 
-                    <div>
-                        <h3>${escaparHtml(perfil.nome)}</h3>
-                        <p>${escaparHtml(formatarData(perfil.dataNascimento))}</p>
-                    </div>
-                </div>
+            if (perfil.fotografia) {
+                const imagem = document.createElement("img");
+                imagem.src = perfil.fotografia;
+                imagem.alt = perfil.nome;
+                avatar.appendChild(imagem);
+            } else {
+                avatar.textContent = "👤";
+            }
 
-                <div class="perfil-acoes">
-                    <button type="button" class="btn btn-secondary" data-acao="editar">
-                        ${escaparHtml(obterTextoPerfis("editar"))}
-                    </button>
+            const informacoes = document.createElement("div");
 
-                    <button type="button" class="btn btn-primary" data-acao="medicamentos">
-                        ${escaparHtml(obterTextoPerfis("medicamentos"))}
-                    </button>
+            const nome = document.createElement("h3");
+            nome.textContent = perfil.nome;
 
-                    <button type="button" class="btn btn-secondary" data-acao="ver">
-                        ${escaparHtml(obterTextoPerfis("ver_perfil"))}
-                    </button>
-                </div>
-            `;
+            const dataNascimento = document.createElement("p");
+            dataNascimento.textContent = formatarData(perfil.dataNascimento);
 
-            card.querySelector('[data-acao="medicamentos"]')
-                .addEventListener("click", function() {
-                    window.location.href =
-                        "medicamentos.html?perfil=" + encodeURIComponent(perfil.idPerfil);
-                });
+            informacoes.appendChild(nome);
+            informacoes.appendChild(dataNascimento);
+            cabecalho.appendChild(avatar);
+            cabecalho.appendChild(informacoes);
 
-            card.querySelector('[data-acao="ver"]')
-                .addEventListener("click", function() {
-                    abrirModalVerPerfil(perfil.idPerfil);
-                });
+            const acoes = document.createElement("div");
+            acoes.className = "perfil-acoes";
+            
+            const botaoEditar = document.createElement("button");
+            botaoEditar.type = "button";
+            botaoEditar.className = "btn btn-secondary";
+            botaoEditar.textContent = obterTextoPerfis("editar");
 
-            card.querySelector('[data-acao="editar"]')
-                .addEventListener("click", function() {
-                    abrirModalEditarPerfil(perfil.idPerfil);
-                });
+            const botaoMedicamentos = document.createElement("button");
+            botaoMedicamentos.type = "button";
+            botaoMedicamentos.className = "btn btn-primary";
+            botaoMedicamentos.textContent = obterTextoPerfis("medicamentos");
 
+            const botaoVer = document.createElement("button");
+            botaoVer.type = "button";
+            botaoVer.className = "btn btn-secondary";
+            botaoVer.textContent = obterTextoPerfis("ver_perfil");
 
+            botaoEditar.addEventListener("click", function() {
+                abrirModalEditarPerfil(perfil.idPerfil);
+            });
+            botaoMedicamentos.addEventListener("click", function() {
+                window.location.href = "medicamentos.html?perfil=" + encodeURIComponent(perfil.idPerfil);
+            });
+            botaoVer.addEventListener("click", function() {
+                abrirModalVerPerfil(perfil.idPerfil);
+            });
+            acoes.appendChild(botaoEditar);
+            acoes.appendChild(botaoMedicamentos);
+            acoes.appendChild(botaoVer);
+            card.appendChild(cabecalho);
+            card.appendChild(acoes);
             lista.appendChild(card);
         });
     } catch (erro) {
         console.error(erro);
-
-        mostrarToast(
-            erro.message || obterTextoPerfis("erro_carregar"),
-            "erro"
-        );
+        mostrarToast(erro.message || obterTextoPerfis("erro_carregar"), "erro");
     }
 }
 
-/* ==========================================
-   ABRIR MODAL DE CRIAÇÃO
-========================================== */
 
 function abrirModalAdicionarPerfil() {
     idPerfilEmEdicao = null;
-
     const formulario = document.getElementById("form-perfil");
     formulario.reset();
 
-    document.getElementById("modal-perfil-titulo").textContent =
-        obterTextoPerfis("criar_perfil");
-
+    document.getElementById("modal-perfil-titulo").textContent = obterTextoPerfis("criar_perfil");
     document.getElementById("botao-eliminar-perfil").style.display = "none";
     document.getElementById("botao-guardar-perfil").disabled = false;
 
     esconderAlerta(document.getElementById("perfil-alerta"));
     configurarDataNascimento();
-
     abrirModal("modal-perfil");
 }
-
-/* ==========================================
-   ABRIR MODAL DE EDIÇÃO
-========================================== */
 
 async function abrirModalEditarPerfil(idPerfil) {
     try {
         const perfis = await obterPerfisDoUtilizador();
-
         const perfil = perfis.find(function(perfilEncontrado) {
             return String(perfilEncontrado.idPerfil) === String(idPerfil);
         });
-
         if (!perfil) {
             mostrarToast(obterTextoPerfis("erro_carregar"), "erro");
             return;
@@ -566,50 +500,27 @@ async function abrirModalEditarPerfil(idPerfil) {
         idPerfilEmEdicao = perfil.idPerfil;
 
         document.getElementById("form-perfil").reset();
-
         document.getElementById("perfil-nome").value = perfil.nome || "";
-
-        document.getElementById("perfil-data-nascimento").value =
-            perfil.dataNascimento
-                ? String(perfil.dataNascimento).substring(0, 10)
-                : "";
-
+        document.getElementById("perfil-data-nascimento").value = perfil.dataNascimento ? String(perfil.dataNascimento).substring(0, 10) : "";
         document.getElementById("perfil-alergias").value = perfil.alergias || "";
-        document.getElementById("perfil-problemas-saude").value =
-            perfil.problemasSaude || "";
-        document.getElementById("perfil-observacoes").value =
-            perfil.observacoes || "";
-
-        document.getElementById("modal-perfil-titulo").textContent =
-            obterTextoPerfis("editar_perfil");
-
+        document.getElementById("perfil-problemas-saude").value = perfil.problemasSaude || "";
+        document.getElementById("perfil-observacoes").value = perfil.observacoes || "";
+        document.getElementById("modal-perfil-titulo").textContent = obterTextoPerfis("editar_perfil");
         document.getElementById("botao-eliminar-perfil").style.display = "inline-flex";
 
         esconderAlerta(document.getElementById("perfil-alerta"));
         configurarDataNascimento();
-
         abrirModal("modal-perfil");
     } catch (erro) {
         console.error(erro);
-
-        mostrarToast(
-            erro.message || obterTextoPerfis("erro_carregar"),
-            "erro"
-        );
+        mostrarToast(erro.message || obterTextoPerfis("erro_carregar"), "erro");
     }
 }
 
-/* ==========================================
-   FECHAR MODAL DE PERFIL
-========================================== */
-
 function fecharModalPerfil() {
     fecharModal("modal-perfil");
-
     document.getElementById("form-perfil").reset();
-
     esconderAlerta(document.getElementById("perfil-alerta"));
-
     idPerfilEmEdicao = null;
 }
 
@@ -628,13 +539,11 @@ async function submeterFormularioPerfil(evento) {
         document.getElementById("perfil-nome").focus();
         return;
     }
-
     if (!dataNascimento) {
         mostrarAlerta(alerta, obterTextoPerfis("data_obrigatoria"));
         document.getElementById("perfil-data-nascimento").focus();
         return;
     }
-
     if (!validarDataNascimento(dataNascimento)) {
         mostrarAlerta(alerta, obterTextoPerfis("data_invalida"));
         document.getElementById("perfil-data-nascimento").focus();
@@ -643,32 +552,24 @@ async function submeterFormularioPerfil(evento) {
 
     const botaoGuardar = document.getElementById("botao-guardar-perfil");
     botaoGuardar.disabled = true;
-
     try {
         const sessao = obterSessao();
-
         if (!sessao) {
             window.location.replace("intro.html");
             return;
         }
 
         const idUtilizador = Number(sessao.idUtilizador || sessao.id);
-
         if (!idUtilizador) {
             throw new Error(obterTextoPerfis("erro_sessao"));
         }
 
         let fotografia = await lerFotografia();
-
-        // Se não foi escolhida uma nova imagem durante a edição,
-        // mantém a fotografia que já estava guardada.
         if (idPerfilEmEdicao !== null && fotografia === null) {
             const perfis = await obterPerfisDoUtilizador();
-
             const perfilOriginal = perfis.find(function(perfilEncontrado) {
                 return String(perfilEncontrado.idPerfil) === String(idPerfilEmEdicao);
             });
-
             fotografia = perfilOriginal?.fotografia || null;
         }
 
@@ -696,73 +597,52 @@ async function submeterFormularioPerfil(evento) {
         }
     } catch (erro) {
         console.error(erro);
-
-        mostrarAlerta(
-            alerta,
-            erro.message || obterTextoPerfis("erro_guardar")
-        );
+        mostrarAlerta(alerta, erro.message || obterTextoPerfis("erro_guardar"));
     } finally {
         botaoGuardar.disabled = false;
     }
 }
 
-/* ==========================================
-   VER DETALHES DO PERFIL
-========================================== */
 
 async function abrirModalVerPerfil(idPerfil) {
     try {
         const perfis = await obterPerfisDoUtilizador();
-
         const perfil = perfis.find(function(perfilEncontrado) {
             return String(perfilEncontrado.idPerfil) === String(idPerfil);
         });
-
         if (!perfil) {
             return;
         }
 
         idPerfilParaEditarDepoisDeVer = perfil.idPerfil;
 
-        const fotografia = perfil.fotografia
-            ? `<img src="${escaparHtml(perfil.fotografia)}" alt="${escaparHtml(perfil.nome)}">`
-            : `<div class="perfil-avatar">👤</div>`;
+        const fotografia = document.getElementById("ver-perfil-fotografia");
+        const nome = document.getElementById("ver-perfil-nome");
+        const data = document.getElementById("ver-perfil-data");
+        const alergias = document.getElementById("ver-perfil-alergias");
+        const problemas = document.getElementById("ver-perfil-problemas");
+        const observacoes = document.getElementById("ver-perfil-observacoes");
 
-        document.getElementById("ver-perfil-corpo").innerHTML = `
-            <div class="perfil-detalhes">
-                ${fotografia}
-                <h3>${escaparHtml(perfil.nome)}</h3>
+        fotografia.replaceChildren();
 
-                <p>
-                    <strong>${escaparHtml(obterTextoPerfis("data_detalhe"))}:</strong>
-                    ${escaparHtml(formatarData(perfil.dataNascimento))}
-                </p>
+        if (perfil.fotografia) {
+            const imagem = document.createElement("img");
+            imagem.src = perfil.fotografia;
+            imagem.alt = perfil.nome;
+            fotografia.appendChild(imagem);
+        } else {
+            fotografia.textContent = "👤";
+        }
 
-                <p>
-                    <strong>${escaparHtml(obterTextoPerfis("alergias"))}:</strong>
-                    ${escaparHtml(perfil.alergias || obterTextoPerfis("sem_dados"))}
-                </p>
-
-                <p>
-                    <strong>${escaparHtml(obterTextoPerfis("problemas_saude"))}:</strong>
-                    ${escaparHtml(perfil.problemasSaude || obterTextoPerfis("sem_dados"))}
-                </p>
-
-                <p>
-                    <strong>${escaparHtml(obterTextoPerfis("observacoes"))}:</strong>
-                    ${escaparHtml(perfil.observacoes || obterTextoPerfis("sem_dados"))}
-                </p>
-            </div>
-        `;
-
+        nome.textContent = perfil.nome;
+        data.textContent = formatarData(perfil.dataNascimento);
+        alergias.textContent = perfil.alergias || obterTextoPerfis("sem_dados");
+        problemas.textContent = perfil.problemasSaude || obterTextoPerfis("sem_dados");
+        observacoes.textContent = perfil.observacoes || obterTextoPerfis("sem_dados");
         abrirModal("modal-ver-perfil");
     } catch (erro) {
         console.error(erro);
-
-        mostrarToast(
-            erro.message || obterTextoPerfis("erro_carregar"),
-            "erro"
-        );
+        mostrarToast(erro.message || obterTextoPerfis("erro_carregar"), "erro");
     }
 }
 
@@ -770,26 +650,18 @@ function editarPerfilDepoisDeVer() {
     if (idPerfilParaEditarDepoisDeVer === null) {
         return;
     }
-
     const idPerfil = idPerfilParaEditarDepoisDeVer;
-
     fecharModal("modal-ver-perfil");
-
     abrirModalEditarPerfil(idPerfil);
 }
 
-/* ==========================================
-   CONFIRMAR ELIMINAÇÃO
-========================================== */
 
 async function abrirConfirmacaoEliminacao(idPerfil) {
     try {
         const perfis = await obterPerfisDoUtilizador();
-
         const perfil = perfis.find(function(perfilEncontrado) {
             return String(perfilEncontrado.idPerfil) === String(idPerfil);
         });
-
         if (!perfil) {
             mostrarToast(obterTextoPerfis("erro_carregar"), "erro");
             return;
@@ -797,17 +669,11 @@ async function abrirConfirmacaoEliminacao(idPerfil) {
 
         idPerfilParaEliminar = perfil.idPerfil;
 
-        document.getElementById("texto-confirmar-eliminacao").textContent =
-            obterTextoPerfis("confirmar_eliminar") + " " + perfil.nome + "?";
-
+        document.getElementById("texto-confirmar-eliminacao").textContent = obterTextoPerfis("confirmar_eliminar") + " " + perfil.nome + "?";
         abrirModal("modal-confirmar-eliminacao");
     } catch (erro) {
         console.error(erro);
-
-        mostrarToast(
-            erro.message || obterTextoPerfis("erro_eliminar"),
-            "erro"
-        );
+        mostrarToast(erro.message || obterTextoPerfis("erro_eliminar"), "erro");
     }
 }
 
@@ -823,83 +689,49 @@ async function confirmarEliminacaoPerfil() {
 
     const botao = document.getElementById("botao-confirmar-eliminacao");
     botao.disabled = true;
-
     try {
         await api.eliminarPerfil(idPerfilParaEliminar);
-
         fecharModal("modal-confirmar-eliminacao");
         idPerfilParaEliminar = null;
-
         await renderizarPerfis();
-
         mostrarToast(obterTextoPerfis("perfil_eliminado"), "sucesso");
     } catch (erro) {
         console.error(erro);
-
-        mostrarToast(
-            erro.message || obterTextoPerfis("erro_eliminar"),
-            "erro"
-        );
+        mostrarToast(erro.message || obterTextoPerfis("erro_eliminar"), "erro");
     } finally {
         botao.disabled = false;
     }
 }
 
-/* ==========================================
-   EVENTOS DOS BOTÕES
-========================================== */
 
 function configurarPaginaPerfis() {
-    document.getElementById("botao-criar-perfil")
-        ?.addEventListener("click", abrirModalAdicionarPerfil);
-
-    document.getElementById("form-perfil")
-        ?.addEventListener("submit", submeterFormularioPerfil);
-
-    document.getElementById("botao-fechar-perfil")
-        ?.addEventListener("click", fecharModalPerfil);
-
-    document.getElementById("botao-cancelar-perfil")
-        ?.addEventListener("click", fecharModalPerfil);
-
-    document.getElementById("botao-eliminar-perfil")
-        ?.addEventListener("click", function() {
-            if (idPerfilEmEdicao !== null) {
-                const idPerfil = idPerfilEmEdicao;
-
-                fecharModalPerfil();
-                abrirConfirmacaoEliminacao(idPerfil);
+    document.getElementById("botao-criar-perfil") ?.addEventListener("click", abrirModalAdicionarPerfil);
+    document.getElementById("form-perfil") ?.addEventListener("submit", submeterFormularioPerfil);
+    document.getElementById("botao-fechar-perfil") ?.addEventListener("click", fecharModalPerfil);
+    document.getElementById("botao-cancelar-perfil") ?.addEventListener("click", fecharModalPerfil);
+    document.getElementById("botao-eliminar-perfil") ?.addEventListener("click", function() {
+        if (idPerfilEmEdicao !== null) {
+            const idPerfil = idPerfilEmEdicao;
+            fecharModalPerfil();
+            abrirConfirmacaoEliminacao(idPerfil);
             }
         });
 
-    document.getElementById("botao-fechar-ver-perfil")
-        ?.addEventListener("click", function() {
-            fecharModal("modal-ver-perfil");
-        });
+    document.getElementById("botao-fechar-ver-perfil") ?.addEventListener("click", function() {
+        fecharModal("modal-ver-perfil");
+    });
 
-    document.getElementById("botao-cancelar-ver-perfil")
-        ?.addEventListener("click", function() {
-            fecharModal("modal-ver-perfil");
-        });
+    document.getElementById("botao-cancelar-ver-perfil") ?.addEventListener("click", function() {
+        fecharModal("modal-ver-perfil");
+    });
 
-    document.getElementById("botao-ver-editar")
-        ?.addEventListener("click", editarPerfilDepoisDeVer);
-
-    document.getElementById("botao-fechar-confirmacao")
-        ?.addEventListener("click", cancelarEliminacaoPerfil);
-
-    document.getElementById("botao-cancelar-eliminacao")
-        ?.addEventListener("click", cancelarEliminacaoPerfil);
-
-    document.getElementById("botao-confirmar-eliminacao")
-        ?.addEventListener("click", confirmarEliminacaoPerfil);
-
+    document.getElementById("botao-ver-editar") ?.addEventListener("click", editarPerfilDepoisDeVer);
+    document.getElementById("botao-fechar-confirmacao") ?.addEventListener("click", cancelarEliminacaoPerfil);
+    document.getElementById("botao-cancelar-eliminacao") ?.addEventListener("click", cancelarEliminacaoPerfil);
+    document.getElementById("botao-confirmar-eliminacao") ?.addEventListener("click", confirmarEliminacaoPerfil);
     configurarLogout();
 }
 
-/* ==========================================
-   INICIALIZAÇÃO
-========================================== */
 
 window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesPerfis(); });
 
@@ -907,10 +739,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     if (!verificarSessao()) {
         return;
     }
-
     aplicarTraducoesPerfis();
     configurarDataNascimento();
     configurarPaginaPerfis();
-
     await renderizarPerfis();
 });

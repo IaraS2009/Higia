@@ -22,18 +22,47 @@ const traducoesInicio = {
         stock_baixo: "Stock baixo",
         unidades: "unidades",
         atualizar: "Atualizar",
+        stock_atualizado: "Stock atualizado com sucesso.",
+        stock_invalido: "Introduz uma quantidade de stock válida.",
+        stock: "Stock",
 
         toma_prevista: "Toma prevista para",
-        erro_stock: "Não existe quantidade suficiente de medicamento para registar esta toma.",
+        confirmar_toma: "Tem a certeza de que pretende registar a toma prevista para as {hora}? Confirme apenas se o medicamento já foi tomado.",
         toma_registada: "Toma registada com sucesso.",
+        hora_nao_chegou: "Ainda não chegou a hora prevista para esta toma.",
+
+        detalhes_toma: "Detalhes da toma",
+        fechar: "Fechar",
+        confirmar_registo_toma: "Confirmar registo da toma",
+        cancelar: "Cancelar",
+        sim_registar_toma: "Sim, registar toma",
+
+        atualizar_stock: "Atualizar stock",
+        nova_quantidade_disponivel: "Nova quantidade disponível",
+        stock_atual: "Stock atual",
+        guardar: "Guardar",
+
+        medicamento: "Medicamento",
+        perfil: "Perfil",
+        data: "Data",
+        hora_prevista: "Hora prevista",
+        estado: "Estado",
+        quantidade_toma: "Quantidade da toma",
+        stock_disponivel: "Stock disponível",
+        tipo: "Tipo",
+        dosagem: "Dosagem",
+        frequencia: "Frequência",
+        observacoes: "Observações",
+
+        erro_stock: "Não existe quantidade suficiente de medicamento para registar esta toma.",
         medicamento_nao_encontrado: "Não foi possível encontrar o medicamento.",
+        erro_confirmacao: "Não foi possível abrir a confirmação da toma. Atualiza a página e tenta novamente.",
 
         alertas: "Avisos",
         alertas_subtitulo: "Informações importantes sobre a tua medicação.",
 
         erro_carregar: "Não foi possível carregar os dados. Verifica se a API está em funcionamento.",
-        erro_registar: "Não foi possível registar a toma.",
-        stock: "Stock"
+        erro_registar: "Não foi possível registar a toma."
     },
 
     en: {
@@ -56,18 +85,47 @@ const traducoesInicio = {
         stock_baixo: "Low stock",
         unidades: "units",
         atualizar: "Update",
+        stock_atualizado: "Stock updated successfully.",
+        stock_invalido: "Enter a valid stock quantity.",
+        stock: "Stock",
 
         toma_prevista: "Scheduled for",
-        erro_stock: "There is not enough medication to register this intake.",
+        confirmar_toma: "Are you sure you want to register the dose scheduled for {hora}? Confirm only if the medicine has already been taken.",
         toma_registada: "Intake registered successfully.",
+        hora_nao_chegou: "The scheduled time for this intake has not arrived yet.",
+
+        detalhes_toma: "Intake details",
+        fechar: "Close",
+        confirmar_registo_toma: "Confirm intake registration",
+        cancelar: "Cancel",
+        sim_registar_toma: "Yes, register intake",
+
+        atualizar_stock: "Update stock",
+        nova_quantidade_disponivel: "New available quantity",
+        stock_atual: "Current stock",
+        guardar: "Save",
+
+        medicamento: "Medication",
+        perfil: "Profile",
+        data: "Date",
+        hora_prevista: "Scheduled time",
+        estado: "Status",
+        quantidade_toma: "Intake quantity",
+        stock_disponivel: "Available stock",
+        tipo: "Type",
+        dosagem: "Dosage",
+        frequencia: "Frequency",
+        observacoes: "Notes",
+
+        erro_stock: "There is not enough medication to register this intake.",
         medicamento_nao_encontrado: "The medication could not be found.",
+        erro_confirmacao: "Could not open the intake confirmation. Refresh the page and try again.",
 
         alertas: "Alerts",
         alertas_subtitulo: "Important information about your medication.",
 
         erro_carregar: "Could not load the data. Check that the API is running.",
-        erro_registar: "Could not register the intake.",
-        stock: "Stock"
+        erro_registar: "Could not register the intake."
     },
 
     es: {
@@ -90,18 +148,47 @@ const traducoesInicio = {
         stock_baixo: "Stock bajo",
         unidades: "unidades",
         atualizar: "Actualizar",
+        stock_atualizado: "Stock actualizado correctamente.",
+        stock_invalido: "Introduce una cantidad de stock válida.",
+        stock: "Stock",
 
         toma_prevista: "Toma prevista para",
-        erro_stock: "No hay suficiente medicamento para registrar esta toma.",
+        confirmar_toma: "¿Seguro que quieres registrar la toma prevista para las {hora}? Confirma solo si ya has tomado el medicamento.",
         toma_registada: "Toma registrada correctamente.",
+        hora_nao_chegou: "Todavía no ha llegado la hora prevista para esta toma.",
+
+        detalhes_toma: "Detalles de la toma",
+        fechar: "Cerrar",
+        confirmar_registo_toma: "Confirmar registro de la toma",
+        cancelar: "Cancelar",
+        sim_registar_toma: "Sí, registrar toma",
+
+        atualizar_stock: "Actualizar stock",
+        nova_quantidade_disponivel: "Nueva cantidad disponible",
+        stock_atual: "Stock actual",
+        guardar: "Guardar",
+
+        medicamento: "Medicamento",
+        perfil: "Perfil",
+        data: "Fecha",
+        hora_prevista: "Hora prevista",
+        estado: "Estado",
+        quantidade_toma: "Cantidad de la toma",
+        stock_disponivel: "Stock disponible",
+        tipo: "Tipo",
+        dosagem: "Dosis",
+        frequencia: "Frecuencia",
+        observacoes: "Observaciones",
+
+        erro_stock: "No hay suficiente medicamento para registrar esta toma.",
         medicamento_nao_encontrado: "No se ha encontrado el medicamento.",
+        erro_confirmacao: "No se pudo abrir la confirmación de la toma. Actualiza la página e inténtalo de nuevo.",
 
         alertas: "Avisos",
         alertas_subtitulo: "Información importante sobre tu medicación.",
 
         erro_carregar: "No se pudieron cargar los datos. Comprueba que la API esté funcionando.",
-        erro_registar: "No se pudo registrar la toma.",
-        stock: "Stock"
+        erro_registar: "No se pudo registrar la toma."
     }
 };
 
@@ -114,13 +201,21 @@ let medicamentoStockSelecionado = null;
 
 function obterIdiomaInicio() {
     const idioma = localStorage.getItem("idioma") || "pt";
-    return traducoesInicio[idioma] ? idioma : "pt";
+    if (traducoesInicio[idioma]) {
+        return idioma;
+    }
+    return "pt";
 }
 
 
 function textoInicio(chave) {
     const idioma = obterIdiomaInicio();
     return traducoesInicio[idioma][chave] || traducoesInicio.pt[chave] || chave;
+}
+
+
+function textoComHoraInicio(chave, hora) {
+    return textoInicio(chave).replace("{hora}", hora);
 }
 
 
@@ -151,10 +246,8 @@ function verificarSessaoInicio() {
     const sessao = obterSessaoInicio();
     const idUtilizador = sessao && (sessao.idUtilizador ?? sessao.id);
     if (idUtilizador === null || idUtilizador === undefined || String(idUtilizador).trim() === "") {
-        try { 
-            localStorage.removeItem("sessao"); 
-        } catch (erro) {
-        }
+        localStorage.removeItem("sessao");
+
         const destino = new URL("intro.html", window.location.href);
         window.location.replace(destino.href);
         return null;
@@ -179,16 +272,16 @@ async function carregarDadosInicio() {
     });
 
     medicamentosInicio = (Array.isArray(medicamentos) ? medicamentos : []).filter(function(medicamento) {
-            return idsPerfis.includes(String(medicamento.idPerfil));
-        });
-        
+        return idsPerfis.includes(String(medicamento.idPerfil));
+    });
+
     const idsMedicamentos = medicamentosInicio.map(function(medicamento) {
         return String(medicamento.idMedicamento);
     });
 
     tomasInicio = (Array.isArray(tomas) ? tomas : []).filter(function(toma) {
-            return idsMedicamentos.includes(String(toma.idMedicamento));
-        });
+        return idsMedicamentos.includes(String(toma.idMedicamento));
+    });
 }
 
 
@@ -198,16 +291,24 @@ function eHojeInicio(dataHora) {
         return false;
     }
     const hoje = new Date();
-    return data.getFullYear() === hoje.getFullYear() && data.getMonth() === hoje.getMonth() && data.getDate() === hoje.getDate();
+    return (data.getFullYear() === hoje.getFullYear() && data.getMonth() === hoje.getMonth() && data.getDate() === hoje.getDate());
 }
+
 
 function calcularEstadoTomaInicio(toma) {
     return window.Higia.calcularEstadoToma(toma.dataHora, toma.estado);
 }
 
+
 function formatarHoraInicio(dataHora) {
+    const idioma = obterIdiomaInicio();
+    const localidades = {
+        pt: "pt-PT",
+        en: "en-GB",
+        es: "es-ES"
+    };
     return new Date(dataHora).toLocaleTimeString(
-        obterIdiomaInicio() === "en" ? "en-GB" : "pt-PT",
+        localidades[idioma],
         {
             hour: "2-digit",
             minute: "2-digit"
@@ -215,17 +316,24 @@ function formatarHoraInicio(dataHora) {
     );
 }
 
+
 function formatarDataInicio(dataHora) {
     const idioma = obterIdiomaInicio();
-    const localidade = idioma === "en" ? "en-GB" : idioma === "es" ? "es-ES" : "pt-PT";
-    return new Date(dataHora).toLocaleDateString(localidade);
+    const localidades = {
+        pt: "pt-PT",
+        en: "en-GB",
+        es: "es-ES"
+    };
+    return new Date(dataHora).toLocaleDateString(localidades[idioma]);
 }
+
 
 function encontrarMedicamentoInicio(idMedicamento) {
     return medicamentosInicio.find(function(medicamento) {
         return String(medicamento.idMedicamento) === String(idMedicamento);
     });
 }
+
 
 function encontrarPerfilInicio(idPerfil) {
     return perfisInicio.find(function(perfil) {
@@ -239,8 +347,10 @@ async function atualizarDadosUtilizador() {
     const nomeElemento = document.getElementById("nome-utilizador");
     const fotoElemento = document.getElementById("foto-utilizador");
     const totalPerfis = document.getElementById("total-perfis");
-    
-    if (!sessao) return;
+    if (!sessao) {
+        return;
+    }
+
     let utilizador = sessao;
     try {
         const id = sessao.idUtilizador ?? sessao.id;
@@ -253,8 +363,10 @@ async function atualizarDadosUtilizador() {
                 email: utilizador.email || "",
                 fotografia: utilizador.fotografia || ""
             };
+
             delete sessaoAtualizada.palavraPasse;
             delete sessaoAtualizada.password;
+
             localStorage.setItem("sessao", JSON.stringify(sessaoAtualizada));
         }
     } catch (erro) {
@@ -270,13 +382,11 @@ async function atualizarDadosUtilizador() {
 
         if (utilizador.fotografia) {
             let imagem = fotoElemento.querySelector("img");
-
             if (!imagem) {
                 imagem = document.createElement("img");
                 imagem.alt = "Fotografia do utilizador";
                 fotoElemento.appendChild(imagem);
             }
-
             imagem.src = utilizador.fotografia;
 
             if (avatar) {
@@ -284,7 +394,6 @@ async function atualizarDadosUtilizador() {
             }
         } else {
             const imagem = fotoElemento.querySelector("img");
-
             if (imagem) {
                 imagem.remove();
             }
@@ -294,7 +403,12 @@ async function atualizarDadosUtilizador() {
             }
         }
     }
+
+    if (totalPerfis) {
+        totalPerfis.textContent = perfisInicio.length;
+    }
 }
+
 
 function renderizarTomasInicio() {
     const lista = document.getElementById("lista-tomas");
@@ -307,62 +421,81 @@ function renderizarTomasInicio() {
         return;
     }
 
+    const estadoVazio = document.getElementById("estado-vazio-tomas");
+    const tituloVazio = document.getElementById("titulo-tomas-vazio");
+    const textoVazio = document.getElementById("texto-tomas-vazio");
+
+    lista.querySelectorAll(".toma-inicio-card").forEach(function(cartao) {
+        cartao.remove();
+    });
+
     const tomas = tomasInicio.filter(function(toma) {
-            return eHojeInicio(toma.dataHora) && calcularEstadoTomaInicio(toma) !== "Tomada";
-        }).sort(function(a, b) {
-            return new Date(a.dataHora) - new Date(b.dataHora);
-        });
+        return (eHojeInicio(toma.dataHora) && calcularEstadoTomaInicio(toma) !== "Tomada");
+    }).sort(function(a, b) {
+        return new Date(a.dataHora) - new Date(b.dataHora);
+    });
 
     const pendentes = tomas.filter(function(toma) {
         const estado = calcularEstadoTomaInicio(toma);
-        return estado === "Pendente" || estado === "A aguardar hora";
+        return (estado === "Pendente" || estado === "A aguardar hora");
     }).length;
 
     const atrasadas = tomas.filter(function(toma) {
         return calcularEstadoTomaInicio(toma) === "Atrasada";
     }).length;
 
-    totalTomas.textContent = tomas.length;
-    totalPendentes.textContent = pendentes;
-    totalAtrasadas.textContent = atrasadas;
-    contador.textContent = tomas.length;
-    
+    if (totalTomas) {
+        totalTomas.textContent = tomas.length;
+    }
+
+    if (totalPendentes) {
+        totalPendentes.textContent = pendentes;
+    }
+
+    if (totalAtrasadas) {
+        totalAtrasadas.textContent = atrasadas;
+    }
+
+    if (contador) {
+        contador.textContent = tomas.length;
+    }
+
+    if (estadoVazio) {
+        estadoVazio.hidden = tomas.length > 0;
+    }
+
     if (tomas.length === 0) {
-        const estadoVazio = document.getElementById("estado-vazio-tomas");
-        const tituloVazio = document.getElementById("titulo-tomas-vazio");
-        const textoVazio = document.getElementById("texto-tomas-vazio");
-        if (estadoVazio) {
-            estadoVazio.hidden = false;
-        }
         if (tituloVazio) {
             tituloVazio.textContent = textoInicio("nenhuma_toma");
         }
         if (textoVazio) {
             textoVazio.textContent = textoInicio("nenhuma_toma_texto");
         }
-        lista.replaceChildren();
-        if (estadoVazio) {
-            lista.appendChild(estadoVazio);
-        }
         return;
     }
 
-    lista.replaceChildren();
-    const estadoVazio = document.getElementById("estado-vazio-tomas");
-    if (estadoVazio) {
-        estadoVazio.hidden = true;
-    }
+    const estados = {
+        "Atrasada": "atrasada",
+        "A aguardar hora": "aguardar_hora",
+        "Pendente": "pendente"
+    };
 
     tomas.forEach(function(toma) {
         const medicamento = encontrarMedicamentoInicio(toma.idMedicamento);
         if (!medicamento) {
             return;
         }
+
         const perfil = encontrarPerfilInicio(medicamento.idPerfil);
         const estado = calcularEstadoTomaInicio(toma);
         const cartao = document.createElement("article");
         cartao.className = "toma-inicio-card";
-        cartao.classList.add(estado === "Atrasada" ? "toma-atrasada" : "toma-pendente");
+
+        if (estado === "Atrasada") {
+            cartao.classList.add("toma-atrasada");
+        } else {
+            cartao.classList.add("toma-pendente");
+        }
         if (estado === "A aguardar hora") {
             cartao.classList.add("toma-a-aguardar-hora");
         }
@@ -390,25 +523,29 @@ function renderizarTomasInicio() {
 
         const estadoElemento = document.createElement("div");
         estadoElemento.className = "toma-inicio-estado";
-        estadoElemento.classList.add(
-            estado === "Atrasada" ? "estado-atrasada" : "estado-pendente"
-        );
+
+        if (estado === "Atrasada") {
+            estadoElemento.classList.add("estado-atrasada");
+        } else {
+            estadoElemento.classList.add("estado-pendente");
+        }
         if (estado === "A aguardar hora") {
             estadoElemento.classList.add("estado-a-aguardar-hora");
         }
-        const chaveEstado = estado === "Atrasada" ? "atrasada" : (estado === "A aguardar hora" ? "aguardar_hora" : "pendente");
+
+        const chaveEstado = estados[estado] || "pendente";
         estadoElemento.textContent = textoInicio(chaveEstado);
 
         const quantidade = document.createElement("div");
         quantidade.className = "toma-inicio-quantidade";
-        quantidade.textContent = `Stock: ${Number(medicamento.quantidadeDisponivel) || 0} ${textoInicio("unidades")}`;
+        quantidade.textContent = `${textoInicio("stock")}: ${Number(medicamento.quantidadeDisponivel) || 0} ${textoInicio("unidades")}`;
 
         const acoes = document.createElement("div");
         acoes.className = "toma-inicio-acoes";
 
         const instantePrevisto = new Date(toma.dataHora).getTime();
-        const podeRegistar = Number.isFinite(instantePrevisto) && Date.now() >= instantePrevisto && String(toma.estado || "").toLowerCase() !== "tomada";
 
+        const podeRegistar = Number.isFinite(instantePrevisto) && Date.now() >= instantePrevisto && String(toma.estado || "").toLowerCase() !== "tomada";
         if (podeRegistar) {
             const botaoRegistar = document.createElement("button");
             botaoRegistar.type = "button";
@@ -438,75 +575,104 @@ function renderizarTomasInicio() {
 function adicionarLinhaDetalhe(conteudo, etiqueta, valor) {
     const linha = document.createElement("p");
     linha.className = "linha-detalhe-toma";
+
     const forte = document.createElement("strong");
     forte.textContent = etiqueta + ": ";
+
     const texto = document.createElement("span");
-    texto.textContent = valor === null || valor === undefined || valor === "" ? "—" : String(valor);
+
+    if (valor === null || valor === undefined || valor === "") {
+        texto.textContent = "—";
+    } else {
+        texto.textContent = String(valor);
+    }
+
     linha.append(forte, texto);
     conteudo.appendChild(linha);
 }
 
+
 function abrirDetalhesTomaInicio(toma, medicamento, perfil) {
     const conteudo = document.getElementById("detalhes-toma-conteudo");
-    if (!conteudo) return;
+    if (!conteudo) {
+        return;
+    }
+
     conteudo.replaceChildren();
     const estado = calcularEstadoTomaInicio(toma);
-    adicionarLinhaDetalhe(conteudo, "Medicamento", medicamento.nome);
-    adicionarLinhaDetalhe(conteudo, "Perfil", perfil ? perfil.nome : "");
-    adicionarLinhaDetalhe(conteudo, "Data", formatarDataInicio(toma.dataHora));
-    adicionarLinhaDetalhe(conteudo, "Hora prevista", formatarHoraInicio(toma.dataHora));
-    adicionarLinhaDetalhe(conteudo, "Estado", estado);
-    adicionarLinhaDetalhe(conteudo, "Quantidade da toma", `${toma.quantidadeTomada ?? 0} ${textoInicio("unidades")}`);
-    adicionarLinhaDetalhe(conteudo, "Stock disponível", `${Number(medicamento.quantidadeDisponivel) || 0} ${textoInicio("unidades")}`);
-    adicionarLinhaDetalhe(conteudo, "Tipo", medicamento.tipo || "");
-    adicionarLinhaDetalhe(conteudo, "Dosagem", medicamento.dosagem || "");
-    adicionarLinhaDetalhe(conteudo, "Frequência", medicamento.frequencia || "");
-    adicionarLinhaDetalhe(conteudo, "Observações", medicamento.observacoes || "");
+
+    adicionarLinhaDetalhe(conteudo, textoInicio("medicamento"), medicamento.nome);
+    adicionarLinhaDetalhe(conteudo, textoInicio("perfil"), perfil ? perfil.nome : "");
+    adicionarLinhaDetalhe(conteudo, textoInicio("data"), formatarDataInicio(toma.dataHora));
+    adicionarLinhaDetalhe(conteudo, textoInicio("hora_prevista"), formatarHoraInicio(toma.dataHora));
+    adicionarLinhaDetalhe(conteudo, textoInicio("estado"), estado);
+    adicionarLinhaDetalhe(conteudo, textoInicio("quantidade_toma"), `${toma.quantidadeTomada ?? 0} ${textoInicio("unidades")}`);
+    adicionarLinhaDetalhe(conteudo, textoInicio("stock_disponivel"), `${Number(medicamento.quantidadeDisponivel) || 0} ${textoInicio("unidades")}`);
+    adicionarLinhaDetalhe(conteudo, textoInicio("tipo"), medicamento.tipo || "");
+    adicionarLinhaDetalhe(conteudo, textoInicio("dosagem"), medicamento.dosagem || "");
+    adicionarLinhaDetalhe(conteudo, textoInicio("frequencia"), medicamento.frequencia || "");
+    adicionarLinhaDetalhe(conteudo, textoInicio("observacoes"), medicamento.observacoes || "");
     window.abrirModal("modal-detalhes-toma");
 }
 
 
 function abrirAtualizarStockInicio(medicamento) {
     medicamentoStockSelecionado = medicamento;
+
     const nome = document.getElementById("nome-medicamento-stock");
     const campo = document.getElementById("nova-quantidade-stock");
     const stockAtual = document.getElementById("stock-atual-modal");
-    if (!nome || !campo || !stockAtual) return;
+
+    if (!nome || !campo || !stockAtual) {
+        return;
+    }
+
     nome.textContent = medicamento.nome || "Medicamento";
     campo.value = Number(medicamento.quantidadeDisponivel) || 0;
     stockAtual.textContent = campo.value;
+
     campo.disabled = false;
+
     window.abrirModal("modal-atualizar-stock");
+
     campo.focus();
     campo.select();
 }
 
+
 async function guardarStockInicio() {
-    if (!medicamentoStockSelecionado) return;
+    if (!medicamentoStockSelecionado) {
+        return;
+    }
 
     const campo = document.getElementById("nova-quantidade-stock");
     const botao = document.getElementById("botao-guardar-stock");
+    if (!campo || !botao) {
+        return;
+    }
+
     const novaQuantidade = Number(campo.value);
     if (campo.value.trim() === "" || !Number.isInteger(novaQuantidade) || novaQuantidade < 0) {
-        mostrarToastInicio(obterIdiomaInicio() === "en" ? "Enter a valid stock quantity." : obterIdiomaInicio() === "es" ? "Introduce una cantidad de stock válida." : "Introduz uma quantidade de stock válida.", "erro");
+        mostrarToastInicio(textoInicio("stock_invalido"), "erro");
         campo.focus();
         return;
     }
 
     botao.disabled = true;
     campo.disabled = true;
-
     try {
         const medicamentoAtualizado = {
             ...medicamentoStockSelecionado,
             quantidadeDisponivel: novaQuantidade
         };
+
         await api.editarMedicamento(medicamentoAtualizado);
         window.fecharModal("modal-atualizar-stock");
+
         await carregarDadosInicio();
         renderizarTomasInicio();
         renderizarAlertasInicio();
-        mostrarToastInicio(obterIdiomaInicio() === "en" ? "Stock updated successfully." : obterIdiomaInicio() === "es" ? "Stock actualizado correctamente." : "Stock atualizado com sucesso.", "sucesso");
+        mostrarToastInicio(textoInicio("stock_atualizado"), "sucesso");
     } catch (erro) {
         console.error("Erro ao atualizar o stock:", erro);
         mostrarToastInicio(erro.message || textoInicio("erro_carregar"), "erro");
@@ -533,17 +699,16 @@ function confirmarRegistoTomaInicio(toma) {
     const botaoCancelar = document.getElementById("botao-cancelar-confirmacao-toma");
     const botaoFechar = document.getElementById("botao-fechar-confirmacao-toma");
     if (!modal || !texto || !botaoConfirmar || !botaoCancelar || !botaoFechar) {
-        mostrarToastInicio("Não foi possível abrir a confirmação da toma. Atualiza a página e tenta novamente.", "erro");
+        mostrarToastInicio(textoInicio("erro_confirmacao"), "erro");
         return Promise.resolve(false);
     }
 
-    const idioma = obterIdiomaInicio();
     const horaPrevista = formatarHoraInicio(toma.dataHora);
-    texto.textContent = idioma === "en" ? `Are you sure you want to register the dose scheduled for ${horaPrevista}? Confirm only if the medicine has already been taken.`
-        : idioma === "es" ? `¿Seguro que quieres registrar la toma prevista para las ${horaPrevista}? Confirma solo si ya has tomado el medicamento.`
-            : `Tem a certeza de que pretende registar a toma prevista para as ${horaPrevista}? Confirme apenas se o medicamento já foi tomado.`;
+    texto.textContent = textoComHoraInicio("confirmar_toma", horaPrevista);
+
     modal.classList.add("aberto");
     document.body.style.overflow = "hidden";
+
     botaoConfirmar.focus();
 
     return new Promise((resolve) => {
@@ -551,30 +716,42 @@ function confirmarRegistoTomaInicio(toma) {
             resolverConfirmacaoTomaInicio(false);
             resolverConfirmacaoTomaInicio = null;
         }
-
         resolverConfirmacaoTomaInicio = resolve;
+
         const terminar = (confirmado) => {
             modal.classList.remove("aberto");
             if (!document.querySelector(".modal.aberto")) {
                 document.body.style.overflow = "";
             }
+
             botaoConfirmar.removeEventListener("click", confirmar);
             botaoCancelar.removeEventListener("click", cancelar);
             botaoFechar.removeEventListener("click", cancelar);
             modal.removeEventListener("click", clicarFundo);
             document.removeEventListener("keydown", teclaEscape);
+
             const resolver = resolverConfirmacaoTomaInicio;
             resolverConfirmacaoTomaInicio = null;
-            if (resolver) resolver(confirmado);
+            if (resolver) {
+                resolver(confirmado);
+            }
         };
 
-        const confirmar = () => terminar(true);
-        const cancelar = () => terminar(false);
-        const clicarFundo = (evento) => {
-            if (evento.target === modal) cancelar();
+        const confirmar = function() {
+            terminar(true);
         };
-        const teclaEscape = (evento) => {
-            if (evento.key === "Escape") cancelar();
+        const cancelar = function() {
+            terminar(false);
+        };
+        const clicarFundo = function(evento) {
+            if (evento.target === modal) {
+                cancelar();
+            }
+        };
+        const teclaEscape = function(evento) {
+            if (evento.key === "Escape") {
+                cancelar();
+            }
         };
 
         botaoConfirmar.addEventListener("click", confirmar);
@@ -592,7 +769,7 @@ async function registarTomaInicio(toma) {
     }
     const instantePrevisto = new Date(toma.dataHora).getTime();
     if (!Number.isFinite(instantePrevisto) || Date.now() < instantePrevisto) {
-        mostrarToastInicio("Ainda não chegou a hora prevista para esta toma.", "erro");
+        mostrarToastInicio(textoInicio("hora_nao_chegou"), "erro");
         return;
     }
 
@@ -606,26 +783,16 @@ async function registarTomaInicio(toma) {
         mostrarToastInicio(textoInicio("medicamento_nao_encontrado"), "erro");
         return;
     }
-    
     try {
         await api.registarToma(toma.idToma);
         await carregarDadosInicio();
-
-        atualizarDadosUtilizador();
+        await atualizarDadosUtilizador();
         renderizarTomasInicio();
         renderizarAlertasInicio();
-
-        mostrarToastInicio(
-            textoInicio("toma_registada"),
-            "sucesso"
-        );
+        mostrarToastInicio(textoInicio("toma_registada"), "sucesso");
     } catch (erro) {
         console.error("Erro ao registar toma:", erro);
-
-        mostrarToastInicio(
-            erro.message || textoInicio("erro_registar"),
-            "erro"
-        );
+        mostrarToastInicio(erro.message || textoInicio("erro_registar"), "erro");
     }
 }
 
@@ -634,7 +801,6 @@ function renderizarAlertasInicio() {
     const secao = document.getElementById("secao-alertas");
     const lista = document.getElementById("lista-alertas");
     const contador = document.getElementById("contador-alertas");
-
     if (!secao || !lista || !contador) {
         return;
     }
@@ -643,7 +809,6 @@ function renderizarAlertasInicio() {
 
     medicamentosInicio.forEach(function(medicamento) {
         const quantidadeStock = Number(medicamento.quantidadeDisponivel) || 0;
-
         if (quantidadeStock <= 5) {
             alertas.push({
                 tipo: "stock",
@@ -660,7 +825,6 @@ function renderizarAlertasInicio() {
         }
 
         const medicamento = encontrarMedicamentoInicio(toma.idMedicamento);
-
         if (medicamento) {
             alertas.push({
                 tipo: "atrasada",
@@ -671,8 +835,10 @@ function renderizarAlertasInicio() {
         }
     });
 
-    lista.innerHTML = "";
+    lista.replaceChildren();
+
     contador.textContent = String(alertas.length);
+
     secao.classList.toggle("is-hidden", alertas.length === 0);
     secao.style.display = alertas.length > 0 ? "" : "none";
 
@@ -717,13 +883,11 @@ function renderizarAlertasInicio() {
             botao.addEventListener("click", function() {
                 abrirAtualizarStockInicio(alerta.medicamento);
             });
-
             elemento.append(stockAtual, botao);
         } else {
             const hora = document.createElement("span");
             hora.className = "alerta-toma-texto";
-            hora.textContent =
-                `${textoInicio("toma_prevista")} ${formatarHoraInicio(alerta.toma.dataHora)}`;
+            hora.textContent = `${textoInicio("toma_prevista")} ${formatarHoraInicio(alerta.toma.dataHora)}`;
 
             const botao = document.createElement("button");
             botao.type = "button";
@@ -732,10 +896,8 @@ function renderizarAlertasInicio() {
             botao.addEventListener("click", function() {
                 registarTomaInicio(alerta.toma);
             });
-
             elemento.append(hora, botao);
         }
-
         lista.appendChild(elemento);
     });
 }
@@ -746,6 +908,7 @@ function configurarLogoutInicio() {
     if (!botao) {
         return;
     }
+
     botao.addEventListener("click", function(evento) {
         evento.preventDefault();
         localStorage.removeItem("sessao");
@@ -765,7 +928,6 @@ function mostrarToastInicio(mensagem, tipo) {
     const toast = document.createElement("div");
     toast.className = `toast toast-${tipo}`;
     toast.textContent = mensagem;
-
     contentor.appendChild(toast);
 
     setTimeout(function() {
@@ -777,7 +939,10 @@ function mostrarToastInicio(mensagem, tipo) {
 }
 
 
-window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesInicio(); });
+window.addEventListener("idiomaAlterado", function() {
+    aplicarTraducoesInicio();
+});
+
 
 document.addEventListener("DOMContentLoaded", async function() {
     const sessao = verificarSessaoInicio();
@@ -801,10 +966,9 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         });
     }
-
     try {
         await carregarDadosInicio();
-        atualizarDadosUtilizador();
+        await atualizarDadosUtilizador();
         renderizarTomasInicio();
         renderizarAlertasInicio();
     } catch (erro) {
@@ -815,7 +979,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     setInterval(async function() {
         try {
             await carregarDadosInicio();
-            atualizarDadosUtilizador();
+            await atualizarDadosUtilizador();
             renderizarTomasInicio();
             renderizarAlertasInicio();
         } catch (erro) {

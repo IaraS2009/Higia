@@ -983,9 +983,6 @@ function criarLinhaTodos(linha, registo) {
     ligarBotoesAcoes(linha, registo);
 }
 
-/* =========================================================
-   VER DETALHES
-   ========================================================= */
 
 function adicionarLinhaDetalhe(rotulo, valor) {
     return `
@@ -1190,9 +1187,6 @@ function mostrarDetalhesRegisto(registo) {
     abrirModalConsulta("modal-detalhes-dinamico");
 }
 
-/* =========================================================
-   EDIÇÃO DE REGISTOS
-   ========================================================= */
 
 function abrirEdicaoRegisto(registo) {
     tipoEdicaoAtual = registo.tipo;
@@ -1563,9 +1557,6 @@ function criarCamposEdicao(registo) {
     return "";
 }
 
-/* =========================================================
-   FOTOGRAFIA DO PERFIL
-   ========================================================= */
 
 function configurarFotografiaEdicao(modal, registo) {
     if (
@@ -1662,9 +1653,6 @@ function limparEstadoEdicao() {
     fotografiaSelecionada = null;
 }
 
-/* =========================================================
-   GUARDAR EDIÇÕES
-   ========================================================= */
 
 async function guardarEdicaoRegisto(evento) {
     evento.preventDefault();
@@ -1703,13 +1691,6 @@ async function guardarEdicaoRegisto(evento) {
                 observacoes: String(campos.observacoes || "").trim()
             };
 
-            /*
-             * Se não for selecionada uma nova imagem, o valor atual
-             * é preservado. Se for selecionada, envia-se a imagem
-             * codificada em Base64 (data URL).
-             *
-             * A API/backend tem de aceitar este formato de imagem.
-             */
             if (fotografiaSelecionada) {
                 perfilAtualizado = atualizarCampoFotografia(
                     perfilAtualizado,
@@ -1805,9 +1786,6 @@ async function guardarEdicaoRegisto(evento) {
     }
 }
 
-/* =========================================================
-   ELIMINAR REGISTOS
-   ========================================================= */
 
 function abrirConfirmacaoEliminacao(registo) {
     registoEliminacaoAtual = registo;
@@ -1910,9 +1888,6 @@ async function eliminarRegistoAtual() {
     }
 }
 
-/* =========================================================
-   RECARREGAR DADOS
-   ========================================================= */
 
 async function recarregarEAtualizarTabela() {
     const carregado = await carregarDadosConsulta();
@@ -1924,9 +1899,6 @@ async function recarregarEAtualizarTabela() {
     renderizarConsultas();
 }
 
-/* =========================================================
-   TRADUÇÕES E LOGOUT
-   ========================================================= */
 
 function aplicarTraducoesConsultas() {
     const idioma = obterIdiomaConsulta();
@@ -1953,9 +1925,6 @@ function configurarLogoutConsultas() {
     });
 }
 
-/* =========================================================
-   INICIALIZAÇÃO
-   ========================================================= */
 
 window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesConsultas(); });
 

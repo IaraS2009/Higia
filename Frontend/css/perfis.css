@@ -576,6 +576,9 @@ body {
     row-gap: 0;
 }
 
+.estado-vazio[hidden] {
+    display: none !important;
+}
 
 @media (max-width: 760px) {
     .pagina-perfis, .pagina-medicamentos {

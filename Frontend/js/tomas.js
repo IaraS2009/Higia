@@ -1,5 +1,5 @@
-
 import * as api from "./api.js";
+
 
 const traducoesTomas = {
     pt: {
@@ -8,41 +8,52 @@ const traducoesTomas = {
         criar_toma: "Criar toma",
         nenhuma_toma: "Ainda não existem tomas.",
         nenhuma_toma_texto: "Cria uma toma para começares a registar a medicação.",
+        hora_toma_nao_chegou: "Ainda não chegou a hora prevista para esta toma.",
+
         data: "Data",
         hora: "Hora",
         data_hora: "Data e hora",
         quantidade: "Quantidade",
+
         estado: "Estado",
         pendente: "Pendente",
         atrasada: "Atrasada",
         tomada: "Tomada",
+
         guardar: "Guardar",
         cancelar: "Cancelar",
         fechar: "Fechar",
         editar: "Editar",
         eliminar: "Eliminar",
         ver: "Ver detalhes",
+
         criar_toma_titulo: "Criar toma",
         editar_toma_titulo: "Editar toma",
         detalhes_toma: "Detalhes da toma",
+
         label_data_toma: "Data *",
         label_hora_toma: "Hora *",
         label_quantidade_toma: "Quantidade a tomar *",
+
         data_toma_obrigatoria: "Indica a data da toma.",
         hora_toma_obrigatoria: "Indica a hora da toma.",
         quantidade_toma_invalida: "A quantidade deve ser um número inteiro superior a zero.",
         data_toma_invalida: "A data e a hora da nova toma têm de ser futuras.",
+
         toma_criada: "Toma criada com sucesso.",
         toma_atualizada: "Toma atualizada com sucesso.",
         toma_eliminada: "Toma eliminada com sucesso.",
         toma_registada: "Toma registada com sucesso.",
+
         registar: "Registar toma",
         eliminar_toma: "Eliminar toma",
+
         confirmar_eliminar_toma_texto: "Tens a certeza de que pretendes eliminar esta toma?",
         confirmar_registo_toma: "Confirmar registo",
         confirmar_registo_toma_texto: "Confirmas que tomaste esta medicação?",
         confirmar_eliminacao_toma: "Eliminar toma",
         medicamento: "Medicamento",
+
         sem_informacao: "Sem informação",
         erro_carregar_tomas: "Não foi possível carregar as tomas.",
         erro_guardar_toma: "Não foi possível guardar a toma.",
@@ -56,42 +67,52 @@ const traducoesTomas = {
         subtitulo: "Manage this medication's doses.",
         criar_toma: "Create dose",
         nenhuma_toma: "There are no doses yet.",
-        nenhuma_toma_texto: "Create a dose to start tracking your medication.",
+        nenhuma_toma_texto: "Create a dose to start tracking your medication.",hora_toma_nao_chegou: "The scheduled time for this dose has not arrived yet.",
+
         data: "Date",
         hora: "Time",
         data_hora: "Date and time",
         quantidade: "Quantity",
+
         estado: "Status",
         pendente: "Pending",
         atrasada: "Late",
         tomada: "Taken",
+
         guardar: "Save",
         cancelar: "Cancel",
         fechar: "Close",
         editar: "Edit",
         eliminar: "Delete",
         ver: "View details",
+
         criar_toma_titulo: "Create dose",
         editar_toma_titulo: "Edit dose",
         detalhes_toma: "Dose details",
+
         label_data_toma: "Date *",
         label_hora_toma: "Time *",
         label_quantidade_toma: "Quantity to take *",
+
         data_toma_obrigatoria: "Enter the dose date.",
         hora_toma_obrigatoria: "Enter the dose time.",
         quantidade_toma_invalida: "The quantity must be a whole number greater than zero.",
         data_toma_invalida: "The new dose date and time must be in the future.",
+
         toma_criada: "Dose created successfully.",
         toma_atualizada: "Dose updated successfully.",
         toma_eliminada: "Dose deleted successfully.",
         toma_registada: "Dose registered successfully.",
+
         registar: "Register dose",
         eliminar_toma: "Delete dose",
+
         confirmar_eliminar_toma_texto: "Are you sure you want to delete this dose?",
         confirmar_registo_toma: "Confirm registration",
         confirmar_registo_toma_texto: "Do you confirm that you took this medication?",
         confirmar_eliminacao_toma: "Delete dose",
         medicamento: "Medication",
+
         sem_informacao: "No information",
         erro_carregar_tomas: "Could not load the doses.",
         erro_guardar_toma: "Could not save the dose.",
@@ -106,41 +127,52 @@ const traducoesTomas = {
         criar_toma: "Crear toma",
         nenhuma_toma: "Todavía no hay tomas.",
         nenhuma_toma_texto: "Crea una toma para empezar a controlar la medicación.",
+        hora_toma_nao_chegou: "Todavía no ha llegado la hora prevista para esta toma.",
+
         data: "Fecha",
         hora: "Hora",
         data_hora: "Fecha y hora",
         quantidade: "Cantidad",
+
         estado: "Estado",
         pendente: "Pendiente",
         atrasada: "Atrasada",
         tomada: "Tomada",
+
         guardar: "Guardar",
         cancelar: "Cancelar",
         fechar: "Cerrar",
         editar: "Editar",
         eliminar: "Eliminar",
         ver: "Ver detalles",
+
         criar_toma_titulo: "Crear toma",
         editar_toma_titulo: "Editar toma",
         detalhes_toma: "Detalles de la toma",
+
         label_data_toma: "Fecha *",
         label_hora_toma: "Hora *",
         label_quantidade_toma: "Cantidad que tomar *",
+
         data_toma_obrigatoria: "Introduce la fecha de la toma.",
         hora_toma_obrigatoria: "Introduce la hora de la toma.",
         quantidade_toma_invalida: "La cantidad debe ser un número entero mayor que cero.",
         data_toma_invalida: "La fecha y hora de la nueva toma deben ser futuras.",
+
         toma_criada: "Toma creada correctamente.",
         toma_atualizada: "Toma actualizada correctamente.",
+
         toma_eliminada: "Toma eliminada correctamente.",
         toma_registada: "Toma registrada correctamente.",
         registar: "Registrar toma",
         eliminar_toma: "Eliminar toma",
+
         confirmar_eliminar_toma_texto: "¿Seguro que quieres eliminar esta toma?",
         confirmar_registo_toma: "Confirmar registro",
         confirmar_registo_toma_texto: "¿Confirmas que has tomado esta medicación?",
         confirmar_eliminacao_toma: "Eliminar toma",
         medicamento: "Medicamento",
+
         sem_informacao: "Sin información",
         erro_carregar_tomas: "No se pudieron cargar las tomas.",
         erro_guardar_toma: "No se pudo guardar la toma.",
@@ -150,6 +182,7 @@ const traducoesTomas = {
     }
 };
 
+
 let idMedicamentoAtual = null;
 let idTomaEmEdicao = null;
 let idTomaParaEliminar = null;
@@ -157,13 +190,12 @@ let idTomaParaRegistar = null;
 let tomaSelecionada = null;
 let tomasAtuais = [];
 
+
 function obterTextoTomas(chave) {
     const idioma = localStorage.getItem("idioma") || "pt";
-
-    return traducoesTomas[idioma]?.[chave]
-        || traducoesTomas.pt[chave]
-        || chave;
+    return traducoesTomas[idioma]?.[chave] || traducoesTomas.pt[chave] || chave;
 }
+
 
 function aplicarTraducoesTomas(idioma) {
     if (!traducoesTomas[idioma]) {
@@ -172,7 +204,6 @@ function aplicarTraducoesTomas(idioma) {
 
     document.querySelectorAll("[data-i18n]").forEach(elemento => {
         const chave = elemento.getAttribute("data-i18n");
-
         if (traducoesTomas[idioma][chave] !== undefined) {
             elemento.textContent = traducoesTomas[idioma][chave];
         }
@@ -180,14 +211,13 @@ function aplicarTraducoesTomas(idioma) {
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(elemento => {
         const chave = elemento.getAttribute("data-i18n-placeholder");
-
         if (traducoesTomas[idioma][chave] !== undefined) {
             elemento.placeholder = traducoesTomas[idioma][chave];
         }
     });
-
     document.documentElement.lang = idioma === "pt" ? "pt" : idioma;
 }
+
 
 function obterSessao() {
     try {
@@ -201,13 +231,13 @@ function verificarSessao() {
     const sessao = obterSessao();
     const id = sessao && (sessao.idUtilizador ?? sessao.id);
     if (id === null || id === undefined || String(id).trim() === "") {
-        try { localStorage.removeItem("sessao"); } catch (erro) { /* ignorar */ }
+        try { localStorage.removeItem("sessao"); } catch (erro) { }
         window.location.replace(new URL("intro.html", window.location.href).href);
         return false;
     }
-
     return true;
 }
+
 
 function configurarLogout() {
     document.getElementById("botao-logout")?.addEventListener("click", evento => {
@@ -217,19 +247,21 @@ function configurarLogout() {
     });
 }
 
+
 function escaparHtml(texto) {
     const elemento = document.createElement("span");
     elemento.textContent = String(texto ?? "");
     return elemento.innerHTML;
 }
 
+
 function obterIdMedicamentoDaUrl() {
     return new URLSearchParams(window.location.search).get("medicamento");
 }
 
+
 function mostrarToast(mensagem, tipo = "sucesso") {
     let contentor = document.getElementById("toast-contentor");
-
     if (!contentor) {
         contentor = document.createElement("div");
         contentor.id = "toast-contentor";
@@ -248,16 +280,15 @@ function mostrarToast(mensagem, tipo = "sucesso") {
     }, 3500);
 }
 
+
 function mostrarAlerta(elemento, mensagem) {
     if (!elemento) return;
-
     elemento.textContent = mensagem;
     elemento.classList.add("visivel");
 }
 
 function esconderAlerta(elemento) {
     if (!elemento) return;
-
     elemento.textContent = "";
     elemento.classList.remove("visivel");
 }
@@ -268,21 +299,21 @@ function obterClasseEstado(estado) {
     return "estado-pendente";
 }
 
+
 function atualizarEstadoToma(toma) {
     if (toma.estado === "Tomada") {
         return "Tomada";
     }
 
     const dataToma = new Date(toma.dataHora);
-
     if (Number.isNaN(dataToma.getTime())) {
         return "Pendente";
     }
 
     const limiteAtraso = dataToma.getTime() + 30 * 60 * 1000;
-
     return Date.now() >= limiteAtraso ? "Atrasada" : "Pendente";
 }
+
 
 function obterTextoEstado(estado) {
     if (estado === "Tomada") return obterTextoTomas("tomada");
@@ -292,7 +323,6 @@ function obterTextoEstado(estado) {
 
 function formatarDataHora(dataHora) {
     const data = new Date(dataHora);
-
     if (Number.isNaN(data.getTime())) return "-";
 
     const idioma = localStorage.getItem("idioma") || "pt";
@@ -313,60 +343,54 @@ function obterDataLocal(data) {
     const ano = data.getFullYear();
     const mes = String(data.getMonth() + 1).padStart(2, "0");
     const dia = String(data.getDate()).padStart(2, "0");
-
     return `${ano}-${mes}-${dia}`;
 }
 
 function obterHoraLocal(data) {
     const horas = String(data.getHours()).padStart(2, "0");
     const minutos = String(data.getMinutes()).padStart(2, "0");
-
     return `${horas}:${minutos}`;
 }
 
+
 async function obterMedicamentoAtual() {
     if (!idMedicamentoAtual) return null;
-
     return await api.obterMedicamento(idMedicamentoAtual);
 }
 
 async function carregarInformacaoMedicamento() {
     const medicamento = await obterMedicamentoAtual();
-
     if (!medicamento) {
         mostrarToast(obterTextoTomas("medicamento_nao_encontrado"), "erro");
         return;
     }
 
-    document.getElementById("titulo-medicamento").textContent =
-        medicamento.nome || obterTextoTomas("medicamento");
+    document.getElementById("titulo-medicamento").textContent = medicamento.nome || obterTextoTomas("medicamento");
+    document.getElementById("subtitulo-medicamento").textContent = obterTextoTomas("subtitulo");
+    document.getElementById("toma-medicamento-nome").textContent = medicamento.nome || obterTextoTomas("medicamento");
 
-    document.getElementById("subtitulo-medicamento").textContent =
-        obterTextoTomas("subtitulo");
-
-    document.getElementById("toma-medicamento-nome").textContent =
-        medicamento.nome || obterTextoTomas("medicamento");
-
-    // Voltar à lista de medicamentos do perfil a que este medicamento pertence.
     const linkVoltar = document.getElementById("link-voltar-medicamentos");
-
     if (linkVoltar && medicamento.idPerfil != null) {
-        linkVoltar.href = `medicamentos.html?perfil=${encodeURIComponent(medicamento.idPerfil)}`;
+        linkVoltar.href = `medicamentos.html?perfil=${
+            encodeURIComponent(medicamento.idPerfil)
+        }`;
     } else if (linkVoltar) {
         linkVoltar.href = "perfis.html";
     }
 }
 
+
 async function renderizarTomas() {
     const lista = document.getElementById("lista-tomas");
     const estadoVazio = document.getElementById("estado-vazio");
-    if (!lista || !estadoVazio) return;
-
+    if (!lista || !estadoVazio) {
+        return;
+    }
     try {
         const resultado = await api.listarTomasMedicamento(idMedicamentoAtual);
         tomasAtuais = Array.isArray(resultado) ? resultado : [];
 
-        lista.querySelectorAll(".toma-card").forEach(cartao => {
+        lista.querySelectorAll(".toma-card").forEach(function(cartao) {
             cartao.remove();
         });
 
@@ -375,87 +399,118 @@ async function renderizarTomas() {
             lista.classList.remove("tem-tomas");
             return;
         }
-
         estadoVazio.hidden = true;
         lista.classList.add("tem-tomas");
 
-        tomasAtuais.sort((a, b) =>
-            new Date(a.dataHora) - new Date(b.dataHora)
-        );
+        tomasAtuais.sort(function(a, b) {
+            return new Date(a.dataHora) - new Date(b.dataHora);
+        });
 
-        tomasAtuais.forEach(toma => {
+        tomasAtuais.forEach(function(toma) {
             const estado = atualizarEstadoToma(toma);
             const linha = document.createElement("article");
 
-            linha.className = `toma-card toma-${estado.toLowerCase()}`;
+            linha.className = "toma-card toma-" + estado.toLowerCase();
 
-            const dataHora = escaparHtml(formatarDataHora(toma.dataHora));
-            const quantidade = escaparHtml(toma.quantidadeTomada ?? "-");
-            const textoEstado = escaparHtml(obterTextoEstado(estado));
+            const informacoes = document.createElement("div");
+            informacoes.className = "toma-informacoes";
 
-            linha.innerHTML = `
-                <div class="toma-informacoes">
-                    <div class="toma-detalhe">
-                        <span class="toma-rotulo">${escaparHtml(obterTextoTomas("data_hora"))}</span>
-                        <strong class="toma-data-hora">${dataHora}</strong>
-                    </div>
+            const detalheData = document.createElement("div");
+            detalheData.className = "toma-detalhe";
 
-                    <div class="toma-detalhe">
-                        <span class="toma-rotulo">${escaparHtml(obterTextoTomas("quantidade"))}</span>
-                        <strong class="toma-quantidade">${quantidade}</strong>
-                    </div>
+            const rotuloData = document.createElement("span");
+            rotuloData.className = "toma-rotulo";
+            rotuloData.textContent = obterTextoTomas("data_hora");
 
-                    <div class="toma-detalhe">
-                        <span class="toma-rotulo">${escaparHtml(obterTextoTomas("estado"))}</span>
-                        <span class="badge-estado ${obterClasseEstado(estado)}">${textoEstado}</span>
-                    </div>
-                </div>
+            const valorData = document.createElement("strong");
+            valorData.className = "toma-data-hora";
+            valorData.textContent = formatarDataHora(toma.dataHora);
+            detalheData.appendChild(rotuloData);
+            detalheData.appendChild(valorData);
 
-                <div class="toma-acoes">
-                    <button type="button" class="btn btn-secondary" data-acao="ver">
-                        ${escaparHtml(obterTextoTomas("ver"))}
-                    </button>
+            const detalheQuantidade = document.createElement("div");
+            detalheQuantidade.className = "toma-detalhe";
 
-                    ${estado !== "Tomada" ? `
-                        ${window.Higia?.podeRegistarToma?.(toma.dataHora) ? `
-                        <button type="button" class="btn btn-success" data-acao="registar">
-                            ${escaparHtml(obterTextoTomas("registar"))}
-                        </button>` : ""}
+            const rotuloQuantidade = document.createElement("span");
+            rotuloQuantidade.className = "toma-rotulo";
+            rotuloQuantidade.textContent = obterTextoTomas("quantidade");
 
-                        <button type="button" class="btn btn-primary" data-acao="editar">
-                            ${escaparHtml(obterTextoTomas("editar"))}
-                        </button>
-                    ` : ""}
+            const valorQuantidade = document.createElement("strong");
+            valorQuantidade.className = "toma-quantidade";
+            valorQuantidade.textContent = toma.quantidadeTomada ?? "-";
+            detalheQuantidade.appendChild(rotuloQuantidade);
+            detalheQuantidade.appendChild(valorQuantidade);
 
-                    <button type="button" class="btn btn-danger" data-acao="eliminar">
-                        ${escaparHtml(obterTextoTomas("eliminar"))}
-                    </button>
-                </div>
-            `;
+            const detalheEstado = document.createElement("div");
+            detalheEstado.className = "toma-detalhe";
 
-            linha.querySelector('[data-acao="ver"]').addEventListener("click", () => {
+            const rotuloEstado = document.createElement("span");
+            rotuloEstado.className = "toma-rotulo";
+            rotuloEstado.textContent = obterTextoTomas("estado");
+
+            const valorEstado = document.createElement("span");
+            valorEstado.className = "badge-estado " + obterClasseEstado(estado);
+            valorEstado.textContent = obterTextoEstado(estado);
+            detalheEstado.appendChild(rotuloEstado);
+            detalheEstado.appendChild(valorEstado);
+
+            informacoes.appendChild(detalheData);
+            informacoes.appendChild(detalheQuantidade);
+            informacoes.appendChild(detalheEstado);
+
+            const acoes = document.createElement("div");
+            acoes.className = "toma-acoes";
+
+            const botaoVer = document.createElement("button");
+            botaoVer.type = "button";
+            botaoVer.className = "btn btn-secondary";
+            botaoVer.textContent = obterTextoTomas("ver");
+            botaoVer.addEventListener("click", function() {
                 abrirModalVerToma(toma);
             });
+            acoes.appendChild(botaoVer);
 
-            linha.querySelector('[data-acao="registar"]')?.addEventListener("click", () => {
-                abrirConfirmacaoRegisto(toma.idToma);
-            });
+            if (estado !== "Tomada") {
+                if (window.Higia?.podeRegistarToma?.(toma.dataHora)) {
+                    const botaoRegistar = document.createElement("button");
+                    botaoRegistar.type = "button";
+                    botaoRegistar.className = "btn btn-success";
+                    botaoRegistar.textContent = obterTextoTomas("registar");
+                    botaoRegistar.addEventListener("click", function() {
+                        abrirConfirmacaoRegisto(toma.idToma);
+                    });
+                    acoes.appendChild(botaoRegistar);
+                }
 
-            linha.querySelector('[data-acao="editar"]')?.addEventListener("click", () => {
-                abrirModalEditarToma(toma);
-            });
+                const botaoEditar = document.createElement("button");
+                botaoEditar.type = "button";
+                botaoEditar.className = "btn btn-primary";
+                botaoEditar.textContent = obterTextoTomas("editar");
+                botaoEditar.addEventListener("click", function() {
+                    abrirModalEditarToma(toma);
+                });
+                acoes.appendChild(botaoEditar);
+            }
 
-            linha.querySelector('[data-acao="eliminar"]').addEventListener("click", () => {
+            const botaoEliminar = document.createElement("button");
+            botaoEliminar.type = "button";
+            botaoEliminar.className = "btn btn-danger";
+            botaoEliminar.textContent = obterTextoTomas("eliminar");
+            botaoEliminar.addEventListener("click", function() {
                 abrirConfirmacaoEliminacao(toma.idToma);
             });
-
+            acoes.appendChild(botaoEliminar);
+            linha.appendChild(informacoes);
+            linha.appendChild(acoes);
             lista.appendChild(linha);
         });
     } catch (erro) {
         console.error(erro);
-        mostrarToast(erro.message || obterTextoTomas("erro_carregar_tomas"), "erro");
+        mostrarToast(erro.message || obterTextoTomas("erro_carregar_tomas"), "erro"
+        );
     }
 }
+
 
 function abrirModalCriarToma() {
     idTomaEmEdicao = null;
@@ -463,12 +518,8 @@ function abrirModalCriarToma() {
     const formulario = document.getElementById("form-toma");
     formulario?.reset();
 
-    document.getElementById("modal-toma-titulo").textContent =
-        obterTextoTomas("criar_toma_titulo");
-
-    document.getElementById("botao-guardar-toma").textContent =
-        obterTextoTomas("criar_toma");
-
+    document.getElementById("modal-toma-titulo").textContent = obterTextoTomas("criar_toma_titulo");
+    document.getElementById("botao-guardar-toma").textContent = obterTextoTomas("criar_toma");
     document.getElementById("botao-eliminar-toma").style.display = "none";
 
     const quantidade = document.getElementById("toma-quantidade");
@@ -482,7 +533,6 @@ function abrirModalEditarToma(toma) {
     idTomaEmEdicao = toma.idToma;
 
     const data = new Date(toma.dataHora);
-
     if (Number.isNaN(data.getTime())) {
         mostrarToast(obterTextoTomas("data_toma_invalida"), "erro");
         return;
@@ -491,13 +541,8 @@ function abrirModalEditarToma(toma) {
     document.getElementById("toma-data").value = obterDataLocal(data);
     document.getElementById("toma-hora").value = obterHoraLocal(data);
     document.getElementById("toma-quantidade").value = toma.quantidadeTomada ?? 1;
-
-    document.getElementById("modal-toma-titulo").textContent =
-        obterTextoTomas("editar_toma_titulo");
-
-    document.getElementById("botao-guardar-toma").textContent =
-        obterTextoTomas("guardar");
-
+    document.getElementById("modal-toma-titulo").textContent = obterTextoTomas("editar_toma_titulo");
+    document.getElementById("botao-guardar-toma").textContent = obterTextoTomas("guardar");
     document.getElementById("botao-eliminar-toma").style.display = "inline-flex";
 
     esconderAlerta(document.getElementById("toma-alerta"));
@@ -516,26 +561,48 @@ function abrirModalVerToma(toma) {
 
     const corpo = document.getElementById("ver-toma-corpo");
     const estado = atualizarEstadoToma(toma);
+    corpo.replaceChildren();
 
-    corpo.innerHTML = `
-        <div class="ver-toma-linha">
-            <strong>${escaparHtml(obterTextoTomas("data_hora"))}</strong>
-            <span>${escaparHtml(formatarDataHora(toma.dataHora))}</span>
-        </div>
-        <div class="ver-toma-linha">
-            <strong>${escaparHtml(obterTextoTomas("quantidade"))}</strong>
-            <span>${escaparHtml(toma.quantidadeTomada ?? "-")}</span>
-        </div>
-        <div class="ver-toma-linha">
-            <strong>${escaparHtml(obterTextoTomas("estado"))}</strong>
-            <span class="badge-estado ${obterClasseEstado(estado)}">
-                ${escaparHtml(obterTextoEstado(estado))}
-            </span>
-        </div>
-    `;
+    const linhaData = document.createElement("div");
+    linhaData.className = "ver-toma-linha";
 
+    const tituloData = document.createElement("strong");
+    tituloData.textContent = obterTextoTomas("data_hora");
+
+    const valorData = document.createElement("span");
+    valorData.textContent = formatarDataHora(toma.dataHora);
+    linhaData.appendChild(tituloData);
+    linhaData.appendChild(valorData);
+
+    const linhaQuantidade = document.createElement("div");
+    linhaQuantidade.className = "ver-toma-linha";
+
+    const tituloQuantidade = document.createElement("strong");
+    tituloQuantidade.textContent = obterTextoTomas("quantidade");
+
+    const valorQuantidade = document.createElement("span");
+    valorQuantidade.textContent = toma.quantidadeTomada ?? "-";
+    linhaQuantidade.appendChild(tituloQuantidade);
+    linhaQuantidade.appendChild(valorQuantidade);
+
+    const linhaEstado = document.createElement("div");
+    linhaEstado.className = "ver-toma-linha";
+
+    const tituloEstado = document.createElement("strong");
+    tituloEstado.textContent = obterTextoTomas("estado");
+
+    const valorEstado = document.createElement("span");
+    valorEstado.className = "badge-estado " + obterClasseEstado(estado);
+    valorEstado.textContent = obterTextoEstado(estado);
+    linhaEstado.appendChild(tituloEstado);
+    linhaEstado.appendChild(valorEstado);
+
+    corpo.appendChild(linhaData);
+    corpo.appendChild(linhaQuantidade);
+    corpo.appendChild(linhaEstado);
     abrirModal("modal-ver-toma");
 }
+
 
 async function submeterFormularioToma(evento) {
     evento.preventDefault();
@@ -563,27 +630,21 @@ async function submeterFormularioToma(evento) {
         return;
     }
 
-    // Construir a data na hora local para evitar deslocamentos de fuso horário.
     const [ano, mes, dia] = data.split("-").map(Number);
     const [horas, minutos] = hora.split(":").map(Number);
     const dataHoraLocal = new Date(ano, mes - 1, dia, horas, minutos, 0, 0);
-
     if (Number.isNaN(dataHoraLocal.getTime())) {
         mostrarAlerta(alerta, obterTextoTomas("data_toma_invalida"));
         return;
     }
 
-    if (
-        idTomaEmEdicao === null
-        && dataHoraLocal.getTime() <= Date.now()
-    ) {
+    if (idTomaEmEdicao === null && dataHoraLocal.getTime() <= Date.now()) {
         mostrarAlerta(alerta, obterTextoTomas("data_toma_invalida"));
         return;
     }
 
     const botaoGuardar = document.getElementById("botao-guardar-toma");
     botaoGuardar.disabled = true;
-
     try {
         const toma = {
             dataHora: `${data}T${hora}:00`,
@@ -599,8 +660,7 @@ async function submeterFormularioToma(evento) {
             mostrarToast(obterTextoTomas("toma_criada"));
         } else {
             toma.idToma = Number(idTomaEmEdicao);
-            const tomaOriginal = tomasAtuais.find(tomaEncontrada => Number(
-tomaEncontrada.idToma) === Number(idTomaEmEdicao));
+            const tomaOriginal = tomasAtuais.find(tomaEncontrada => Number(tomaEncontrada.idToma) === Number(idTomaEmEdicao));
             toma.estado = tomaOriginal?.estado || "Pendente";
             await api.editarToma(toma);
             fecharModalToma();
@@ -609,36 +669,25 @@ tomaEncontrada.idToma) === Number(idTomaEmEdicao));
         }
     } catch (erro) {
         console.error(erro);
-        mostrarAlerta(
-            alerta,
-            erro.message || obterTextoTomas("erro_guardar_toma")
-        );
+        mostrarAlerta(alerta, erro.message || obterTextoTomas("erro_guardar_toma"));
     } finally {
         botaoGuardar.disabled = false;
     }
 }
 
-function abrirConfirmacaoRegisto(idToma) {
-    const toma = tomasAtuais.find(tomaEncontrada => Number(tomaEncontrada.idToma) === Number(idToma));
-    const instantePrevisto = toma ? new Date(toma.dataHora).getTime() : NaN;
 
+function abrirConfirmacaoRegisto(idToma) {
+    const toma = tomasAtuais.find(
+        tomaEncontrada => Number(tomaEncontrada.idToma) === Number(idToma)
+    );
+
+    const instantePrevisto = toma ? new Date(toma.dataHora).getTime() : NaN;
     if (!toma || !Number.isFinite(instantePrevisto) || Date.now() < instantePrevisto) {
-        mostrarToast(
-            localStorage.getItem("idioma") === "en"
-                ? "The scheduled time for this dose has not arrived yet."
-                : localStorage.getItem("idioma") === "es"
-                    ? "Todavía no ha llegado la hora prevista para esta toma."
-                    : "Ainda não chegou a hora prevista para esta toma.",
-            "erro"
-        );
+        mostrarToast(obterTextoTomas("hora_toma_nao_chegou"), "erro");
         return;
     }
-
     idTomaParaRegistar = idToma;
-
-    document.getElementById("texto-confirmar-registo-toma").textContent =
-        obterTextoTomas("confirmar_registo_toma_texto");
-
+    document.getElementById("texto-confirmar-registo-toma").textContent = obterTextoTomas("confirmar_registo_toma_texto");
     abrirModal("modal-confirmar-registo-toma");
 }
 
@@ -658,10 +707,8 @@ async function confirmarRegistoToma() {
 
     try {
         await api.registarToma(idTomaParaRegistar);
-
         fecharModal("modal-confirmar-registo-toma");
         idTomaParaRegistar = null;
-
         await renderizarTomas();
         mostrarToast(obterTextoTomas("toma_registada"));
     } catch (erro) {
@@ -672,12 +719,10 @@ async function confirmarRegistoToma() {
     }
 }
 
+
 function abrirConfirmacaoEliminacao(idToma) {
     idTomaParaEliminar = idToma;
-
-    document.getElementById("texto-confirmar-eliminacao-toma").textContent =
-        obterTextoTomas("confirmar_eliminar_toma_texto");
-
+    document.getElementById("texto-confirmar-eliminacao-toma").textContent = obterTextoTomas("confirmar_eliminar_toma_texto");
     abrirModal("modal-confirmar-eliminacao-toma");
 }
 
@@ -686,7 +731,6 @@ async function confirmarEliminacaoToma() {
 
     const botao = document.getElementById("botao-confirmar-eliminacao-toma");
     botao.disabled = true;
-
     try {
         await api.eliminarToma(idTomaParaEliminar);
 
@@ -697,7 +741,6 @@ async function confirmarEliminacaoToma() {
         idTomaParaEliminar = null;
         idTomaEmEdicao = null;
         tomaSelecionada = null;
-
         await renderizarTomas();
         mostrarToast(obterTextoTomas("toma_eliminada"));
     } catch (erro) {
@@ -708,91 +751,59 @@ async function confirmarEliminacaoToma() {
     }
 }
 
+
 function configurarPaginaTomas() {
     idMedicamentoAtual = obterIdMedicamentoDaUrl();
-
     if (!idMedicamentoAtual || !Number.isFinite(Number(idMedicamentoAtual))) {
         window.location.href = "perfis.html";
         return false;
     }
 
-    document.getElementById("botao-criar-toma")
-        ?.addEventListener("click", abrirModalCriarToma);
-
-    document.getElementById("form-toma")
-        ?.addEventListener("submit", submeterFormularioToma);
-
-    document.getElementById("botao-confirmar-eliminacao-toma")
-        ?.addEventListener("click", confirmarEliminacaoToma);
-
-    document.getElementById("botao-confirmar-registo-toma")
-        ?.addEventListener("click", confirmarRegistoToma);
-
-    document.getElementById("botao-ver-editar-toma")
-        ?.addEventListener("click", () => {
-            if (tomaSelecionada) abrirModalEditarToma(tomaSelecionada);
-        });
-
-    document.getElementById("botao-eliminar-toma")
-        ?.addEventListener("click", () => {
-            if (idTomaEmEdicao !== null) {
-                abrirConfirmacaoEliminacao(idTomaEmEdicao);
-            }
-        });
-
-    // Todos os botões de fechar/cancelar usam eventos, não funções de módulos no HTML.
-    document.getElementById("botao-fechar-modal-toma")
-        ?.addEventListener("click", fecharModalToma);
-
-    document.getElementById("botao-cancelar-toma")
-        ?.addEventListener("click", fecharModalToma);
-
-    document.getElementById("botao-fechar-ver-toma")
-        ?.addEventListener("click", () => fecharModal("modal-ver-toma"));
-
-    document.getElementById("botao-cancelar-eliminacao-toma")
-        ?.addEventListener("click", () => {
-            fecharModal("modal-confirmar-eliminacao-toma");
-            idTomaParaEliminar = null;
-        });
-
-    document.getElementById("botao-fechar-eliminacao-toma")
-        ?.addEventListener("click", () => {
-            fecharModal("modal-confirmar-eliminacao-toma");
-            idTomaParaEliminar = null;
-        });
-
-    document.getElementById("botao-cancelar-registo-toma")
-        ?.addEventListener("click", () => {
-            fecharModal("modal-confirmar-registo-toma");
-            idTomaParaRegistar = null;
-        });
-
-    document.getElementById("botao-fechar-registo-toma")
-        ?.addEventListener("click", () => {
-            fecharModal("modal-confirmar-registo-toma");
-            idTomaParaRegistar = null;
-        });
-
+    document.getElementById("botao-criar-toma") ?.addEventListener("click", abrirModalCriarToma);
+    document.getElementById("form-toma") ?.addEventListener("submit", submeterFormularioToma);
+    document.getElementById("botao-confirmar-eliminacao-toma") ?.addEventListener("click", confirmarEliminacaoToma);
+    document.getElementById("botao-confirmar-registo-toma") ?.addEventListener("click", confirmarRegistoToma);
+    document.getElementById("botao-ver-editar-toma") ?.addEventListener("click", () => {
+        if (tomaSelecionada) abrirModalEditarToma(tomaSelecionada);
+    });
+    document.getElementById("botao-eliminar-toma") ?.addEventListener("click", () => { 
+        if (idTomaEmEdicao !== null) {
+            abrirConfirmacaoEliminacao(idTomaEmEdicao);
+        }
+    });
+    document.getElementById("botao-fechar-modal-toma") ?.addEventListener("click", fecharModalToma);
+    document.getElementById("botao-cancelar-toma") ?.addEventListener("click", fecharModalToma);
+    document.getElementById("botao-fechar-ver-toma") ?.addEventListener("click", () => fecharModal("modal-ver-toma"));
+    document.getElementById("botao-cancelar-eliminacao-toma") ?.addEventListener("click", () => {
+        fecharModal("modal-confirmar-eliminacao-toma");
+        idTomaParaEliminar = null;
+    });
+    document.getElementById("botao-fechar-eliminacao-toma") ?.addEventListener("click", () => {
+        fecharModal("modal-confirmar-eliminacao-toma");
+        idTomaParaEliminar = null;
+    });
+    document.getElementById("botao-cancelar-registo-toma") ?.addEventListener("click", () => {
+        fecharModal("modal-confirmar-registo-toma");
+        idTomaParaRegistar = null;
+    });
+    document.getElementById("botao-fechar-registo-toma") ?.addEventListener("click", () => {
+        fecharModal("modal-confirmar-registo-toma"); 
+        idTomaParaRegistar = null;
+    });
     configurarLogout();
     return true;
 }
 
-window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesTomas(evento.detail?.idioma || localStorage.getItem("idioma") || "pt"); });
 
+window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesTomas(evento.detail?.idioma || localStorage.getItem("idioma") || "pt"); });
 document.addEventListener("DOMContentLoaded", async () => {
     if (!verificarSessao()) return;
 
     aplicarTraducoesTomas(localStorage.getItem("idioma") || "pt");
-
     if (!configurarPaginaTomas()) return;
-
     try {
         await carregarInformacaoMedicamento();
         await renderizarTomas();
-
-        // Atualiza a lista periodicamente para o botão de registo aparecer
-        // automaticamente quando chegar a hora prevista da toma.
         window.setInterval(async () => {
             if (document.visibilityState === "visible") {
                 await renderizarTomas();

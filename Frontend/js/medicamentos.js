@@ -1,5 +1,5 @@
-
 import * as api from "./api.js";
+
 
 const traducoesMedicamentos = {
     pt: {
@@ -8,6 +8,7 @@ const traducoesMedicamentos = {
         adicionar_medicamento: "Adicionar medicamento",
         nenhum_medicamento: "Ainda não existem medicamentos.",
         nenhum_medicamento_texto: "Adiciona um medicamento para começares a gerir a medicação deste perfil.",
+
         medicamento_subtitulo_modal: "Preenche os dados do medicamento.",
         label_nome_medicamento: "Nome *",
         placeholder_nome_medicamento: "Ex: Paracetamol",
@@ -23,32 +24,39 @@ const traducoesMedicamentos = {
         placeholder_observacoes: "Observações adicionais...",
         guardar: "Guardar",
         cancelar: "Cancelar",
+
         fechar: "Fechar",
         editar: "Editar",
         detalhes_medicamento: "Detalhes do medicamento",
         eliminar_medicamento: "Eliminar medicamento",
         editar_medicamento: "Editar medicamento",
+
         nome: "Nome",
         tipo: "Tipo",
         dosagem: "Dosagem",
         quantidade: "Quantidade disponível",
         frequencia: "Frequência",
         observacoes: "Observações",
+
         ver: "Ver",
         criar_toma_botao: "Tomas",
         stock: "Stock",
         sem_informacao: "Sem informação",
+
         medicamento_criado: "Medicamento criado com sucesso.",
         medicamento_atualizado: "Medicamento atualizado com sucesso.",
         medicamento_eliminado: "Medicamento eliminado com sucesso.",
+
         nome_obrigatorio: "Indica o nome do medicamento.",
         tipo_obrigatorio: "Indica o tipo de medicamento.",
         dosagem_obrigatoria: "Indica a dosagem.",
         quantidade_obrigatoria: "Indica a quantidade disponível.",
         quantidade_invalida: "A quantidade disponível tem de ser um número inteiro superior a zero.",
         fotografia_invalida: "Seleciona uma imagem válida com tamanho máximo de 3 MB.",
+
         erro_guardar: "Ocorreu um erro ao guardar o medicamento.",
         erro_carregar: "Ocorreu um erro ao carregar os medicamentos.",
+
         confirmar_eliminacao_medicamento: "Eliminar medicamento",
         confirmar_eliminar_medicamento_texto: "Tens a certeza de que pretendes eliminar o medicamento"
     },
@@ -59,6 +67,7 @@ const traducoesMedicamentos = {
         adicionar_medicamento: "Add medication",
         nenhum_medicamento: "There are no medications yet.",
         nenhum_medicamento_texto: "Add a medication to start managing this profile's medication.",
+
         medicamento_subtitulo_modal: "Fill in the medication details.",
         label_nome_medicamento: "Name *",
         placeholder_nome_medicamento: "E.g. Paracetamol",
@@ -74,32 +83,39 @@ const traducoesMedicamentos = {
         placeholder_observacoes: "Additional notes...",
         guardar: "Save",
         cancelar: "Cancel",
+
         fechar: "Close",
         editar: "Edit",
         detalhes_medicamento: "Medication details",
         eliminar_medicamento: "Delete medication",
         editar_medicamento: "Edit medication",
+
         nome: "Name",
         tipo: "Type",
         dosagem: "Dosage",
         quantidade: "Available quantity",
         frequencia: "Frequency",
         observacoes: "Notes",
+
         ver: "View",
         criar_toma_botao: "Doses",
         stock: "Stock",
         sem_informacao: "No information",
+
         medicamento_criado: "Medication created successfully.",
         medicamento_atualizado: "Medication updated successfully.",
         medicamento_eliminado: "Medication deleted successfully.",
+        
         nome_obrigatorio: "Enter the medication name.",
         tipo_obrigatorio: "Enter the medication type.",
         dosagem_obrigatoria: "Enter the dosage.",
         quantidade_obrigatoria: "Enter the available quantity.",
         quantidade_invalida: "Available quantity must be a whole number greater than zero.",
         fotografia_invalida: "Select a valid image with a maximum size of 3 MB.",
+
         erro_guardar: "An error occurred while saving the medication.",
         erro_carregar: "An error occurred while loading medications.",
+
         confirmar_eliminacao_medicamento: "Delete medication",
         confirmar_eliminar_medicamento_texto: "Are you sure you want to delete the medication"
     },
@@ -110,6 +126,7 @@ const traducoesMedicamentos = {
         adicionar_medicamento: "Añadir medicamento",
         nenhum_medicamento: "Todavía no hay medicamentos.",
         nenhum_medicamento_texto: "Añade un medicamento para empezar a gestionar la medicación de este perfil.",
+
         medicamento_subtitulo_modal: "Introduce los datos del medicamento.",
         label_nome_medicamento: "Nombre *",
         placeholder_nome_medicamento: "Ej.: Paracetamol",
@@ -125,36 +142,44 @@ const traducoesMedicamentos = {
         placeholder_observacoes: "Observaciones adicionales...",
         guardar: "Guardar",
         cancelar: "Cancelar",
+
         fechar: "Cerrar",
         editar: "Editar",
         detalhes_medicamento: "Detalles del medicamento",
         eliminar_medicamento: "Eliminar medicamento",
         editar_medicamento: "Editar medicamento",
+
         nome: "Nombre",
         tipo: "Tipo",
         dosagem: "Dosis",
         quantidade: "Cantidad disponible",
         frequencia: "Frecuencia",
         observacoes: "Observaciones",
+
         ver: "Ver",
         criar_toma_botao: "Tomas",
         stock: "Stock",
         sem_informacao: "Sin información",
+
         medicamento_criado: "Medicamento creado correctamente.",
         medicamento_atualizado: "Medicamento actualizado correctamente.",
         medicamento_eliminado: "Medicamento eliminado correctamente.",
+
         nome_obrigatorio: "Introduce el nombre del medicamento.",
         tipo_obrigatorio: "Introduce el tipo de medicamento.",
         dosagem_obrigatoria: "Introduce la dosis.",
         quantidade_obrigatoria: "Introduce la cantidad disponible.",
         quantidade_invalida: "La cantidad disponible debe ser un número entero superior a cero.",
         fotografia_invalida: "Selecciona una imagen válida de un máximo de 3 MB.",
+
         erro_guardar: "Se ha producido un error al guardar el medicamento.",
         erro_carregar: "Se ha producido un error al cargar los medicamentos.",
+
         confirmar_eliminacao_medicamento: "Eliminar medicamento",
         confirmar_eliminar_medicamento_texto: "¿Seguro que quieres eliminar el medicamento"
     }
 };
+
 
 let idPerfilAtual = null;
 let idMedicamentoEmEdicao = null;
@@ -162,13 +187,12 @@ let idMedicamentoAVer = null;
 let idMedicamentoParaEliminar = null;
 let fotografiaAtual = null;
 
+
 function obterTextoMedicamentos(chave) {
     const idioma = localStorage.getItem("idioma") || "pt";
-
-    return traducoesMedicamentos[idioma]?.[chave]
-        || traducoesMedicamentos.pt[chave]
-        || chave;
+    return traducoesMedicamentos[idioma]?.[chave] || traducoesMedicamentos.pt[chave] || chave;
 }
+
 
 function aplicarTraducoesMedicamentos(idioma) {
     if (!traducoesMedicamentos[idioma]) {
@@ -178,7 +202,6 @@ function aplicarTraducoesMedicamentos(idioma) {
     document.querySelectorAll("[data-i18n]").forEach(function(elemento) {
         const chave = elemento.getAttribute("data-i18n");
         const texto = traducoesMedicamentos[idioma][chave];
-
         if (texto !== undefined) {
             elemento.textContent = texto;
         }
@@ -187,12 +210,12 @@ function aplicarTraducoesMedicamentos(idioma) {
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function(elemento) {
         const chave = elemento.getAttribute("data-i18n-placeholder");
         const texto = traducoesMedicamentos[idioma][chave];
-
         if (texto !== undefined) {
             elemento.placeholder = texto;
         }
     });
 }
+
 
 function obterSessao() {
     try {
@@ -207,7 +230,6 @@ function verificarSessao() {
         window.location.replace("intro.html");
         return false;
     }
-
     return true;
 }
 
@@ -219,11 +241,13 @@ function configurarLogout() {
     });
 }
 
+
 function escaparHtml(texto) {
     const div = document.createElement("div");
     div.textContent = texto ?? "";
     return div.innerHTML;
 }
+
 
 function obterIdPerfilDaUrl() {
     return new URLSearchParams(window.location.search).get("perfil");
@@ -231,14 +255,12 @@ function obterIdPerfilDaUrl() {
 
 async function obterPerfilAtual() {
     const sessao = obterSessao();
-
     if (!sessao) {
         return null;
     }
 
     const idUtilizador = sessao.idUtilizador || sessao.id;
     const perfis = await api.listarPerfisUtilizador(idUtilizador);
-
     return (perfis || []).find(function(perfil) {
         return String(perfil.idPerfil) === String(idPerfilAtual);
     }) || null;
@@ -246,33 +268,27 @@ async function obterPerfilAtual() {
 
 async function carregarInformacaoPerfil() {
     const perfil = await obterPerfilAtual();
-
     if (!perfil) {
         return;
     }
-
-    document.getElementById("titulo-perfil").textContent =
-        obterTextoMedicamentos("medicamentos_de") + " " + perfil.nome;
-
-    document.getElementById("subtitulo-perfil").textContent =
-        obterTextoMedicamentos("medicamentos_subtitulo");
+    document.getElementById("titulo-perfil").textContent = obterTextoMedicamentos("medicamentos_de") + " " + perfil.nome;
+    document.getElementById("subtitulo-perfil").textContent = obterTextoMedicamentos("medicamentos_subtitulo");
 }
+
 
 function obterClasseStock(quantidade) {
     if (quantidade <= 0) {
         return "stock-esgotado";
     }
-
     if (quantidade <= 5) {
         return "stock-baixo";
     }
-
     return "stock-normal";
 }
 
+
 function mostrarToast(mensagem, tipo = "sucesso") {
     let contentor = document.getElementById("toast-contentor");
-
     if (!contentor) {
         contentor = document.createElement("div");
         contentor.id = "toast-contentor";
@@ -286,26 +302,25 @@ function mostrarToast(mensagem, tipo = "sucesso") {
 
     setTimeout(function() {
         toast.classList.add("toast-sair");
-
         setTimeout(function() {
             toast.remove();
         }, 300);
     }, 3500);
 }
 
+
 function mostrarAlerta(elemento, mensagem) {
     if (!elemento) return;
-
     elemento.textContent = mensagem;
     elemento.classList.add("visivel");
 }
 
 function esconderAlerta(elemento) {
     if (!elemento) return;
-
     elemento.textContent = "";
     elemento.classList.remove("visivel");
 }
+
 
 async function obterMedicamentosDoPerfil() {
     const medicamentos = await api.listarMedicamentosPerfil(idPerfilAtual);
@@ -314,96 +329,146 @@ async function obterMedicamentosDoPerfil() {
 
 async function renderizarMedicamentos() {
     const lista = document.getElementById("lista-medicamentos");
+    if (!lista) {
+        return;
+    }
 
-    if (!lista) return;
-
+    const estadoVazio = document.getElementById("estado-vazio-medicamentos");
     try {
         const medicamentos = await obterMedicamentosDoPerfil();
-        lista.innerHTML = "";
+
+        lista.querySelectorAll(".medicamento-card").forEach(function(card) {
+            card.remove();
+        });
 
         if (medicamentos.length === 0) {
-            lista.innerHTML = `
-                <div class="estado-vazio">
-                    <div class="estado-vazio-icone">💊</div>
-                    <h3>${escaparHtml(obterTextoMedicamentos("nenhum_medicamento"))}</h3>
-                    <p>${escaparHtml(obterTextoMedicamentos("nenhum_medicamento_texto"))}</p>
-                </div>
-            `;
+            if (estadoVazio) {
+                estadoVazio.hidden = false;
+            }
             return;
+        }
+
+        if (estadoVazio) {
+            estadoVazio.hidden = true;
         }
 
         medicamentos.forEach(function(medicamento) {
             const quantidade = Number(medicamento.quantidadeDisponivel) || 0;
             const classeStock = obterClasseStock(quantidade);
 
-            const avatar = medicamento.fotografia
-                ? `<img src="${escaparHtml(medicamento.fotografia)}" alt="${escaparHtml(medicamento.nome)}">`
-                : "💊";
-
             const card = document.createElement("article");
             card.className = "medicamento-card";
 
-            card.innerHTML = `
-                <div class="medicamento-cabecalho">
-                    <div class="medicamento-avatar">${avatar}</div>
+            const cabecalho = document.createElement("div");
+            cabecalho.className = "medicamento-cabecalho";
 
-                    <div>
-                        <div class="medicamento-nome">${escaparHtml(medicamento.nome)}</div>
-                        <div class="medicamento-tipo">
-                            ${escaparHtml(medicamento.tipo || obterTextoMedicamentos("sem_informacao"))}
-                        </div>
-                    </div>
-                </div>
+            const avatar = document.createElement("div");
+            avatar.className = "medicamento-avatar";
 
-                <div class="medicamento-informacoes">
-                    <div class="medicamento-informacao">
-                        <strong>${escaparHtml(obterTextoMedicamentos("dosagem"))}</strong>
-                        <span>${escaparHtml(medicamento.dosagem || obterTextoMedicamentos("sem_informacao"))}</span>
-                    </div>
+            if (medicamento.fotografia) {
+                const imagem = document.createElement("img");
+                imagem.src = medicamento.fotografia;
+                imagem.alt = medicamento.nome;
+                avatar.appendChild(imagem);
+            } else {
+                avatar.textContent = "💊";
+            }
 
-                    <div class="medicamento-informacao">
-                        <strong>${escaparHtml(obterTextoMedicamentos("stock"))}</strong>
-                        <span class="${classeStock}">${quantidade}</span>
-                    </div>
+            const identificacao = document.createElement("div");
 
-                    <div class="medicamento-informacao">
-                        <strong>${escaparHtml(obterTextoMedicamentos("frequencia"))}</strong>
-                        <span>${escaparHtml(medicamento.frequencia || obterTextoMedicamentos("sem_informacao"))}</span>
-                    </div>
-                </div>
+            const nome = document.createElement("div");
+            nome.className = "medicamento-nome";
+            nome.textContent = medicamento.nome;
 
-                <div class="medicamento-acoes">
-                    <button type="button" class="btn btn-secondary" data-acao="ver">
-                        ${escaparHtml(obterTextoMedicamentos("ver"))}
-                    </button>
+            const tipo = document.createElement("div");
+            tipo.className = "medicamento-tipo";
+            tipo.textContent = medicamento.tipo || obterTextoMedicamentos("sem_informacao");
 
-                    <button type="button" class="btn btn-primary" data-acao="editar">
-                        ${escaparHtml(obterTextoMedicamentos("editar"))}
-                    </button>
+            identificacao.appendChild(nome);
+            identificacao.appendChild(tipo);
+            cabecalho.appendChild(avatar);
+            cabecalho.appendChild(identificacao);
 
-                    <button type="button" class="btn btn-success" data-acao="criar-toma">
-                        ${escaparHtml(obterTextoMedicamentos("criar_toma_botao"))}
-                    </button>
-                </div>
-            `;
+            const informacoes = document.createElement("div");
+            informacoes.className = "medicamento-informacoes";
 
-            card.querySelector('[data-acao="ver"]').addEventListener("click", function() {
+            const informacaoDosagem = document.createElement("div");
+            informacaoDosagem.className = "medicamento-informacao";
+
+            const tituloDosagem = document.createElement("strong");
+            tituloDosagem.textContent = obterTextoMedicamentos("dosagem");
+
+            const valorDosagem = document.createElement("span");
+            valorDosagem.textContent = medicamento.dosagem || obterTextoMedicamentos("sem_informacao");
+            informacaoDosagem.appendChild(tituloDosagem);
+            informacaoDosagem.appendChild(valorDosagem);
+
+            const informacaoStock = document.createElement("div");
+            informacaoStock.className = "medicamento-informacao";
+
+            const tituloStock = document.createElement("strong");
+            tituloStock.textContent = obterTextoMedicamentos("stock");
+
+            const valorStock = document.createElement("span");
+            valorStock.className = classeStock;
+            valorStock.textContent = quantidade;
+            informacaoStock.appendChild(tituloStock);
+            informacaoStock.appendChild(valorStock);
+
+            const informacaoFrequencia = document.createElement("div");
+            informacaoFrequencia.className = "medicamento-informacao";
+
+            const tituloFrequencia = document.createElement("strong");
+            tituloFrequencia.textContent = obterTextoMedicamentos("frequencia");
+
+            const valorFrequencia = document.createElement("span");
+            valorFrequencia.textContent = medicamento.frequencia || obterTextoMedicamentos("sem_informacao");
+            informacaoFrequencia.appendChild(tituloFrequencia);
+            informacaoFrequencia.appendChild(valorFrequencia);
+            informacoes.appendChild(informacaoDosagem);
+            informacoes.appendChild(informacaoStock);
+            informacoes.appendChild(informacaoFrequencia);
+
+            const acoes = document.createElement("div");
+            acoes.className = "medicamento-acoes";
+
+            const botaoVer = document.createElement("button");
+            botaoVer.type = "button";
+            botaoVer.className = "btn btn-secondary";
+            botaoVer.textContent = obterTextoMedicamentos("ver");
+
+            const botaoEditar = document.createElement("button");
+            botaoEditar.type = "button";
+            botaoEditar.className = "btn btn-primary";
+            botaoEditar.textContent = obterTextoMedicamentos("editar");
+
+            const botaoCriarToma = document.createElement("button");
+            botaoCriarToma.type = "button";
+            botaoCriarToma.className = "btn btn-success";
+            botaoCriarToma.textContent = obterTextoMedicamentos("criar_toma_botao");
+
+            botaoVer.addEventListener("click", function() {
                 abrirModalVerMedicamento(medicamento.idMedicamento);
             });
-
-            card.querySelector('[data-acao="editar"]').addEventListener("click", function() {
+            botaoEditar.addEventListener("click", function() {
                 abrirModalEditarMedicamento(medicamento.idMedicamento);
             });
-
-            card.querySelector('[data-acao="criar-toma"]').addEventListener("click", function() {
+            botaoCriarToma.addEventListener("click", function() {
                 irParaTomas(medicamento.idMedicamento);
             });
 
+            acoes.appendChild(botaoVer);
+            acoes.appendChild(botaoEditar);
+            acoes.appendChild(botaoCriarToma);
+            card.appendChild(cabecalho);
+            card.appendChild(informacoes);
+            card.appendChild(acoes);
             lista.appendChild(card);
         });
     } catch (erro) {
         console.error(erro);
-        mostrarToast(erro.message || obterTextoMedicamentos("erro_carregar"), "erro");
+        mostrarToast(erro.message || obterTextoMedicamentos("erro_carregar"), "erro"
+        );
     }
 }
 
@@ -412,12 +477,9 @@ function abrirModalAdicionarMedicamento() {
     fotografiaAtual = null;
 
     document.getElementById("form-medicamento")?.reset();
-
-    document.getElementById("modal-medicamento-titulo").textContent =
-        obterTextoMedicamentos("adicionar_medicamento");
+    document.getElementById("modal-medicamento-titulo").textContent = obterTextoMedicamentos("adicionar_medicamento");
 
     const botaoEliminar = document.getElementById("botao-eliminar-medicamento");
-
     if (botaoEliminar) {
         botaoEliminar.style.display = "none";
     }
@@ -429,7 +491,6 @@ function abrirModalAdicionarMedicamento() {
 async function abrirModalEditarMedicamento(idMedicamento) {
     try {
         const medicamentos = await obterMedicamentosDoPerfil();
-
         const medicamento = medicamentos.find(function(medicamentoEncontrado) {
             return String(medicamentoEncontrado.idMedicamento) === String(idMedicamento);
         });
@@ -445,20 +506,12 @@ async function abrirModalEditarMedicamento(idMedicamento) {
         document.getElementById("medicamento-nome").value = medicamento.nome || "";
         document.getElementById("medicamento-tipo").value = medicamento.tipo || "";
         document.getElementById("medicamento-dosagem").value = medicamento.dosagem || "";
-        document.getElementById("medicamento-quantidade").value =
-            medicamento.quantidadeDisponivel ?? "";
-
+        document.getElementById("medicamento-quantidade").value = medicamento.quantidadeDisponivel ?? "";
         document.getElementById("medicamento-frequencia").value = medicamento.frequencia || "";
         document.getElementById("medicamento-observacoes").value = medicamento.observacoes || "";
-
-        // O input de ficheiro não pode ser preenchido por JavaScript.
         document.getElementById("medicamento-fotografia").value = "";
-
-        document.getElementById("modal-medicamento-titulo").textContent =
-            obterTextoMedicamentos("editar_medicamento");
-
+        document.getElementById("modal-medicamento-titulo").textContent = obterTextoMedicamentos("editar_medicamento");
         document.getElementById("botao-eliminar-medicamento").style.display = "inline-flex";
-
         esconderAlerta(document.getElementById("medicamento-alerta"));
         window.abrirModal("modal-medicamento");
     } catch (erro) {
@@ -469,42 +522,37 @@ async function abrirModalEditarMedicamento(idMedicamento) {
 
 function fecharModalMedicamento() {
     window.fecharModal("modal-medicamento");
-
     document.getElementById("form-medicamento")?.reset();
     esconderAlerta(document.getElementById("medicamento-alerta"));
-
     idMedicamentoEmEdicao = null;
     fotografiaAtual = null;
 }
+
 
 function lerFotografiaMedicamento() {
     return new Promise(function(resolve, reject) {
         const campoEntrada = document.getElementById("medicamento-fotografia");
         const ficheiro = campoEntrada?.files?.[0];
-
         if (!ficheiro) {
             resolve(fotografiaAtual);
             return;
         }
-
         if (!ficheiro.type.startsWith("image/") || ficheiro.size > 3 * 1024 * 1024) {
             reject(new Error(obterTextoMedicamentos("fotografia_invalida")));
             return;
         }
 
         const leitor = new FileReader();
-
         leitor.onload = function(evento) {
             resolve(evento.target.result);
         };
-
         leitor.onerror = function() {
             reject(new Error(obterTextoMedicamentos("fotografia_invalida")));
         };
-
         leitor.readAsDataURL(ficheiro);
     });
 }
+
 
 async function submeterFormularioMedicamento(evento) {
     evento.preventDefault();
@@ -518,7 +566,6 @@ async function submeterFormularioMedicamento(evento) {
     const frequencia = document.getElementById("medicamento-frequencia").value.trim();
     const observacoes = document.getElementById("medicamento-observacoes").value.trim();
     const alerta = document.getElementById("medicamento-alerta");
-
 
     if (!nome) {
         mostrarAlerta(alerta, obterTextoMedicamentos("nome_obrigatorio"));
@@ -549,7 +596,6 @@ async function submeterFormularioMedicamento(evento) {
         campoQuantidade.focus();
         return;
     }
-
     try {
         const fotografia = await lerFotografiaMedicamento();
 
@@ -586,57 +632,48 @@ async function submeterFormularioMedicamento(evento) {
     }
 }
 
+
 async function abrirModalVerMedicamento(idMedicamento) {
     try {
         const medicamentos = await obterMedicamentosDoPerfil();
-
         const medicamento = medicamentos.find(function(medicamentoEncontrado) {
             return String(medicamentoEncontrado.idMedicamento) === String(idMedicamento);
         });
 
-        if (!medicamento) return;
+        if (!medicamento) {
+            return;
+        }
 
         idMedicamentoAVer = medicamento.idMedicamento;
 
         const quantidade = Number(medicamento.quantidadeDisponivel) || 0;
         const classeStock = obterClasseStock(quantidade);
+        const fotografia = document.getElementById("ver-medicamento-fotografia");
+        const nome = document.getElementById("ver-medicamento-nome");
+        const tipo = document.getElementById("ver-medicamento-tipo");
+        const dosagem = document.getElementById("ver-medicamento-dosagem");
+        const quantidadeElemento = document.getElementById("ver-medicamento-quantidade");
+        const frequencia = document.getElementById("ver-medicamento-frequencia");
+        const observacoes = document.getElementById("ver-medicamento-observacoes");
 
-        const fotografia = medicamento.fotografia
-            ? `<img src="${escaparHtml(medicamento.fotografia)}" alt="${escaparHtml(medicamento.nome)}">`
-            : "💊";
+        fotografia.replaceChildren();
+        if (medicamento.fotografia) {
+            const imagem = document.createElement("img");
+            imagem.src = medicamento.fotografia;
+            imagem.alt = medicamento.nome;
+            fotografia.appendChild(imagem);
+        } else {
+            fotografia.textContent = "💊";
+        }
 
-        const corpo = document.getElementById("ver-medicamento-corpo");
-
-        corpo.innerHTML = `
-            <div class="ver-medicamento-topo">
-                <div class="ver-medicamento-avatar">${fotografia}</div>
-                <div>
-                    <h3>${escaparHtml(medicamento.nome)}</h3>
-                    <span>${escaparHtml(medicamento.tipo || obterTextoMedicamentos("sem_informacao"))}</span>
-                </div>
-            </div>
-
-            <div class="ver-medicamento-linha">
-                <strong>${escaparHtml(obterTextoMedicamentos("dosagem"))}</strong>
-                <span>${escaparHtml(medicamento.dosagem || obterTextoMedicamentos("sem_informacao"))}</span>
-            </div>
-
-            <div class="ver-medicamento-linha">
-                <strong>${escaparHtml(obterTextoMedicamentos("quantidade"))}</strong>
-                <span class="${classeStock}">${quantidade}</span>
-            </div>
-
-            <div class="ver-medicamento-linha">
-                <strong>${escaparHtml(obterTextoMedicamentos("frequencia"))}</strong>
-                <span>${escaparHtml(medicamento.frequencia || obterTextoMedicamentos("sem_informacao"))}</span>
-            </div>
-
-            <div class="ver-medicamento-linha">
-                <strong>${escaparHtml(obterTextoMedicamentos("observacoes"))}</strong>
-                <span>${escaparHtml(medicamento.observacoes || obterTextoMedicamentos("sem_informacao"))}</span>
-            </div>
-        `;
-
+        nome.textContent = medicamento.nome;
+        tipo.textContent = medicamento.tipo || obterTextoMedicamentos("sem_informacao");
+        dosagem.textContent = medicamento.dosagem || obterTextoMedicamentos("sem_informacao");
+        quantidadeElemento.textContent = quantidade;
+        quantidadeElemento.className = classeStock;
+        frequencia.textContent = medicamento.frequencia || obterTextoMedicamentos("sem_informacao");
+        observacoes.textContent = medicamento.observacoes || obterTextoMedicamentos("sem_informacao");
+        
         window.abrirModal("modal-ver-medicamento");
     } catch (erro) {
         console.error(erro);
@@ -644,24 +681,21 @@ async function abrirModalVerMedicamento(idMedicamento) {
     }
 }
 
+
 function irParaTomas(idMedicamento) {
     window.location.href = "tomas.html?medicamento=" + encodeURIComponent(idMedicamento);
 }
 
+
 function abrirConfirmacaoEliminacaoMedicamento() {
     if (idMedicamentoEmEdicao === null) return;
-
     idMedicamentoParaEliminar = idMedicamentoEmEdicao;
 
     const nome = document.getElementById("medicamento-nome").value.trim();
     const texto = document.getElementById("texto-confirmar-eliminacao-medicamento");
-
     if (texto) {
-        texto.textContent =
-            obterTextoMedicamentos("confirmar_eliminar_medicamento_texto") +
-            " " + nome + "?";
+        texto.textContent = obterTextoMedicamentos("confirmar_eliminar_medicamento_texto") + " " + nome + "?";
     }
-
     window.abrirModal("modal-confirmar-eliminacao-medicamento");
 }
 
@@ -670,13 +704,10 @@ async function confirmarEliminacaoMedicamento() {
 
     const botao = document.getElementById("botao-confirmar-eliminacao-medicamento");
     botao.disabled = true;
-
     try {
         await api.eliminarMedicamento(idMedicamentoParaEliminar);
-
         window.fecharModal("modal-confirmar-eliminacao-medicamento");
         window.fecharModal("modal-medicamento");
-
         document.getElementById("form-medicamento")?.reset();
 
         idMedicamentoEmEdicao = null;
@@ -684,7 +715,6 @@ async function confirmarEliminacaoMedicamento() {
         fotografiaAtual = null;
 
         await renderizarMedicamentos();
-
         mostrarToast(obterTextoMedicamentos("medicamento_eliminado"), "sucesso");
     } catch (erro) {
         console.error(erro);
@@ -694,62 +724,40 @@ async function confirmarEliminacaoMedicamento() {
     }
 }
 
+
 function configurarPaginaMedicamentos() {
     idPerfilAtual = obterIdPerfilDaUrl();
-
     if (!idPerfilAtual || !Number.isInteger(Number(idPerfilAtual)) || Number(idPerfilAtual) <= 0) {
         window.location.href = "perfis.html";
         return false;
     }
 
-    document.getElementById("botao-adicionar-medicamento")
-        ?.addEventListener("click", abrirModalAdicionarMedicamento);
-
-    document.getElementById("form-medicamento")
-        ?.addEventListener("submit", submeterFormularioMedicamento);
-
-    document.getElementById("botao-fechar-modal-medicamento")
-        ?.addEventListener("click", fecharModalMedicamento);
-
-    document.getElementById("botao-cancelar-medicamento")
-        ?.addEventListener("click", fecharModalMedicamento);
-
-    document.getElementById("botao-eliminar-medicamento")
-        ?.addEventListener("click", abrirConfirmacaoEliminacaoMedicamento);
-
-    document.getElementById("botao-confirmar-eliminacao-medicamento")
-        ?.addEventListener("click", confirmarEliminacaoMedicamento);
-
-    document.getElementById("botao-ver-editar-medicamento")
-        ?.addEventListener("click", function() {
-            if (idMedicamentoAVer === null) return;
-
-            window.fecharModal("modal-ver-medicamento");
-            abrirModalEditarMedicamento(idMedicamentoAVer);
-        });
-
+    document.getElementById("botao-adicionar-medicamento") ?.addEventListener("click", abrirModalAdicionarMedicamento);
+    document.getElementById("form-medicamento") ?.addEventListener("submit", submeterFormularioMedicamento);
+    document.getElementById("botao-fechar-modal-medicamento") ?.addEventListener("click", fecharModalMedicamento);
+    document.getElementById("botao-cancelar-medicamento") ?.addEventListener("click", fecharModalMedicamento);
+    document.getElementById("botao-eliminar-medicamento") ?.addEventListener("click", abrirConfirmacaoEliminacaoMedicamento);
+    document.getElementById("botao-confirmar-eliminacao-medicamento") ?.addEventListener("click", confirmarEliminacaoMedicamento);
+    document.getElementById("botao-ver-editar-medicamento") ?.addEventListener("click", function() {
+        if (idMedicamentoAVer === null) return;
+        window.fecharModal("modal-ver-medicamento");
+        abrirModalEditarMedicamento(idMedicamentoAVer);
+    });
     configurarLogout();
-
     return true;
 }
 
 window.addEventListener("idiomaAlterado", function (evento) { aplicarTraducoesMedicamentos(evento.detail?.idioma || localStorage.getItem("idioma") || "pt"); });
-
 document.addEventListener("DOMContentLoaded", async function() {
     if (!verificarSessao()) return;
-
     aplicarTraducoesMedicamentos(localStorage.getItem("idioma") || "pt");
-
     if (!configurarPaginaMedicamentos()) return;
-
     try {
         const perfil = await obterPerfilAtual();
-
         if (!perfil) {
             window.location.href = "perfis.html";
             return;
         }
-
         await carregarInformacaoPerfil();
         await renderizarMedicamentos();
     } catch (erro) {

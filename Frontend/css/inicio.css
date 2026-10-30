@@ -900,6 +900,9 @@ body.modo-escuro .estatistica-card strong {
     flex-shrink: 0;
 }
 
+.estado-vazio[hidden] {
+    display: none !important;
+}
 
 @media (max-width: 900px) {
     .inicio-listas {

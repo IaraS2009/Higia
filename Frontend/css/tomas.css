@@ -588,6 +588,10 @@ body {
     transform: translateX(18px);
 }
 
+.estado-vazio[hidden] {
+    display: none !important;
+}
+
 
 @media (max-width: 1000px) {
     .toma-card {
