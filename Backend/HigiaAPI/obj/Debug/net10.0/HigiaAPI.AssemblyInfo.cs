@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HigiaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40c01bffe5a01c24f1f3bb1a7c0b34c9e84a6353")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5126101b45e32981c54c6beff6dc86ff26bb7da0")]
 [assembly: System.Reflection.AssemblyProductAttribute("HigiaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HigiaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

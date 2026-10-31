@@ -1,8 +1,4 @@
-import {
-    obterUtilizador,
-    editarUtilizador,
-    listarUtilizadores
-} from "./api.js";
+import * as api from "./api.js";
 
 
 const traducoesConfiguracoes = {
@@ -40,6 +36,7 @@ const traducoesConfiguracoes = {
         erro_email_existente: "Este email já está associado a outra conta.",
         erro_palavras_passe: "As palavras-passe não coincidem.",
         erro_palavra_passe_curta: "A palavra-passe deve ter pelo menos 8 caracteres.",
+        erro_palavra_passe_segura: "A palavra-passe deve conter uma letra maiúscula, uma letra minúscula e um número",
         erro_sessao: "Não foi possível encontrar a sessão atual.",
         erro_fotografia: "O ficheiro selecionado não é uma imagem.",
         fotografia_grande: "A fotografia original deve ter, no máximo, 3 MB.",
@@ -83,6 +80,7 @@ const traducoesConfiguracoes = {
         erro_email_existente: "This email is already associated with another account.",
         erro_palavras_passe: "The passwords do not match.",
         erro_palavra_passe_curta: "The password must contain at least 8 characters.",
+        erro_palavra_passe_segura: "The password must contain an uppercase letter, a lowercase letter and a number.",
         erro_sessao: "The current session could not be found.",
         erro_fotografia: "The selected file is not an image.",
         fotografia_grande: "The original photo must be no larger than 3 MB.",
@@ -126,6 +124,7 @@ const traducoesConfiguracoes = {
         erro_email_existente: "Este email ya está asociado a otra cuenta.",
         erro_palavras_passe: "Las contraseñas no coinciden.",
         erro_palavra_passe_curta: "La contraseña debe tener al menos 8 caracteres.",
+        erro_palavra_passe_segura: "La contraseña debe contener una letra mayúscula, una minúscula y un número.",
         erro_sessao: "No se ha encontrado la sesión actual.",
         erro_fotografia: "El archivo seleccionado no es una imagen.",
         fotografia_grande: "La fotografía original no puede superar los 3 MB.",
@@ -139,10 +138,12 @@ const traducoesConfiguracoes = {
 
 window.traducoesConfiguracoes = traducoesConfiguracoes;
 
+
 function textoConfiguracoes(chave) {
     const idioma = preferencias.idioma || "pt";
     return traducoesConfiguracoes[idioma]?.[chave] || traducoesConfiguracoes.pt[chave] || chave;
 }
+
 
 let utilizadorAtual = null;
 let fotografiaSelecionada = null;
@@ -161,10 +162,12 @@ function obterSessao() {
     }
 }
 
+
 function obterIdUtilizador() {
     const sessao = obterSessao();
     return sessao?.idUtilizador ?? sessao?.id ?? null;
 }
+
 
 function obterChavePreferencias() {
     const id = obterIdUtilizador();
@@ -188,12 +191,9 @@ function carregarPreferencias() {
         modo: guardadas?.modo || "claro",
         idioma: localStorage.getItem("idioma") || guardadas?.idioma || "pt"
     };
-    const tema = document.querySelector(
-        `input[name="tema"][value="${preferencias.tema}"]`
-    );
-    const modo = document.querySelector(
-        `input[name="modo"][value="${preferencias.modo}"]`
-    );
+
+    const tema = document.querySelector(`input[name="tema"][value="${preferencias.tema}"]`);
+    const modo = document.querySelector(`input[name="modo"][value="${preferencias.modo}"]`);
     const idioma = document.getElementById("idioma");
     if (tema) tema.checked = true;
     if (modo) modo.checked = true;
@@ -201,6 +201,7 @@ function carregarPreferencias() {
     aplicarPreVisualizacao(preferencias.tema, preferencias.modo);
     aplicarIdiomaTemporario(preferencias.idioma);
 }
+
 
 function guardarPreferencias() {
     const chave = obterChavePreferencias();
@@ -210,11 +211,11 @@ function guardarPreferencias() {
     localStorage.setItem("idioma", preferencias.idioma);
 }
 
-
 function aplicarPreVisualizacao(tema, modo) {
     const temas = ["verde", "azul", "roxo", "laranja", "rosa", "vermelho"];
     if (!temas.includes(tema)) tema = "azul";
     if (!["claro", "escuro"].includes(modo)) modo = "claro";
+
     document.body.classList.remove("tema-verde", "tema-azul", "tema-roxo", "tema-laranja", "tema-rosa", "tema-vermelho", "modo-escuro");
     document.body.classList.add("tema-" + tema);
     if (modo === "escuro") {
@@ -243,7 +244,7 @@ function configurarPreVisualizacao() {
 
 
 function aplicarIdiomaTemporario(idioma) {
-    if (! ["pt", "en", "es"].includes(idioma)) {
+    if (!["pt", "en", "es"].includes(idioma)) {
         idioma = "pt";
     }
     preferencias.idioma = idioma;
@@ -254,7 +255,6 @@ function aplicarIdiomaTemporario(idioma) {
         document.documentElement.lang = idioma;
     }
 }
-
 
 function configurarPreVisualizacaoIdioma() {
     const seletor = document.getElementById("idioma");
@@ -271,9 +271,8 @@ async function carregarDadosUtilizador() {
         window.location.replace("intro.html");
         return;
     }
-
     try {
-        utilizadorAtual = await obterUtilizador(id);
+        utilizadorAtual = await api.obterUtilizador(id);
         document.getElementById("nome").value = utilizadorAtual.nome || "";
         document.getElementById("email").value = utilizadorAtual.email || "";
         if (utilizadorAtual.fotografia) {
@@ -292,6 +291,7 @@ function mostrarFotografia(fotografia) {
     const preVisualizacao = document.getElementById("fotografia-preview");
     if (!preVisualizacao) return;
     preVisualizacao.replaceChildren();
+
     const imagem = document.createElement("img");
     imagem.src = fotografia;
     imagem.alt = "Fotografia do utilizador";
@@ -314,13 +314,11 @@ function comprimirFotografia(ficheiro) {
         leitor.onerror = () => {
             reject(new Error("Não foi possível ler a fotografia."));
         };
-
         leitor.onload = () => {
             const imagemCarregada = new Image();
             imagemCarregada.onerror = () => {
                 reject(new Error("Não foi possível abrir a imagem."));
             };
-
             imagemCarregada.onload = () => {
                 const tamanhoMaximo = 400;
                 const escala = Math.min(1, tamanhoMaximo / Math.max(imagemCarregada.width, imagemCarregada.height));
@@ -342,20 +340,17 @@ function comprimirFotografia(ficheiro) {
     });
 }
 
-
 function configurarFotografia() {
     const campoFicheiro = document.getElementById("fotografia");
     if (!campoFicheiro) return;
     campoFicheiro.addEventListener("change", async () => {
         const ficheiro = campoFicheiro.files[0];
         if (!ficheiro) return;
-
         if (!ficheiro.type.startsWith("image/")) {
             mostrarMensagemTexto(textoConfiguracoes("erro_fotografia"), true);
             campoFicheiro.value = "";
             return;
         }
-
         if (ficheiro.size > 3 * 1024 * 1024) {
             mostrarMensagemTexto(textoConfiguracoes("fotografia_grande"), true);
             campoFicheiro.value = "";
@@ -376,20 +371,31 @@ function configurarFotografia() {
 
 
 function obterTemaSelecionado() {
-    return document.querySelector('input[name="tema"]:checked')?.value || "verde";
+    return document.querySelector('input[name="tema"]:checked')?.value || "azul";
 }
+
 
 function obterModoSelecionado() {
     return document.querySelector('input[name="modo"]:checked')?.value || "claro";
 }
 
+
 function obterIdiomaSelecionado() {
     return document.getElementById("idioma")?.value || "pt";
 }
 
+
 function emailValido(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+function palavraPasseValida(palavraPasse) {
+    const temMaiuscula = /[A-Z]/.test(palavraPasse);
+    const temMinuscula = /[a-z]/.test(palavraPasse);
+    const temNumero = /[0-9]/.test(palavraPasse);
+    return (palavraPasse.length >= 8 && temMaiuscula && temMinuscula && temNumero);
+}
+
 
 function mostrarMensagemTexto(texto, erro = false) {
     const mensagem = document.getElementById("mensagem-configuracoes");
@@ -401,7 +407,7 @@ function mostrarMensagemTexto(texto, erro = false) {
 
 async function guardarAlteracoes() {
     if (!utilizadorAtual) {
-        mostrarMensagemTexto("Não foi possível identificar a sessão.", true);
+        mostrarMensagemTexto(textoConfiguracoes("erro_sessao"), true);
         return;
     }
 
@@ -422,8 +428,12 @@ async function guardarAlteracoes() {
     }
 
     if (novaPalavraPasse.length > 0) {
-        if (novaPalavraPasse.length < 6) {
+        if (novaPalavraPasse.length < 8) {
             mostrarMensagemTexto(textoConfiguracoes("erro_palavra_passe_curta"), true);
+            return;
+        }
+        if (!palavraPasseValida(novaPalavraPasse)) {
+            mostrarMensagemTexto(textoConfiguracoes("erro_palavra_passe_segura"), true);
             return;
         }
         if (novaPalavraPasse !== confirmarPalavraPasse) {
@@ -431,23 +441,23 @@ async function guardarAlteracoes() {
             return;
         }
     }
-
     if (botaoGuardar) {
         botaoGuardar.disabled = true;
         botaoGuardar.textContent = textoConfiguracoes("a_guardar");
     }
-
     try {
         const idAtual = utilizadorAtual.idUtilizador ?? utilizadorAtual.id;
-        const utilizadores = await listarUtilizadores();
+        const utilizadores = await api.listarUtilizadores();
         const emailExiste = utilizadores.some(utilizador => {
             const id = utilizador.idUtilizador ?? utilizador.id;
-            return String(id) !== String(idAtual) && String(utilizador.email).toLowerCase() === email.toLowerCase();
+            return (String(id) !== String(idAtual) && String(utilizador.email).toLowerCase() === email.toLowerCase());
         });
+
         if (emailExiste) {
             mostrarMensagemTexto(textoConfiguracoes("erro_email_existente"), true);
             return;
         }
+
         const fotografia = fotografiaSelecionada !== null ? fotografiaSelecionada : utilizadorAtual.fotografia || "";
         const dadosAtualizados = {
             ...utilizadorAtual,
@@ -456,14 +466,15 @@ async function guardarAlteracoes() {
             email,
             fotografia
         };
+
         if (novaPalavraPasse) {
             dadosAtualizados.palavraPasse = novaPalavraPasse;
         } else {
             delete dadosAtualizados.palavraPasse;
         }
         delete dadosAtualizados.password;
-        await editarUtilizador(dadosAtualizados);
 
+        await api.editarUtilizador(dadosAtualizados);
         preferencias = {
             tema: obterTemaSelecionado(),
             modo: obterModoSelecionado(),
@@ -477,6 +488,7 @@ async function guardarAlteracoes() {
             email,
             fotografia
         };
+
         const sessao = obterSessao();
         if (sessao) {
             sessao.nome = nome;
@@ -488,14 +500,17 @@ async function guardarAlteracoes() {
         }
 
         aplicarPreVisualizacao(preferencias.tema, preferencias.modo);
+
         if (typeof window.aplicarIdioma === "function") {
             window.aplicarIdioma(preferencias.idioma);
         }
 
         fotografiaSelecionada = null;
+
         document.getElementById("fotografia").value = "";
         document.getElementById("nova-palavra-passe").value = "";
         document.getElementById("confirmar-palavra-passe").value = "";
+
         mostrarMensagemTexto(typeof obterTextoGeral === "function" ? obterTextoGeral("alteracoes_guardadas") : textoConfiguracoes("alteracoes_guardadas"));
     } catch (erro) {
         console.error(erro);
@@ -523,9 +538,13 @@ function configurarLogout() {
 window.addEventListener("idiomaAlterado", function (evento) {
     const idioma = evento.detail?.idioma || localStorage.getItem("idioma") || "pt";
     preferencias.idioma = idioma;
+
     const seletor = document.getElementById("idioma");
-    if (seletor) seletor.value = idioma;
+    if (seletor) {
+        seletor.value = idioma;
+    }
 });
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     carregarPreferencias();
@@ -533,6 +552,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     configurarPreVisualizacaoIdioma();
     configurarFotografia();
     configurarLogout();
+
     const botaoGuardar = document.getElementById("botao-guardar");
     if (botaoGuardar) {
         botaoGuardar.addEventListener("click", guardarAlteracoes);
