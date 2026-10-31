@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +27,7 @@
         </div>
     </header>
 
+
     <main class="pagina-consultas">
         <section class="cabecalho-consultas">
             <div>
@@ -34,13 +36,11 @@
                 <p data-i18n="consultas_subtitulo">Consulta os registos existentes no Hígia.</p>
             </div>
         </section>
-
         <section class="filtros-consultas">
             <div class="filtros-titulo">
                 <h2 data-i18n="filtrar_registos">Filtrar registos</h2>
                 <p data-i18n="selecionar_criterios">Seleciona os critérios que pretendes consultar.</p>
             </div>
-
             <div class="filtros-campos">
                 <div class="campo-filtro">
                     <label for="filtro-tipo" data-i18n="tipo_registo">Tipo</label>
@@ -51,14 +51,12 @@
                         <option value="tomas" data-i18n="tomas">Tomas</option>
                     </select>
                 </div>
-
                 <div class="campo-filtro filtro-adicional" id="campo-filtro-perfil">
                     <label for="filtro-perfil" data-i18n="perfil">Perfil</label>
                     <select id="filtro-perfil">
                         <option value="" data-i18n="todos_os_perfis">Todos os perfis</option>
                     </select>
                 </div>
-
                 <div class="campo-filtro filtro-adicional" id="campo-filtro-estado">
                     <label for="filtro-estado" data-i18n="estado">Estado</label>
                     <select id="filtro-estado">
@@ -66,7 +64,6 @@
                     </select>
                 </div>
             </div>
-
             <div class="acoes-filtros">
                 <button type="button" class="btn btn-primary" id="botao-aplicar" data-i18n="aplicar">Aplicar</button>
                 <button type="button" class="btn btn-secondary" id="botao-limpar"data-i18n="limpar">Limpar</button>
@@ -81,13 +78,11 @@
                 </div>
                 <span id="contador-registos" class="contador-registos" aria-label="Número de registos">0</span>
             </div>
-
             <div class="tabela-contentor">
                 <table class="tabela-consultas">
                     <thead id="cabecalho-tabela"></thead>
                     <tbody id="corpo-tabela"></tbody>
                 </table>
-
                 <div class="estado-vazio-consultas"id="estado-vazio">
                     <div class="estado-vazio-icone" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -97,7 +92,6 @@
                             <path d="M9 17h6"/>
                         </svg>
                     </div>
-
                     <h3 data-i18n="sem_registos">Não existem registos.</h3>
                     <p data-i18n="sem_registos_texto">Os registos que criares irão aparecer aqui.</p>
                 </div>
@@ -114,12 +108,12 @@
         <span data-i18n="direitos">© 2026 Hígia - Todos os direitos reservados</span>
     </footer>
 
-    <div class="modal" id="modal-termos" role="dialog" aria-modal="true" aria-labelledby="titulo-termos">
+    <div class="modal" id="modal-termos">
         <div class="modal-conteudo">
-            <button type="button" class="modal-fechar" aria-label="Fechar" data-fechar-modal="modal-termos">&times;</button>
-            <h2 id="titulo-termos" data-i18n="termos_condicoes">Termos e Condições</h2>
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-termos">×</button>
+            <h2 data-i18n="termos_condicoes">Termos e Condições</h2>
             <p data-i18n="termos_intro"></p>
-            <ul class="lista-termos">
+            <ul>
                 <li data-i18n="termo_1"></li>
                 <li data-i18n="termo_2"></li>
                 <li data-i18n="termo_3"></li>
@@ -127,41 +121,22 @@
                 <li data-i18n="termo_5"></li>
             </ul>
             <p data-i18n="termos_final"></p>
-            <div class="modal-acoes">
-                <button type="button" class="btn btn-primary" data-fechar-modal="modal-termos" data-i18n="fechar">Fechar</button>
-            </div>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-termos" data-i18n="fechar">Fechar</button>
         </div>
     </div>
 
-    <div class="modal" id="modal-contactos" role="dialog" aria-modal="true" aria-labelledby="titulo-contactos">
+    <div class="modal" id="modal-contactos">
         <div class="modal-conteudo">
-            <button type="button" class="modal-fechar" aria-label="Fechar" data-fechar-modal="modal-contactos">&times;</button>
-            <h2 id="titulo-contactos" data-i18n="contactos">Contactos</h2>
-            <div class="contactos-conteudo">
-                <p>
-                    <strong data-i18n="email_label">Email:</strong>
-                    <span> apoio@higia.pt</span>
-                </p>
-                <p>
-                    <strong data-i18n="telefone_label">Telefone:</strong>
-                    <span>+351 210 000 000</span>
-                </p>
-                <p>
-                    <strong data-i18n="morada_label">Morada:</strong>
-                    <span data-i18n="morada">Portugal</span>
-                </p>
-                <p>
-                    <strong data-i18n="horario_label">Horário de atendimento:</strong>
-                    <span data-i18n="horario">A definir</span>
-                </p>
-            </div>
-
-            <div class="modal-acoes">
-                <button type="button" class="btn btn-primary" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
-            </div>
+            <button type="button" class="modal-fechar" data-fechar-modal="modal-contactos">×</button>
+            <h2 data-i18n="contactos">Contactos</h2>
+            <p><strong data-i18n="email_label">Email:</strong> apoio@higia.pt</p>
+            <p><strong data-i18n="telefone_label">Telefone:</strong> +351 210 000 000</p>
+            <p><strong data-i18n="morada_label">Morada:</strong><span data-i18n="morada"></span></p>
+            <p><strong data-i18n="horario_label">Horário de atendimento:</strong><span data-i18n="horario"></span></p>
+            <button type="button" class="btn-modal" data-fechar-modal="modal-contactos" data-i18n="fechar">Fechar</button>
         </div>
     </div>
-
+    
     
     <div class="modal modal-confirmacao-sair" id="modal-confirmar-sair" role="dialog" aria-modal="true" aria-labelledby="titulo-confirmar-sair">
         <div class="modal-conteudo">
@@ -173,6 +148,8 @@
             </div>
         </div>
     </div>
+
+
     <script type="module" src="js/consultas.js"></script>
 </body>
 </html>
